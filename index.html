@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoelace + Foundation App</title>
+    <link rel="stylesheet" href="src/styles/main.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="src/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/f3233efe0a.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header class="site-header">
+        <div class="grid-container">
+            <div class="grid-x align-middle">
+                <div class="cell small-2 medium-2">
+                    <a href="#" class="logo">
+                        <img src="src/images/isagenix-logo.svg" alt="Isagenix">
+                    </a>
+                </div>
+                <div class="cell medium-7 show-for-medium">
+                    <nav class="main-nav">
+                        <a href="#">Back Office</a>
+                        <a href="#">Orders</a>
+                        <a href="#">Team</a>
+                        <a href="#">Resources</a>
+                        <a href="#">Contests & Promotions</a>
+                        <a href="#">Reports</a>
+                        <a href="#">Brand Partner</a>
+                    </nav>
+                </div>
+                <div class="cell small-10 medium-3">
+                    <div class="user-controls">
+                        <div class="user-greeting-container show-for-medium">
+                            <i class="fa-light fa-user" style="color: #2c2c2c;"></i>
+                            <sl-button variant="text" class="user-greeting">
+                                <span>Hello, Sam</span>
+                            </sl-button>
+                        </div>
+                        <sl-button variant="text" class="notifications">
+                            <i class="fa-light fa-bell" style="color: #2c2c2c;"></i>
+                        </sl-button>
+                        <!-- Hamburger menu for mobile -->
+                        <sl-button variant="text" class="menu-toggle hide-for-medium" @click="drawer.show()">
+                            <i class="fa-light fa-bars" style="color: #2c2c2c;"></i>
+                        </sl-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <sl-card class="menu-card">
+                    <div class="menu-sections">
+                        <div class="menu-section">
+                            <div class="section-header">
+                                <i class="fa-light fa-cart-shopping"></i>
+                                <h2>
+                                    RECOMMENDED CARTS
+                                    <i class="fa-light fa-circle-info"></i>
+                                </h2>
+                            </div>
+                            <div class="menu-links">
+                                <sl-button variant="text">My Prospects</sl-button>
+                                <sl-button variant="text">Create Recommended Cart</sl-button>
+                                <sl-button variant="text">My Recommended Carts</sl-button>
+                            </div>
+                        </div>
+                        <div class="menu-section">
+                            <div class="section-header">
+                                <i class="fa-light fa-briefcase"></i>
+                                <h2>BUSINESS</h2>
+                                <i class="fa-light fa-circle-info"></i>
+                            </div>
+                            <div class="menu-links">
+                                <sl-button variant="text">Enroll New Member</sl-button>
+                                <sl-button variant="text">Placement Tree</sl-button>
+                                <sl-button variant="text">My Business</sl-button>
+                            </div>
+                        </div>
+                        <div class="menu-section">
+                            <div class="section-header">
+                                <i class="fa-light fa-book"></i>
+                                <h2>RESOURCES</h2>
+                                <i class="fa-light fa-circle-info"></i>
+                            </div>
+                            <div class="menu-links">
+                                <sl-button variant="text">Social Media Library</sl-button>
+                                <sl-button variant="text">Business Promotions</sl-button>
+                                <sl-button variant="text">IsaHealth</sl-button>
+                            </div>
+                        </div>
+                    </div>
+                </sl-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12 medium-6">
+                <sl-card class="orders-card">
+                    <h2>ORDERS</h2>
+                    
+                    <div class="recent-order">
+                        <h3>Most Recent Order</h3>
+                        <p>Jan-14-2025 <a href="#" class="order-number">#1403488502</a></p>
+                    </div>
+
+                    <div class="order-buttons">
+                        <sl-button variant="outline" class="order-history">ORDER HISTORY</sl-button>
+                        <sl-button variant="primary" class="place-order">PLACE ORDER</sl-button>
+                    </div>
+
+                    <h2 class="subscription-title">SUBSCRIPTION</h2>
+                    
+                    <sl-alert variant="warning" open>
+                        <i slot="icon" class="fa-light fa-triangle-exclamation"></i>
+                        Looks like you haven't finished your subscription setup.
+                    </sl-alert>
+
+                    <div class="perks">
+                        <div class="perk">
+                            <i class="fa-light fa-star" style="color: #45818e;"></i>
+                            <div>
+                                <strong>Save Up to 25%</strong> on all orders
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <i class="fa-light fa-arrows-rotate" style="color: #45818e;"></i>
+                            <div>
+                                <strong>Auto-Deliveries</strong> of your favorite products
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <i class="fa-light fa-truck" style="color: #45818e;"></i>
+                            <div>
+                                <strong>Flat-Rate Shipping</strong> on subscriptions
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <i class="fa-light fa-calendar-days" style="color: #45818e;"></i>
+                            <div>
+                                <strong>Skip, Change, or Cancel</strong> easily
+                            </div>
+                        </div>
+                    </div>
+
+                    <sl-button variant="primary" class="activate-button">ACTIVATE SUBSCRIPTION PERKS</sl-button>
+                </sl-card>
+            </div>
+            <div class="cell small-12 medium-6">
+                <sl-card class="isabody-card">
+                    <div class="card-header">
+                        <h2>MY ISABODY® KICKSTART 90</h2>
+                        <a href="#" class="view-report">VIEW KICKSTART 90 4PET REPORT <i class="fa-light fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="current-challenge">
+                        <h3>Current Challenge</h3>
+                        <div class="challenge-status">
+                            <div class="dates">
+                                <div class="period">
+                                    <div class="status-label">
+                                        <i class="fa-light fa-circle-check"></i>
+                                        <span>In Progress</span>
+                                    </div>
+                                    <span>1/1/2025 to 3/31/2025</span>
+                                </div>
+                                <div class="deadline">
+                                    <h4>Submission Deadline</h4>
+                                    <span>4/14/2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="completion-path">
+                        <h3>Your Path to Completion</h3>
+                        <div class="progress-amount">
+                            <span>$142.00 of $500.00</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 28.4%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="status-section">
+                        <div class="progress-message">
+                            <h3>You're making great progress!</h3>
+                            <p>Keep moving and feeling amazing by using the products. Continue pushing toward your fitness and wellness transformation.</p>
+                            <sl-button variant="outline" class="view-challenge">VIEW CURRENT CHALLENGE</sl-button>
+                        </div>
+                        <div class="register-section">
+                            <h3>Register for next Kickstart 90</h3>
+                            <p>starting on 3/18/2025.</p>
+                            <sl-button class="register">REGISTER</sl-button>
+                        </div>
+                    </div>
+                </sl-card>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <sl-drawer label="Menu" class="mobile-menu" placement="end">
+        <nav class="mobile-nav">
+            <sl-button variant="text" class="user-greeting">
+                <i class="fa-light fa-user" style="color: #2c2c2c;"></i>
+                Hello, Sam
+            </sl-button>
+            <a href="#">Back Office</a>
+            <a href="#">Orders</a>
+            <a href="#">Team</a>
+            <a href="#">Resources</a>
+            <a href="#">Contests & Promotions</a>
+            <a href="#">Reports</a>
+            <a href="#">Brand Partner</a>
+        </nav>
+    </sl-drawer>
+</body>
+</html> 

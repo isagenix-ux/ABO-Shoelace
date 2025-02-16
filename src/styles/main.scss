@@ -1,0 +1,584 @@
+// Import Foundation grid
+@import "foundation-sites/scss/foundation";
+
+// Include Foundation grid components
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-flex-grid;
+@include foundation-xy-grid-classes;
+
+// Your custom styles can go here
+body {
+    margin: 0;
+    padding-top: 0;
+    background-color: #f0f0f0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+sl-card {
+    margin-bottom: 0;
+}
+
+.orders-card {
+    width: 100%;
+    margin-top: 0.25rem;
+    
+    &::part(base) {
+        width: 100%;
+        margin: 0;
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin: 0 0 1.5rem 0;
+        font-weight: 700;
+    }
+
+    .recent-order {
+        margin-bottom: 2rem;
+        
+        h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .order-number {
+            color: #45818e;
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .order-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        sl-button {
+            flex: 1;
+        }
+
+        .order-history::part(base) {
+            border-color: #45818e;
+            color: #45818e;
+        }
+
+        .place-order::part(base) {
+            background-color: #45818e;
+            border-color: #45818e;
+        }
+    }
+
+    .subscription-title {
+        margin-top: 2rem;
+    }
+
+    sl-alert {
+        margin: 1rem 0 2rem 0;
+    }
+
+    .perks {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+
+        .perk {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            i {
+                color: #45818e;
+                font-size: 1.5rem;
+                width: 1.5rem;
+                text-align: center;
+            }
+        }
+    }
+
+    .activate-button {
+        display: block;
+        width: 100%;
+
+        &::part(base) {
+            width: 100%;
+            min-width: 100%;
+            background-color: #45818e;
+            border-color: #45818e;
+            margin: 0;
+        }
+    }
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 0.25rem 0 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    height: 68px;
+    display: flex;
+    align-items: center;
+
+    .grid-container {
+        width: 100%;
+        height: 100%;
+
+        .grid-x {
+            height: 100%;
+        }
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding-left: 1rem;
+        padding-top: 10px;
+        
+        img {
+            height: 24px;
+            width: auto;
+        }
+    }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        height: 100%;
+        padding-top: 10px;
+
+        a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: #2c2c2c;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0 0.25rem;
+            white-space: nowrap;
+            font-weight: 600;
+            line-height: 1;
+            
+            &:hover {
+                color: #008cc1;
+            }
+        }
+    }
+
+    .user-controls {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5rem;
+        padding-right: 1rem;
+        height: 100%;
+
+        sl-button::part(base) {
+            color: #2c2c2c;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            
+            &:hover {
+                color: #008cc1;
+            }
+        }
+
+        .user-greeting-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            height: 100%;
+
+            i {
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+            }
+
+            .user-greeting::part(base) {
+                color: #2c2c2c;
+                font-size: 0.875rem;
+                padding: 0;
+                margin: 0;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                line-height: 1;
+                text-align: left;
+                justify-content: flex-start;
+                min-width: 0;
+                background: none;
+                border: none;
+                
+                span {
+                    text-align: left;
+                    justify-content: flex-start;
+                    width: auto;
+                }
+                
+                &:hover {
+                    color: #008cc1;
+                }
+            }
+        }
+
+        .notifications {
+            margin-left: 0.5rem;
+            display: flex;
+            align-items: center;
+
+            i {
+                font-size: 18px;
+            }
+        }
+
+        .menu-toggle::part(base) {
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+// Update the grid-container padding
+.grid-container {
+    padding: 0.25rem 1rem;
+    max-width: 90rem;
+    
+    .grid-x {
+        margin: 0;
+    }
+}
+
+// Mobile menu styles
+.mobile-menu::part(body) {
+    padding: 0;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    .user-greeting {
+        margin-bottom: 1rem;
+        justify-content: flex-start;
+    }
+
+    a {
+        color: #2c2c2c;
+        text-decoration: none;
+        font-size: 0.875rem;
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        font-weight: 500;
+        
+        &:hover {
+            color: #008cc1;
+            background: #f5f5f5;
+        }
+    }
+}
+
+// Foundation visibility classes
+@media screen and (max-width: 39.9375em) {
+    .show-for-medium {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 40em) {
+    .hide-for-medium {
+        display: none !important;
+    }
+}
+
+.menu-card {
+    margin-top: 0.25rem;
+    width: 100%;
+
+    &::part(base) {
+        padding: 1.5rem;
+        width: 100%;
+        margin: 0;
+    }
+
+    .menu-sections {
+        display: flex;
+        margin: 0 -1.5rem;
+        
+        @media screen and (max-width: 39.9375em) {
+            flex-direction: column;  // Stack sections vertically
+            margin: 0;  // Remove negative margin on mobile
+        }
+    }
+
+    .menu-section {
+        flex: 1;
+        position: relative;
+        padding: 0 1.5rem;
+        border-right: 1px solid #ddd;
+
+        &:last-child {
+            border-right: none;  // Remove vertical divider from last section
+        }
+
+        @media screen and (max-width: 39.9375em) {
+            border-right: none;
+            border-bottom: 1px solid #ddd;
+            padding: 1.5rem;
+            
+            &:first-child {
+                padding-top: 0;
+            }
+            
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+
+            i {
+                font-size: 24px;
+                color: #45818e;
+
+                &.fa-circle-info {
+                    font-size: 16px;
+                    color: #666;
+                }
+            }
+
+            h2 {
+                font-size: 1rem;
+                font-weight: 600;
+                margin: 0;
+                color: #2c2c2c;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+
+        .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+
+            sl-button::part(base) {
+                color: #45818e;
+                font-size: 0.875rem;
+                padding: 0;
+                text-align: left;
+                justify-content: flex-start;
+                background: none;
+                border: none;
+                
+                &:hover {
+                    color: #008cc1;
+                }
+            }
+        }
+    }
+}
+
+// Remove grid margins for better alignment
+.grid-x.grid-margin-x {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+// Add this to your styles
+.grid-x {
+    &.grid-padding-x {
+        padding: 0;
+    }
+}
+
+.isabody-card {
+    width: 100%;
+    margin-top: 0.25rem;
+
+    &::part(base) {
+        width: 100%;
+        margin: 0;
+        padding: 2rem;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .view-report {
+            color: #45818e;
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            &:hover {
+                color: #008cc1;
+            }
+
+            i {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .current-challenge {
+        background-color: #45818e;
+        color: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        margin-bottom: 2rem;
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .challenge-status {
+            .status {
+                display: none;  // Hide the first instance
+            }
+
+            .dates {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                .period {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.25rem;
+
+                    .status-label {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        font-weight: 600;
+                        margin-bottom: 0.25rem;
+
+                        i {
+                            color: #90EE90;
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+                .deadline {
+                    h4 {
+                        font-size: 1rem;
+                        margin: 0 0 0.25rem 0;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    .completion-path {
+        margin-bottom: 2rem;
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 0 0 1rem 0;
+        }
+
+        .progress-amount {
+            span {
+                color: #45818e;
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+
+            .progress-bar {
+                height: 0.5rem;
+                background-color: #e0e0e0;
+                border-radius: 0.25rem;
+                margin-top: 0.5rem;
+
+                .progress {
+                    height: 100%;
+                    background-color: #45818e;
+                    border-radius: 0.25rem;
+                }
+            }
+        }
+    }
+
+    .status-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 0 0 1rem 0;
+        }
+
+        p {
+            margin: 0 0 1.5rem 0;
+            color: #666;
+        }
+
+        .view-challenge {
+            width: 100%;
+
+            &::part(base) {
+                width: 100%;
+                color: #45818e;
+                border-color: #45818e;
+                justify-content: center;
+            }
+        }
+
+        .register {
+            width: 100%;
+
+            &::part(base) {
+                width: 100%;
+                background-color: #e0e0e0;
+                border-color: #e0e0e0;
+                color: #666;
+                justify-content: center;
+            }
+        }
+    }
+
+    @media screen and (max-width: 39.9375em) {
+        .status-section {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+} 

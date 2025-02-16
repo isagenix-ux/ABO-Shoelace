@@ -1,0 +1,317 @@
+---
+film-video:
+  icons:
+    - circle
+    - youtube
+  label: Film + Video
+hands:
+  icons:
+    - thumbs-down
+    - thumbs-up
+  label: Hands
+communication:
+  icons:
+    - address-card
+    - comments
+    - envelope
+    - message
+  label: Communication
+buildings:
+  icons:
+    - house
+    - house-blank
+  label: Buildings
+transportation:
+  icons:
+    - cart-shopping
+  label: Transportation
+punctuation-symbols:
+  icons:
+    - check
+    - circle-exclamation
+    - minus
+    - plus
+  label: Punctuation + Symbols
+alphabet:
+  icons:
+    - address-card
+  label: Alphabet
+time:
+  icons:
+    - bell
+    - calendar
+  label: Time
+arrows:
+  icons:
+    - angle-down
+    - angle-left
+    - angle-right
+    - angle-up
+    - arrow-down
+    - arrow-down-long
+    - arrow-left
+    - arrow-left-long
+    - arrow-right
+    - arrow-right-long
+    - arrow-up
+    - arrow-up-long
+    - arrow-up-right-from-square
+    - caret-down
+    - caret-left
+    - caret-right
+    - caret-up
+    - chevron-down
+    - chevron-left
+    - chevron-right
+    - chevron-up
+    - circle-chevron-down
+    - circle-chevron-left
+    - circle-chevron-right
+    - circle-chevron-up
+    - square-chevron-up
+  label: Arrows
+editing:
+  icons:
+    - bars
+    - check
+    - circle-check
+    - ellipsis
+    - ellipsis-vertical
+    - eye-slash
+    - gear
+    - link
+    - minus
+    - plus
+    - trash
+    - trash-can
+    - xmark
+  label: Editing
+logistics:
+  icons:
+    - box
+    - gear-complex
+  label: Logistics
+medical-health:
+  icons:
+    - eye
+    - heart
+    - plus
+  label: Medical + Health
+money:
+  icons:
+    - chart-line
+    - credit-card
+  label: Money
+spinners:
+  icons:
+    - circle-notch
+    - gear
+    - spinner
+  label: Spinners
+moving:
+  icons:
+    - box-open
+  label: Moving
+security:
+  icons:
+    - eye
+    - eye-slash
+    - shield
+  label: Security
+accessibility:
+  icons:
+    - address-card
+    - circle-info
+    - eye
+  label: Accessibility
+business:
+  icons:
+    - address-card
+    - briefcase
+    - calendar
+    - chart-line
+    - copy
+    - envelope
+    - network-wired
+    - sitemap
+    - tag
+  label: Business
+sports-fitness:
+  icons:
+    - heart
+  label: Sports + Fitness
+mathematics:
+  icons:
+    - minus
+    - plus
+    - xmark
+  label: Mathematics
+text-formatting:
+  icons:
+    - check
+    - circle-check
+    - list
+  label: Text Formatting
+shopping:
+  icons:
+    - bell
+    - bookmark
+    - cart-circle-exclamation
+    - cart-circle-plus
+    - cart-plus
+    - cart-shopping
+    - cart-shopping-fast
+    - credit-card
+    - heart
+    - star
+    - tag
+    - thumbs-down
+    - thumbs-up
+  label: Shopping
+toggle:
+  icons:
+    - circle
+    - circle-check
+    - star
+  label: Toggle
+media-playback:
+  icons:
+    - play
+  label: Media Playback
+holidays:
+  icons:
+    - heart
+  label: Holidays
+photos-images:
+  icons:
+    - eye
+    - eye-slash
+  label: Photos + Images
+design:
+  icons:
+    - copy
+    - eye
+    - eye-slash
+  label: Design
+gaming:
+  icons:
+    - heart
+  label: Gaming
+social:
+  icons:
+    - bell
+    - envelope
+    - facebook
+    - heart
+    - location-dot
+    - location-pin
+    - message
+    - share-nodes
+    - star
+    - thumbs-down
+    - thumbs-up
+    - user
+    - user-group
+    - user-plus
+    - users
+  label: Social
+education:
+  icons:
+    - bell
+  label: Education
+files:
+  icons:
+    - copy
+  label: Files
+users-people:
+  icons:
+    - address-card
+    - people-group
+    - user
+    - user-group
+    - user-large
+    - user-plus
+    - users
+  label: Users + People
+coding:
+  icons:
+    - bars
+    - browser
+    - filter
+    - gear
+    - gear-complex
+    - network-wired
+    - shield
+    - sitemap
+  label: Coding
+marketing:
+  icons:
+    - megaphone
+    - people-group
+  label: Marketing
+maps:
+  icons:
+    - bell
+    - bookmark
+    - briefcase
+    - cart-shopping
+    - circle-info
+    - eye
+    - eye-slash
+    - heart
+    - house
+    - location-dot
+    - location-pin
+    - magnifying-glass
+    - plus
+    - tag
+  label: Maps
+charts-diagrams:
+  icons:
+    - chart-line
+  label: Charts + Diagrams
+charity:
+  icons:
+    - heart
+  label: Charity
+shapes:
+  icons:
+    - bookmark
+    - calendar
+    - circle
+    - heart
+    - location-pin
+    - play
+    - shield
+    - star
+  label: Shapes
+travel-hotel:
+  icons:
+    - briefcase
+  label: Travel + Hotel
+alert:
+  icons:
+    - bell
+    - circle-exclamation
+    - triangle-exclamation
+  label: Alert
+writing:
+  icons:
+    - bookmark
+    - envelope
+  label: Writing
+science:
+  icons:
+    - filter
+  label: Science
+household:
+  icons:
+    - bell
+  label: Household
+humanitarian:
+  icons:
+    - arrow-up-right-from-square
+    - envelope
+    - people-group
+    - trash-can
+  label: Humanitarian

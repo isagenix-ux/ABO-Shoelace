@@ -1,0 +1,44 @@
+---
+clicdata:
+  icons:
+    - chart-line
+  label: ClicData
+  url: https://www.clicdata.com
+harvard-medical-school:
+  icons:
+    - heart
+    - plus
+  label: Harvard Medical School
+  url: https://hms.harvard.edu
+hire-a-helper:
+  icons:
+    - box-open
+  label: HireAHelper
+  url: https://www.hireahelper.com
+rocket-chat:
+  icons:
+    - comments
+    - message
+  label: Rocket.Chat
+  url: https://rocket.chat
+stay-linked:
+  icons:
+    - box
+  label: StayLinked
+  url: https://www.staylinked.com
+supple:
+  icons:
+    - megaphone
+  label: Supple
+  url: https://supple.com.au
+un-ocha:
+  icons:
+    - arrow-up-right-from-square
+    - people-group
+  label: United Nations OCHA
+  url: https://www.unocha.org
+workrails:
+  icons:
+    - briefcase
+  label: WorkRails
+  url: https://www.workrails.com

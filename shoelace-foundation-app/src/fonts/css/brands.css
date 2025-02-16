@@ -1,0 +1,22 @@
+.fab,
+.fa-brands {
+  font-weight: 400;
+}
+
+:root, :host {
+  --fa-style-family-brands: 'Font Awesome 6 Brands';
+  --fa-font-brands: normal 400 1em/1 'Font Awesome 6 Brands'; }
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.ttf") format("truetype"); }
+
+.fa-facebook { --fa: "\f09a"; --fa--fa: "\f09a\f09a"; }
+.fa-instagram { --fa: "\f16d"; --fa--fa: "\f16d\f16d"; }
+.fa-linkedin { --fa: "\f08c"; --fa--fa: "\f08c\f08c"; }
+.fa-pinterest { --fa: "\f0d2"; --fa--fa: "\f0d2\f0d2"; }
+.fa-x-twitter { --fa: "\e61b"; --fa--fa: "\e61b\e61b"; }
+.fa-youtube { --fa: "\f167"; --fa--fa: "\f167\f167"; }

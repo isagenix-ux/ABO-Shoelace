@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoelace + Foundation App</title>
+  <script type="module" crossorigin src="/assets/index-BuuJOY-8.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-p9DH_AAM.css">
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell medium-6">
+                <sl-card>
+                    <h2 slot="header">Welcome!</h2>
+                    <p>This is a sample card using Shoelace components.</p>
+                    <div slot="footer">
+                        <sl-button variant="primary">Click me</sl-button>
+                    </div>
+                </sl-card>
+            </div>
+            <div class="cell medium-6">
+                <sl-card>
+                    <h2 slot="header">Foundation Grid</h2>
+                    <p>This card demonstrates Foundation's grid system.</p>
+                    <div slot="footer">
+                        <sl-button variant="success">Learn more</sl-button>
+                    </div>
+                </sl-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="cell">
+                <sl-card class="orders-card">
+                    <h2>ORDERS</h2>
+                    
+                    <div class="recent-order">
+                        <h3>Most Recent Order</h3>
+                        <p>Jan-14-2025 <a href="#" class="order-number">#1403488502</a></p>
+                    </div>
+
+                    <div class="order-buttons">
+                        <sl-button variant="outline" class="order-history">ORDER HISTORY</sl-button>
+                        <sl-button variant="primary" class="place-order">PLACE ORDER</sl-button>
+                    </div>
+
+                    <h2 class="subscription-title">SUBSCRIPTION</h2>
+                    
+                    <sl-alert variant="warning" open>
+                        <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+                        Looks like you haven't finished your subscription setup.
+                    </sl-alert>
+
+                    <div class="perks">
+                        <div class="perk">
+                            <sl-icon name="star"></sl-icon>
+                            <div>
+                                <strong>Save Up to 25%</strong> on all orders
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <sl-icon name="arrow-repeat"></sl-icon>
+                            <div>
+                                <strong>Auto-Deliveries</strong> of your favorite products
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <sl-icon name="truck"></sl-icon>
+                            <div>
+                                <strong>Flat-Rate Shipping</strong> on subscriptions
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <sl-icon name="calendar"></sl-icon>
+                            <div>
+                                <strong>Skip, Change, or Cancel</strong> easily
+                            </div>
+                        </div>
+                    </div>
+
+                    <sl-button variant="primary" class="activate-button">ACTIVATE SUBSCRIPTION PERKS</sl-button>
+                </sl-card>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

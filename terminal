@@ -1,0 +1,118 @@
+# First create the setup.sh file
+cat > setup.sh << 'EOF'
+#!/bin/bash
+
+# Create directory structure
+mkdir -p src/js src/styles src/images
+
+# Create package.json
+cat > package.json << 'EEOF'
+{
+  "name": "shoelace-foundation-app",
+  "version": "1.0.0",
+  "description": "Web app using Shoelace and Foundation grid",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.12.0",
+    "foundation-sites": "^6.8.1"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "vite": "^5.0.0"
+  }
+}
+EEOF
+
+# Create the main files
+touch index.html vite.config.js src/js/main.js src/styles/main.scss
+
+# Install dependencies
+npm install
+
+# Launch the development server
+npm run dev
+EOF
+
+# Make it executable
+chmod +x setup.sh
+
+# Run it
+./setup.sh
+
+# 1. First, let's see what's in the current directory
+ls -la
+
+# 2. Let's check the actual content of package.json
+cat package.json
+
+# 3. Let's try recreating everything from scratch
+rm -rf node_modules package-lock.json package.json
+rm setup.sh
+
+# 4. Create a new package.json directly
+cat > package.json << 'EOF'
+{
+  "name": "shoelace-foundation-app",
+  "version": "1.0.0",
+  "description": "Web app using Shoelace and Foundation grid",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.12.0",
+    "foundation-sites": "^6.8.1"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "vite": "^5.0.0"
+  }
+}
+EOF
+
+# 5. Install dependencies
+npm install
+
+# 6. Try running dev server
+npm run dev
+
+# Make sure you're in the project directory
+cd shoelace-foundation-app
+
+# Install dependencies (if you haven't already)
+npm install
+
+# Start the development server
+npm run dev
+
+# Install Font Awesome Pro
+npm install @fortawesome/fontawesome-pro
+
+# First, make sure we're in the project directory
+pwd
+
+# Create .npmrc file with proper line breaks
+cat > .npmrc << 'EOF'
+@fortawesome:registry=https://npm.fontawesome.com/
+//npm.fontawesome.com/:_authToken=FAPS-GTBK-HEBM-AENE-2402
+EOF
+
+# Verify the content
+cat .npmrc
+
+# Now try installing Font Awesome Pro
+npm install @fortawesome/fontawesome-pro
+
+# Clean install
+rm -rf node_modules package-lock.json
+npm install
+
+# Start dev server
+npm run dev 
