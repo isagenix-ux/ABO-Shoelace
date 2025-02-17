@@ -14,12 +14,12 @@
     <header class="site-header">
         <div class="grid-container">
             <div class="grid-x align-middle">
-                <div class="cell small-2 medium-2">
+                <div class="cell small-2 large-2">
                     <a href="#" class="logo">
                         <img src="src/images/isagenix-logo.svg" alt="Isagenix">
                     </a>
                 </div>
-                <div class="cell medium-7 show-for-medium">
+                <div class="cell large-7 show-for-large">
                     <nav class="main-nav">
                         <a href="#">Back Office</a>
                         <a href="#">Orders</a>
@@ -30,19 +30,62 @@
                         <a href="#">Brand Partner</a>
                     </nav>
                 </div>
-                <div class="cell small-10 medium-3">
+                <div class="cell small-10 large-3">
                     <div class="user-controls">
-                        <div class="user-greeting-container show-for-medium">
-                            <i class="fa-light fa-user" style="color: #2c2c2c;"></i>
-                            <sl-button variant="text" class="user-greeting">
-                                <span>Hello, Sam</span>
-                            </sl-button>
+                        <div class="user-greeting-container show-for-large">
+                            <sl-dropdown>
+                                <div slot="trigger" class="user-trigger">
+                                    <i class="fa-light fa-user" style="color: #2c2c2c;"></i>
+                                    <sl-button variant="text" class="user-greeting">
+                                        <span>Hello, Sam</span>
+                                    </sl-button>
+                                </div>
+                                <sl-menu>
+                                    <div class="account-id">Account ID: 8556829</div>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-id-card" slot="prefix"></i>
+                                        My Account
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-clock-rotate-left" slot="prefix"></i>
+                                        Order History
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-location-dot" slot="prefix"></i>
+                                        Address Information
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-credit-card" slot="prefix"></i>
+                                        Payment Information
+                                    </sl-menu-item>
+                                    
+                                    <sl-divider></sl-divider>
+                                    
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-network-wired" slot="prefix"></i>
+                                        Associate Business
+                                        <i class="fa-light fa-chevron-right" slot="suffix"></i>
+                                    </sl-menu-item>
+                                    <sl-menu class="submenu">
+                                        <sl-menu-item>Dashboard</sl-menu-item>
+                                        <sl-menu-item>Enroll New Member</sl-menu-item>
+                                        <sl-menu-item>Create Recommended Cart</sl-menu-item>
+                                        <sl-menu-item>Manage Recommended Carts</sl-menu-item>
+                                    </sl-menu>
+                                    
+                                    <sl-divider></sl-divider>
+                                    
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-right-from-bracket" slot="prefix"></i>
+                                        Sign Out
+                                    </sl-menu-item>
+                                </sl-menu>
+                            </sl-dropdown>
                         </div>
-                        <sl-button variant="text" class="notifications">
+                        <sl-button variant="text" class="notifications show-for-large">
                             <i class="fa-light fa-bell" style="color: #2c2c2c;"></i>
                         </sl-button>
-                        <!-- Hamburger menu for mobile -->
-                        <sl-button variant="text" class="menu-toggle hide-for-medium" @click="drawer.show()">
+                        <sl-button variant="text" class="menu-toggle hide-for-large" @click="drawer.show()">
                             <i class="fa-light fa-bars" style="color: #2c2c2c;"></i>
                         </sl-button>
                     </div>
@@ -61,7 +104,9 @@
                                 <i class="fa-light fa-cart-shopping"></i>
                                 <h2>
                                     RECOMMENDED CARTS
-                                    <i class="fa-light fa-circle-info"></i>
+                                    <sl-tooltip content="Create a curated shopping cart with your favorite products to share with potential customers (prospects). They can view and purchase directly from your shared cart, making shopping simple and seamless." placement="right">
+                                        <i class="fa-light fa-circle-info"></i>
+                                    </sl-tooltip>
                                 </h2>
                             </div>
                             <div class="menu-links">
@@ -73,8 +118,12 @@
                         <div class="menu-section">
                             <div class="section-header">
                                 <i class="fa-light fa-briefcase"></i>
-                                <h2>BUSINESS</h2>
-                                <i class="fa-light fa-circle-info"></i>
+                                <h2>
+                                    BUSINESS
+                                    <sl-tooltip content="Grow your business by enrolling new members to sign up prospects, using the Placement Tree to manage your team, and My Business to track performance." placement="right">
+                                        <i class="fa-light fa-circle-info"></i>
+                                    </sl-tooltip>
+                                </h2>
                             </div>
                             <div class="menu-links">
                                 <sl-button variant="text">Enroll New Member</sl-button>
@@ -85,8 +134,12 @@
                         <div class="menu-section">
                             <div class="section-header">
                                 <i class="fa-light fa-book"></i>
-                                <h2>RESOURCES</h2>
-                                <i class="fa-light fa-circle-info"></i>
+                                <h2>
+                                    RESOURCES
+                                    <sl-tooltip content="Access marketing materials, business tools, and health resources to support your business growth and customer success." placement="right">
+                                        <i class="fa-light fa-circle-info"></i>
+                                    </sl-tooltip>
+                                </h2>
                             </div>
                             <div class="menu-links">
                                 <sl-button variant="text">Social Media Library</sl-button>
@@ -212,10 +265,56 @@
     <!-- Mobile menu drawer -->
     <sl-drawer label="Menu" class="mobile-menu" placement="end">
         <nav class="mobile-nav">
-            <sl-button variant="text" class="user-greeting">
-                <i class="fa-light fa-user" style="color: #2c2c2c;"></i>
-                Hello, Sam
-            </sl-button>
+            <div class="mobile-user-section">
+                <sl-dropdown>
+                    <div slot="trigger" class="user-trigger">
+                        <i class="fa-light fa-user"></i>
+                        <sl-button variant="text" class="user-greeting">
+                            <span>Hello, Sam</span>
+                        </sl-button>
+                    </div>
+                    <sl-menu>
+                        <div class="account-id">Account ID: 8556829</div>
+                        <sl-menu-item>
+                            <i class="fa-light fa-id-card" slot="prefix"></i>
+                            My Account
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-clock-rotate-left" slot="prefix"></i>
+                            Order History
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-location-dot" slot="prefix"></i>
+                            Address Information
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-credit-card" slot="prefix"></i>
+                            Payment Information
+                        </sl-menu-item>
+                        
+                        <sl-divider></sl-divider>
+                        
+                        <sl-menu-item>
+                            <i class="fa-light fa-network-wired" slot="prefix"></i>
+                            Associate Business
+                            <i class="fa-light fa-chevron-right" slot="suffix"></i>
+                        </sl-menu-item>
+                        <sl-menu class="submenu">
+                            <sl-menu-item>Dashboard</sl-menu-item>
+                            <sl-menu-item>Enroll New Member</sl-menu-item>
+                            <sl-menu-item>Create Recommended Cart</sl-menu-item>
+                            <sl-menu-item>Manage Recommended Carts</sl-menu-item>
+                        </sl-menu>
+                        
+                        <sl-divider></sl-divider>
+                        
+                        <sl-menu-item>
+                            <i class="fa-light fa-right-from-bracket" slot="prefix"></i>
+                            Sign Out
+                        </sl-menu-item>
+                    </sl-menu>
+                </sl-dropdown>
+            </div>
             <a href="#">Back Office</a>
             <a href="#">Orders</a>
             <a href="#">Team</a>

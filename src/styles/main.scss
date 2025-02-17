@@ -7,12 +7,46 @@
 @include foundation-flex-grid;
 @include foundation-xy-grid-classes;
 
+// Add color variables at the top of the file
+:root {
+    // Granite colors
+    --granite-100: #F6F6F6;
+    --granite-200: #EDEEE;
+    --granite-500: #D4D5D5;
+    --granite-700: #727677;
+    --granite-800: #54585A;
+    --granite-900: #303030;  // Default text color
+
+    // Turquoise colors
+    --turquoise-100: #F2F8F9;
+    --turquoise-150: #E0EEF1;
+    --turquoise-200: #BFDDE2;
+    --turquoise-300: #4099A8;
+    --turquoise-500: #00778B;
+    --turquoise-700: #0C5F6F;
+    --turquoise-800: #0C5F6F;
+    --turquoise-900: #003038;
+
+    // Alert colors
+    --color-error: #A0272B;    // Red
+    --color-warning: #EDAB3A;  // Yellow
+    --color-success: #62A752;  // Green
+
+    // Update Shoelace's warning color variable
+    --sl-color-warning-600: #EDAB3A;
+
+    // Breakpoints
+    --breakpoint-small: 39.9375em;  // 639px
+    --breakpoint-medium: 63.9375em; // 1023px
+}
+
 // Your custom styles can go here
 body {
     margin: 0;
     padding-top: 0;
-    background-color: #f0f0f0;
+    background-color: var(--granite-100);
     font-family: 'Nunito Sans', sans-serif;
+    color: var(--granite-900);  // Default text color
 }
 
 sl-card {
@@ -33,6 +67,7 @@ sl-card {
         font-size: 1.5rem;
         margin: 0 0 1.5rem 0;
         font-weight: 700;
+        color: var(--granite-900);
     }
 
     .recent-order {
@@ -40,13 +75,13 @@ sl-card {
         
         h3 {
             font-size: 1.25rem;
-            color: #333;
+            color: var(--granite-900);
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
         
         .order-number {
-            color: #45818e;
+            color: var(--turquoise-500);
             text-decoration: none;
             
             &:hover {
@@ -65,13 +100,13 @@ sl-card {
         }
 
         .order-history::part(base) {
-            border-color: #45818e;
-            color: #45818e;
+            border-color: var(--turquoise-500);
+            color: var(--turquoise-500);
         }
 
         .place-order::part(base) {
-            background-color: #45818e;
-            border-color: #45818e;
+            background-color: var(--turquoise-500);
+            border-color: var(--turquoise-500);
         }
     }
 
@@ -95,7 +130,7 @@ sl-card {
             gap: 1rem;
 
             i {
-                color: #45818e;
+                color: var(--turquoise-500) !important;
                 font-size: 1.5rem;
                 width: 1.5rem;
                 text-align: center;
@@ -110,8 +145,8 @@ sl-card {
         &::part(base) {
             width: 100%;
             min-width: 100%;
-            background-color: #45818e;
-            border-color: #45818e;
+            background-color: var(--turquoise-500);
+            border-color: var(--turquoise-500);
             margin: 0;
         }
     }
@@ -144,11 +179,20 @@ sl-card {
         height: 100%;
         padding-left: 1rem;
         padding-top: 10px;
+        padding-right: 0;
+        flex-shrink: 0;
         
         img {
             height: 24px;
-            width: auto;
+            width: 234.66px;
+            flex-shrink: 0;
+            min-width: 234.66px;
         }
+    }
+
+    .cell.small-2.medium-2 {
+        flex: 0 0 auto;
+        width: auto;
     }
 
     .main-nav {
@@ -162,7 +206,7 @@ sl-card {
             display: flex;
             align-items: center;
             height: 100%;
-            color: #2c2c2c;
+            color: var(--granite-900);
             text-decoration: none;
             font-size: 0.875rem;
             padding: 0 0.25rem;
@@ -171,7 +215,7 @@ sl-card {
             line-height: 1;
             
             &:hover {
-                color: #008cc1;
+                color: var(--turquoise-300);
             }
         }
     }
@@ -185,7 +229,7 @@ sl-card {
         height: 100%;
 
         sl-button::part(base) {
-            color: #2c2c2c;
+            color: var(--granite-900);
             font-size: 0.875rem;
             padding: 0.25rem 0.25rem;
             font-weight: 600;
@@ -194,7 +238,7 @@ sl-card {
             line-height: 1;
             
             &:hover {
-                color: #008cc1;
+                color: var(--turquoise-300);
             }
         }
 
@@ -208,10 +252,11 @@ sl-card {
                 font-size: 18px;
                 display: flex;
                 align-items: center;
+                color: var(--granite-900) !important;
             }
 
             .user-greeting::part(base) {
-                color: #2c2c2c;
+                color: var(--granite-900);
                 font-size: 0.875rem;
                 padding: 0;
                 margin: 0;
@@ -232,7 +277,7 @@ sl-card {
                 }
                 
                 &:hover {
-                    color: #008cc1;
+                    color: var(--turquoise-300);
                 }
             }
         }
@@ -251,6 +296,15 @@ sl-card {
             padding: 0.5rem;
             margin-left: 0.5rem;
         }
+
+        sl-dropdown {
+            .user-trigger {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                cursor: pointer;
+            }
+        }
     }
 }
 
@@ -267,12 +321,50 @@ sl-card {
 // Mobile menu styles
 .mobile-menu::part(body) {
     padding: 0;
+    min-width: 320px;  // Ensure minimum width on tablet
 }
 
 .mobile-nav {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+
+    .mobile-user-section {
+        padding: 1rem;
+        border-bottom: 1px solid var(--granite-200);
+        margin-bottom: 1rem;
+
+        .user-trigger {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+
+            i {
+                font-size: 18px;
+                color: var(--granite-900);
+            }
+
+            .user-greeting::part(base) {
+                color: var(--granite-900);
+                font-size: 0.875rem;
+                padding: 0;
+                margin: 0;
+                font-weight: 600;
+                background: none;
+                border: none;
+            }
+        }
+
+        // Position the dropdown menu relative to the drawer
+        sl-dropdown::part(panel) {
+            position: fixed;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            max-width: calc(100vw - 2rem);
+            width: 280px;
+        }
+    }
 
     .user-greeting {
         margin-bottom: 1rem;
@@ -292,6 +384,13 @@ sl-card {
             background: #f5f5f5;
         }
     }
+
+    @media screen and (min-width: 40em) {  // Tablet styles
+        a {
+            font-size: 1rem;  // Slightly larger font on tablet
+            padding: 1.25rem;  // More padding on tablet
+        }
+    }
 }
 
 // Foundation visibility classes
@@ -301,8 +400,28 @@ sl-card {
     }
 }
 
-@media screen and (min-width: 40em) {
-    .hide-for-medium {
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+    // Add tablet-specific styles here
+    .site-header {
+        .main-nav {
+            gap: 0.5rem;  // Reduce gap between nav items on tablet
+            
+            a {
+                font-size: 0.75rem;  // Slightly smaller font on tablet
+                padding: 0 0.125rem;  // Reduce horizontal padding
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 63.9375em) {  // Show mobile menu up to tablet size
+    .show-for-large {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 64em) {  // Desktop and up
+    .hide-for-large {
         display: none !important;
     }
 }
@@ -360,11 +479,12 @@ sl-card {
 
             i {
                 font-size: 24px;
-                color: #45818e;
+                color: var(--turquoise-500);
 
                 &.fa-circle-info {
                     font-size: 16px;
-                    color: #666;
+                    color: var(--turquoise-500);
+                    cursor: pointer;
                 }
             }
 
@@ -372,7 +492,7 @@ sl-card {
                 font-size: 1rem;
                 font-weight: 600;
                 margin: 0;
-                color: #2c2c2c;
+                color: var(--granite-900);
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
@@ -385,7 +505,7 @@ sl-card {
             gap: 0.125rem;
 
             sl-button::part(base) {
-                color: #45818e;
+                color: var(--turquoise-500);
                 font-size: 0.875rem;
                 padding: 0;
                 text-align: left;
@@ -394,7 +514,7 @@ sl-card {
                 border: none;
                 
                 &:hover {
-                    color: #008cc1;
+                    color: var(--turquoise-300);
                 }
             }
         }
@@ -581,4 +701,51 @@ sl-card {
             gap: 1.5rem;
         }
     }
+}
+
+// Dropdown menu styles
+sl-menu {
+    min-width: 280px;
+    
+    .account-id {
+        padding: 0.5rem 1rem;
+        color: var(--granite-700);
+        font-size: 0.875rem;
+        border-bottom: 1px solid var(--granite-200);
+    }
+
+    sl-menu-item::part(base) {
+        padding: 0.75rem 1rem;
+        
+        &:hover {
+            background-color: var(--granite-100);
+        }
+    }
+
+    sl-menu-item::part(prefix) {
+        color: var(--turquoise-500);
+        font-size: 1.125rem;
+        margin-right: 0.75rem;
+    }
+
+    sl-menu-item::part(suffix) {
+        color: var(--granite-700);
+    }
+
+    &.submenu {
+        sl-menu-item::part(base) {
+            padding-left: 3rem;
+        }
+    }
+}
+
+sl-divider {
+    --spacing: 0;
+}
+
+// Add tooltip styles if you need to customize
+sl-tooltip::part(base) {
+    --sl-tooltip-arrow-size: 6px;
+    max-width: 300px;  // Limit tooltip width for better readability
+    line-height: 1.4;
 } 
