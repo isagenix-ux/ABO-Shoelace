@@ -53,4 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
         });
     });
+
+    // Commission drawer functionality
+    const commissionDrawer = document.querySelector('.commission-drawer');
+    const dateButton = document.querySelector('.week .date');
+    const downloadButton = commissionDrawer.querySelector('sl-button');
+
+    dateButton.addEventListener('click', () => {
+        commissionDrawer.show();
+    });
+
+    downloadButton.addEventListener('click', () => {
+        window.open('src/images/CommissionStatement-example.pdf', '_blank');
+    });
 }); 

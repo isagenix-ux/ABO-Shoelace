@@ -64,9 +64,9 @@ sl-card {
     }
 
     h2 {
-        font-size: 1.5rem;
-        margin: 0 0 1.5rem 0;
+        font-size: 1.25rem;
         font-weight: 700;
+        margin: 0 0 1.5rem 0;
         color: var(--granite-900);
     }
 
@@ -422,7 +422,7 @@ sl-card {
 
 // Update the grid-container padding
 .grid-container {
-    padding: 0.25rem 1rem;
+    padding: 0.25rem 2rem;
     max-width: 90rem;
 }
 
@@ -597,8 +597,8 @@ sl-card {
             }
 
             h2 {
-                font-size: 1rem;
-                font-weight: 600;
+                font-size: 1.25rem;
+                font-weight: 700;
                 margin: 0;
                 color: var(--granite-900);
                 display: flex;
@@ -629,29 +629,51 @@ sl-card {
     }
 }
 
-// Remove grid margins for better alignment
-.grid-x.grid-margin-x {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-// Add this to your styles
+// Update the grid layout styles
 .grid-x {
-    &.grid-padding-x {
+    .cell.medium-6 {
         padding: 0;
+        
+        &:nth-child(odd) {
+            padding-right: 0.5rem;  // Keep the gap between cards
+        }
+        
+        &:nth-child(even) {
+            padding-left: 0.5rem;  // Keep the gap between cards
+        }
     }
 }
 
-.isabody-card {
+// Update the card styles
+.orders-card, .isabody-card {
+    margin-top: 1rem;
     width: 100%;
-    margin-top: 0.25rem;
 
     &::part(base) {
         width: 100%;
         margin: 0;
         padding: 2rem;
     }
+}
 
+// Remove any conflicting padding
+.grid-x.grid-padding-x {
+    padding: 0;
+    margin: 0;
+
+    > .cell {
+        padding: 0;
+    }
+}
+
+// Mobile adjustments
+@media screen and (max-width: 39.9375em) {
+    .grid-x .cell.medium-6 {
+        padding: 0 !important;  // Remove padding on mobile
+    }
+}
+
+.isabody-card {
     .card-header {
         display: flex;
         justify-content: space-between;
@@ -859,8 +881,8 @@ sl-tooltip::part(base) {
 }
 
 .isapulse-card {
+    margin-top: 0.5rem;
     width: 100%;
-    margin-top: 0.25rem;
 
     &::part(base) {
         width: 100%;
@@ -1102,32 +1124,6 @@ sl-tooltip::part(base) {
     }
 }
 
-// Update the grid layout for the bottom cards
-.grid-x {
-    .cell.medium-6 {
-        padding: 0;
-        display: flex;  // Add flex to cells
-
-        &:first-child {
-            padding-right: 0.5rem;
-        }
-        
-        &:last-child {
-            padding-left: 0.5rem;
-        }
-
-        sl-card {
-            flex: 1;  // Make cards fill the cell height
-        }
-    }
-}
-
-@media screen and (max-width: 39.9375em) {
-    .grid-x .cell.medium-6 {
-        padding: 0;  // Remove spacing on mobile
-    }
-}
-
 .resources-section-card {
     margin-top: 1rem;
     width: 100%;
@@ -1185,41 +1181,6 @@ sl-tooltip::part(base) {
 
         &:last-child {
             margin-bottom: 0;
-        }
-    }
-}
-
-// Grid layout adjustments
-.grid-x {
-    .cell.medium-6 {
-        padding: 0;
-        
-        &:nth-child(odd) {
-            padding-right: 0.5rem;
-        }
-        
-        &:nth-child(even) {
-            padding-left: 0.5rem;
-        }
-
-        // First row cards get smaller top margin
-        &:nth-child(-n+2) .resources-section-card {
-            margin-top: 0.25rem;
-        }
-    }
-}
-
-@media screen and (max-width: 39.9375em) {
-    .grid-x .cell.medium-6 {
-        padding: 0 !important;
-    }
-
-    .resources-section-card {
-        margin-top: 0.5rem;
-
-        // Only first card gets smaller margin on mobile
-        .cell:first-child & {
-            margin-top: 0.25rem;
         }
     }
 }
@@ -1371,6 +1332,519 @@ sl-tooltip::part(base) {
                 color: var(--turquoise-300);
                 text-decoration: underline;
             }
+        }
+    }
+}
+
+.profile-card {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    
+    &::part(base) {
+        padding: 1.5rem;
+        background-color: white;
+        border: 1px solid var(--granite-500);
+    }
+
+    &::part(body) {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        position: relative;
+
+        @media screen and (max-width: 63.9375em) {  // Medium and small screens
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+    }
+
+    .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        min-width: 0;
+        flex: 0 0 auto;
+        padding-right: 2rem;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 80%;
+            width: 1px;
+            background-color: var(--granite-200);
+
+            @media screen and (max-width: 63.9375em) {
+                display: none;  // Hide vertical divider on smaller screens
+            }
+        }
+
+        @media screen and (max-width: 63.9375em) {
+            padding-right: 0;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--granite-200);  // Add horizontal divider
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile-details {
+            h2 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin: 0 0 0.5rem 0;
+                color: var(--granite-900);
+            }
+
+            .profile-meta {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .rank-info, .status-info {
+                    .value {
+                        font-size: 1rem;
+                        color: var(--granite-900);
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+
+                        .label {
+                            color: var(--granite-700);
+                        }
+
+                        .rank-text {
+                            font-weight: 600;
+                        }
+
+                        &.status-inactive .status-text {
+                            color: var(--color-error);
+                            font-weight: 600;
+                        }
+
+                        i {
+                            margin-left: 0.5rem;
+                            color: var(--granite-700);
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .profile-stats {
+        display: flex;
+        gap: 1.5rem;
+        flex: 1;
+        min-width: 0;
+        align-items: center;
+
+        @media screen and (max-width: 63.9375em) {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .stat {
+            flex: 1;
+            padding: 0 1.5rem;
+            min-width: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            
+            &:not(:last-child) {
+                flex: 0 1 40%;
+                min-width: 200px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    height: 80%;
+                    width: 1px;
+                    background-color: var(--granite-200);
+
+                    @media screen and (max-width: 63.9375em) {
+                        display: none;  // Hide vertical divider
+                    }
+                }
+
+                @media screen and (max-width: 63.9375em) {
+                    flex: 1;
+                    min-width: 0;
+                    padding: 0 0 1.5rem 0;
+                    border-bottom: 1px solid var(--granite-200);  // Add horizontal divider
+                }
+            }
+
+            &:last-child {
+                flex: 1 1 50%;
+                text-align: left;
+                align-items: flex-start;
+
+                @media screen and (max-width: 63.9375em) {
+                    flex: 1;
+                    text-align: center;
+                    align-items: center;
+                }
+            }
+
+            .stat-value {
+                font-size: 2rem;
+                line-height: 1;
+                margin-bottom: 0.25rem;
+                white-space: nowrap;
+                text-align: center;
+            }
+            
+            .stat-label {
+                font-size: 0.875rem;
+                color: var(--granite-800);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.25rem;
+
+                .label-text {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    white-space: nowrap;
+
+                    i {
+                        color: var(--granite-700);
+                        font-size: 16px;
+                    }
+                }
+
+                .stat-period {
+                    color: var(--granite-700);
+                    font-size: 0.75rem;
+                    display: block;
+                }
+            }
+        }
+
+        .commission-timer {
+            text-align: left;  // Keep timer left-aligned
+            
+            .timer-label {
+                font-size: 1rem;
+                color: var(--granite-900);
+                margin-bottom: 0.5rem;
+            }
+
+            .timer-value {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 0.5rem;
+                white-space: nowrap;
+
+                .time-unit {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: var(--granite-900);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .unit {
+                        font-size: 0.75rem;
+                        font-weight: 400;
+                        color: var(--granite-700);
+                    }
+                }
+
+                .separator {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: var(--granite-900);
+                    margin-top: -1rem;
+                }
+            }
+
+            .timezone {
+                font-size: 0.75rem;
+                color: var(--granite-700);
+            }
+
+            // Only add responsive behavior
+            @media screen and (max-width: 63.9375em) {
+                text-align: center;
+                
+                .timer-value {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+.commission-period-card {
+    margin: 0.5rem 0;
+    width: 100%;
+    
+    &::part(base) {
+        padding: 1.5rem;
+        background-color: white;
+        border: 1px solid var(--granite-500);
+    }
+
+    &::part(body) {
+        display: flex;
+        align-items: stretch;
+        gap: 2rem;
+        position: relative;
+
+        @media screen and (max-width: 63.9375em) {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
+
+    .period-section {
+        flex: 1;
+        padding: 0 2rem;
+        position: relative;
+
+        // Add vertical dividers between sections
+        &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 80%;
+            width: 1px;
+            background-color: var(--granite-200);
+
+            @media screen and (max-width: 63.9375em) {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 63.9375em) {
+            padding: 0 0 1.5rem 0;
+            border-bottom: 1px solid var(--granite-200);
+
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+
+        h3 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--granite-700);
+            margin: 0 0 0.75rem 0;
+        }
+
+        .date-range {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--granite-900);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+
+            i {
+                color: var(--granite-700);
+                font-size: 16px;
+            }
+        }
+
+        .calendar-link::part(base) {
+            color: var(--turquoise-500);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0;
+            gap: 0.5rem;
+
+            i {
+                font-size: 1rem;
+                transition: transform 0.2s ease;
+            }
+
+            &:hover {
+                color: var(--turquoise-300);
+
+                i {
+                    transform: translateX(4px);
+                }
+            }
+        }
+
+        .compensation-details {
+            .period-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+
+                span {
+                    color: var(--granite-900);
+                    font-size: 1rem;
+                }
+
+                .view-link::part(base) {
+                    color: var(--turquoise-500);
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    padding: 0;
+
+                    &:hover {
+                        color: var(--turquoise-300);
+                    }
+                }
+            }
+
+            .week-total {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+
+                .week, .total {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    span {
+                        color: var(--granite-700);
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                    }
+                }
+
+                .date {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: var(--turquoise-500);
+
+                    i {
+                        color: var(--granite-700);
+                        font-size: 16px;
+                    }
+                }
+
+                .amount {
+                    color: var(--color-success) !important;
+                    font-size: 1rem;
+                    font-weight: 600 !important;
+                }
+            }
+        }
+    }
+}
+
+// Common h2 style that should be used across all cards
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    color: var(--granite-900);
+}
+
+// Update specific card h2 styles to match
+.menu-card {
+    .menu-section {
+        .section-header {
+            h2 {
+                font-size: 1.25rem;  // Match standard size
+                font-weight: 700;
+                margin: 0;  // Keep margin 0 for header layout
+                color: var(--granite-900);
+            }
+        }
+    }
+}
+
+.profile-details {
+    h2 {
+        font-size: 1.25rem;  // Update from 1.5rem to match
+        font-weight: 700;
+        margin: 0 0 0.5rem 0;  // Keep smaller margin for profile layout
+        color: var(--granite-900);
+    }
+}
+
+// Update other card h2 styles to match
+.orders-card h2,
+.isabody-card h2,
+.reports-section-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    color: var(--granite-900);
+}
+
+.commission-drawer {
+    --size: 90vw;
+
+    @media (min-width: 64em) {
+        --size: 75vw;
+    }
+
+    &::part(body) {
+        padding: 0;
+    }
+
+    &::part(header) {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--granite-200);
+    }
+
+    &::part(footer) {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--granite-200);
+    }
+
+    .commission-content {
+        height: calc(100vh - 120px);
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    }
+
+    sl-button::part(base) {
+        background-color: var(--turquoise-500);
+        border-color: var(--turquoise-500);
+        
+        &:hover {
+            background-color: var(--turquoise-700);
+            border-color: var(--turquoise-700);
+        }
+    }
+}
+
+// Make the date clickable
+.week .date {
+    cursor: pointer;
+    
+    &:hover {
+        color: var(--turquoise-500);
+        
+        i {
+            color: var(--turquoise-500);
         }
     }
 } 
