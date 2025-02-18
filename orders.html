@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoelace + Foundation App</title>
+    <title>Orders - Isagenix</title>
     <link rel="stylesheet" href="src/styles/main.scss">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script type="module" src="src/js/main.js"></script>
     <script src="https://kit.fontawesome.com/f3233efe0a.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <header class="site-header">
         <div class="grid-container">
             <div class="grid-x align-middle">
                 <div class="cell small-2 large-2">
-                    <a href="#" class="logo">
+                    <a href="index.html" class="logo">
                         <img src="src/images/isagenix-logo.svg" alt="Isagenix">
                     </a>
                 </div>
@@ -23,7 +22,7 @@
                     <nav class="main-nav">
                         <a href="#">Back Office</a>
                         <div class="nav-dropdown">
-                            <a href="orders.html" class="nav-link">Orders</a>
+                            <a href="orders.html" class="nav-link active">Orders</a>
                             <sl-menu class="hover-menu">
                                 <sl-menu-item value="place-order">
                                     Place Order
@@ -122,189 +121,50 @@
     <div class="grid-container">
         <div class="grid-x grid-padding-x">
             <div class="cell small-12">
-                <sl-card class="menu-card">
-                    <div class="menu-sections">
-                        <div class="menu-section">
-                            <div class="section-header">
-                                <i class="fa-light fa-cart-shopping"></i>
-                                <h2>
-                                    RECOMMENDED CARTS
-                                    <sl-tooltip content="Create a curated shopping cart with your favorite products to share with potential customers (prospects). They can view and purchase directly from your shared cart, making shopping simple and seamless." placement="right">
-                                        <i class="fa-light fa-circle-info"></i>
-                                    </sl-tooltip>
-                                </h2>
-                            </div>
-                            <div class="menu-links">
-                                <sl-button variant="text">My Prospects</sl-button>
-                                <sl-button variant="text">Create Recommended Cart</sl-button>
-                                <sl-button variant="text">My Recommended Carts</sl-button>
-                            </div>
-                        </div>
-                        <div class="menu-section">
-                            <div class="section-header">
-                                <i class="fa-light fa-briefcase"></i>
-                                <h2>
-                                    BUSINESS
-                                    <sl-tooltip content="Grow your business by enrolling new members to sign up prospects, using the Placement Tree to manage your team, and My Business to track performance." placement="right">
-                                        <i class="fa-light fa-circle-info"></i>
-                                    </sl-tooltip>
-                                </h2>
-                            </div>
-                            <div class="menu-links">
-                                <sl-button variant="text">Enroll New Member</sl-button>
-                                <sl-button variant="text">Placement Tree</sl-button>
-                                <sl-button variant="text">My Business</sl-button>
-                            </div>
-                        </div>
-                        <div class="menu-section">
-                            <div class="section-header">
-                                <i class="fa-light fa-book"></i>
-                                <h2>
-                                    RESOURCES
-                                    <sl-tooltip content="Access marketing materials, business tools, and health resources to support your business growth and customer success." placement="right">
-                                        <i class="fa-light fa-circle-info"></i>
-                                    </sl-tooltip>
-                                </h2>
-                            </div>
-                            <div class="menu-links">
-                                <sl-button variant="text">Social Media Library</sl-button>
-                                <sl-button variant="text">Business Promotions</sl-button>
-                                <sl-button variant="text">IsaHealth</sl-button>
-                            </div>
-                        </div>
+                <sl-card class="orders-actions-card">
+                    <div class="actions-grid">
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-bag-shopping" style="font-size: 36px; display: block; margin-bottom: 12px; text-align: center; width: 100%;" aria-hidden="true"></i>
+                            <span>Place Order</span>
+                        </sl-button>
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-box" style="font-size: 36px; display: block; margin-bottom: 12px; text-align: center; width: 100%;" aria-hidden="true"></i>
+                            <span>Setup Subscription</span>
+                        </sl-button>
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-calendar" style="font-size: 36px; display: block; margin-bottom: 12px; text-align: center; width: 100%;" aria-hidden="true"></i>
+                            <span>View & Manage Events</span>
+                        </sl-button>
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-clock-rotate-left" style="font-size: 36px; display: block; margin-bottom: 12px; text-align: center; width: 100%;" aria-hidden="true"></i>
+                            <span>View Order History</span>
+                        </sl-button>
                     </div>
                 </sl-card>
-            </div>
-        </div>
-    </div>
 
-    <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-            <div class="cell small-12 medium-6">
-                <sl-card class="orders-card">
-                    <h2>ORDERS</h2>
-                    
-                    <div class="recent-order">
-                        <h3>Most Recent Order</h3>
-                        <p>Jan-14-2025 <a href="#" class="order-number">#1403488502</a></p>
-                    </div>
-
-                    <div class="order-buttons">
-                        <sl-button variant="outline" class="order-history">ORDER HISTORY</sl-button>
-                        <sl-button variant="primary" class="place-order">PLACE ORDER</sl-button>
-                    </div>
-
-                    <h2 class="subscription-title">SUBSCRIPTION</h2>
-                    
-                    <sl-alert variant="warning" open>
-                        <i slot="icon" class="fa-light fa-triangle-exclamation"></i>
-                        Looks like you haven't finished your subscription setup.
-                    </sl-alert>
-
-                    <div class="perks">
-                        <div class="perk">
-                            <i class="fa-light fa-star" style="color: #45818e;"></i>
-                            <div>
-                                <strong>Save Up to 25%</strong> on all orders
-                            </div>
-                        </div>
-                        
-                        <div class="perk">
-                            <i class="fa-light fa-arrows-rotate" style="color: #45818e;"></i>
-                            <div>
-                                <strong>Auto-Deliveries</strong> of your favorite products
-                            </div>
-                        </div>
-                        
-                        <div class="perk">
-                            <i class="fa-light fa-truck" style="color: #45818e;"></i>
-                            <div>
-                                <strong>Flat-Rate Shipping</strong> on subscriptions
-                            </div>
-                        </div>
-                        
-                        <div class="perk">
-                            <i class="fa-light fa-calendar-days" style="color: #45818e;"></i>
-                            <div>
-                                <strong>Skip, Change, or Cancel</strong> easily
-                            </div>
-                        </div>
-                    </div>
-
-                    <sl-button variant="primary" class="activate-button">ACTIVATE SUBSCRIPTION PERKS</sl-button>
+                <sl-card class="subscription-info-card">
+                    <h3>Did you Know?</h3>
+                    <p>With a subscription, you'll continue to save up to 25% and your products are automatically sent to you with low flat-rate shipping. You can make changes to your order, schedule delivery at your convenience, and cancel anytime.</p>
+                    <sl-button variant="primary" class="setup-subscription">Set Up My Subscription</sl-button>
                 </sl-card>
-            </div>
-            <div class="cell small-12 medium-6">
-                <sl-card class="isabody-card">
-                    <div class="card-header">
-                        <h2>MY ISABODY® KICKSTART 90</h2>
-                        <a href="#" class="view-report">VIEW KICKSTART 90 4PET REPORT <i class="fa-light fa-arrow-right"></i></a>
-                    </div>
 
-                    <div class="current-challenge">
-                        <h3>Current Challenge</h3>
-                        <div class="challenge-status">
-                            <div class="dates">
-                                <div class="period">
-                                    <div class="status-label">
-                                        <i class="fa-light fa-circle-check"></i>
-                                        <span>In Progress</span>
-                                    </div>
-                                    <span>1/1/2025 to 3/31/2025</span>
-                                </div>
-                                <div class="deadline">
-                                    <h4>Submission Deadline</h4>
-                                    <span>4/14/2025</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="grid-x">
+                    <div class="cell small-12 medium-6">
+                        <sl-card class="coupons-card">
+                            <h3>My Coupons</h3>
+                            <p>There are no Member Coupons available.</p>
+                        </sl-card>
                     </div>
-
-                    <div class="completion-path">
-                        <h3>Your Path to Completion</h3>
-                        <div class="progress-amount">
-                            <span>$142.00 of $500.00</span>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 28.4%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="status-section">
-                        <div class="progress-message">
-                            <h3>You're making great progress!</h3>
-                            <p>Keep moving and feeling amazing by using the products. Continue pushing toward your fitness and wellness transformation.</p>
-                            <sl-button variant="outline" class="view-challenge">VIEW CURRENT CHALLENGE</sl-button>
-                        </div>
-                        <div class="register-section">
-                            <h3>Register for next Kickstart 90</h3>
-                            <p>starting on 3/18/2025.</p>
-                            <sl-button class="register">REGISTER</sl-button>
-                        </div>
-                    </div>
-                </sl-card>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-            <div class="cell small-12 medium-6">
-                <sl-card class="isapulse-card">
-                    <div class="card-layout">
-                        <div class="content">
-                            <h3>The New IsaPulse+ App is Here!</h3>
-                            <p>Track, manage, and grow your business like never before! IsaPulse+ is the perfect combo of Penny and the former IsaPulse.</p>
-                            <sl-button class="download-button" href="#" variant="text">
-                                DOWNLOAD NOW
+                    <div class="cell small-12 medium-6">
+                        <sl-card class="resources-card">
+                            <h3>Resources</h3>
+                            <sl-button variant="text" href="#" class="resource-link">
+                                View Price Lists
                                 <i class="fa-light fa-arrow-right" slot="suffix"></i>
                             </sl-button>
-                        </div>
-                        <div class="app-image">
-                            <img src="src/images/isapulse-app.png" alt="IsaPulse+ App Interface">
-                        </div>
+                        </sl-card>
                     </div>
-                </sl-card>
+                </div>
             </div>
         </div>
     </div>

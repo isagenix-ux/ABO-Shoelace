@@ -10,6 +10,7 @@ import '@shoelace-style/shoelace/dist/components/menu/menu.js';
 import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
 import '@shoelace-style/shoelace/dist/components/divider/divider.js';
 import '@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
+import '@shoelace-style/shoelace/dist/components/details/details.js';
 
 // Set the base path for Shoelace assets
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';

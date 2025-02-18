@@ -217,6 +217,118 @@ sl-card {
             &:hover {
                 color: var(--turquoise-300);
             }
+
+            &.active {
+                font-weight: 700;
+                color: var(--turquoise-500);
+            }
+        }
+
+        .nav-link-with-caret {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            
+            i {
+                font-size: 0.75rem;
+                margin-top: 2px;
+            }
+        }
+
+        .nav-dropdown {
+            position: relative;
+            height: 100%;
+
+            .nav-link {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                color: var(--granite-900);
+                text-decoration: none;
+                font-size: 0.875rem;
+                padding: 0 0.25rem;
+                white-space: nowrap;
+                font-weight: 600;
+                
+                &:hover {
+                    color: var(--turquoise-300);
+                }
+
+                &.active {
+                    font-weight: 700;  // Make text bolder
+                    color: var(--turquoise-500);  // Use primary turquoise color
+                }
+            }
+
+            .hover-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: white;
+                border-radius: var(--sl-border-radius-medium);
+                box-shadow: var(--sl-shadow-large);
+                margin-top: 0.5rem;
+                min-width: 240px;
+                z-index: 100;
+
+                sl-menu-item::part(base) {
+                    padding: 0.75rem 1rem;
+                    font-size: 0.875rem;
+                    color: var(--granite-900);
+                    background: none;
+                    
+                    &:hover {
+                        background-color: var(--granite-100);
+                        color: var(--turquoise-500);
+                    }
+
+                    &:focus {
+                        background: none;
+                        outline: none;
+                    }
+
+                    &:active {
+                        background: var(--granite-100);
+                    }
+                }
+            }
+
+            // Create an invisible area to prevent menu from closing
+            &::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 0.5rem;
+                background: transparent;
+            }
+
+            &:hover {
+                .hover-menu {
+                    display: block;
+                }
+            }
+        }
+
+        // Keep menu open when hovering over the menu itself
+        .hover-menu:hover,
+        .nav-dropdown:hover .hover-menu {
+            display: block;
+        }
+
+        sl-menu {
+            margin-top: 0.5rem;
+            
+            sl-menu-item::part(base) {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                
+                &:hover {
+                    background-color: var(--granite-100);
+                }
+            }
         }
     }
 
@@ -312,10 +424,6 @@ sl-card {
 .grid-container {
     padding: 0.25rem 1rem;
     max-width: 90rem;
-    
-    .grid-x {
-        margin: 0;
-    }
 }
 
 // Mobile menu styles
@@ -748,4 +856,521 @@ sl-tooltip::part(base) {
     --sl-tooltip-arrow-size: 6px;
     max-width: 300px;  // Limit tooltip width for better readability
     line-height: 1.4;
+}
+
+.isapulse-card {
+    width: 100%;
+    margin-top: 0.25rem;
+
+    &::part(base) {
+        width: 100%;
+        margin: 0;
+        padding: 2rem;
+        background-color: white;
+    }
+
+    .card-layout {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .content {
+        flex: 0 0 50%;
+        padding-right: 1rem;
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+            line-height: 1.2;
+            color: var(--granite-900);
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin: 0 0 2rem 0;
+            color: var(--granite-800);
+        }
+
+        .download-button::part(base) {
+            color: var(--turquoise-500);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0;
+            gap: 0.5rem;
+            align-items: center;
+            
+            i {
+                font-size: 1.25rem;
+                transition: transform 0.2s ease;
+            }
+            
+            &:hover {
+                color: var(--turquoise-300);
+                
+                i {
+                    transform: translateX(4px);
+                }
+            }
+        }
+    }
+
+    .app-image {
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+    }
+
+    @media screen and (max-width: 39.9375em) {
+        .card-layout {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .content, .app-image {
+            flex: 1 1 auto;
+            padding-right: 0;
+        }
+
+        .content {
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// Orders page styles
+.orders-actions-card {
+    margin-top: 0.25rem;
+    width: 100%;
+
+    &::part(base) {
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .actions-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .action-button::part(base) {
+        width: 100%;
+        height: 120px;
+        background-color: var(--turquoise-500);
+        border-color: var(--turquoise-500);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        font-weight: 600;
+
+        i {
+            color: white;
+            margin: 0 auto 12px auto;
+            height: 36px;
+            width: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        span {
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.2;
+            display: block;
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: var(--turquoise-700);
+            border-color: var(--turquoise-700);
+        }
+    }
+
+    @media screen and (max-width: 39.9375em) {
+        .actions-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        .actions-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+.subscription-info-card {
+    margin-top: 1rem;
+
+    &::part(base) {
+        padding: 2rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        color: var(--granite-900);
+    }
+
+    p {
+        margin: 0 0 1.5rem 0;
+        color: var(--granite-800);
+        line-height: 1.5;
+    }
+
+    .setup-subscription::part(base) {
+        background-color: var(--turquoise-500);
+        border-color: var(--turquoise-500);
+        
+        &:hover {
+            background-color: var(--turquoise-700);
+            border-color: var(--turquoise-700);
+        }
+    }
+}
+
+// Update the card styles
+.coupons-card, .resources-card {
+    margin-top: 1rem;
+    width: 100%;
+
+    &::part(base) {
+        padding: 2rem;
+        height: 100%;  // Make card base fill container height
+        display: flex;
+        flex-direction: column;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        color: var(--granite-900);
+    }
+
+    p {
+        margin: 0;
+        color: var(--granite-800);
+    }
+}
+
+.resources-card {
+    &::part(base) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;  // This will push the button to the bottom
+    }
+
+    .resource-link::part(base) {
+        color: var(--turquoise-500);
+        padding: 0;
+        font-weight: 600;
+        gap: 0.5rem;
+        
+        i {
+            transition: transform 0.2s ease;
+        }
+        
+        &:hover {
+            color: var(--turquoise-300);
+            
+            i {
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+// Update the grid layout for the bottom cards
+.grid-x {
+    .cell.medium-6 {
+        padding: 0;
+        display: flex;  // Add flex to cells
+
+        &:first-child {
+            padding-right: 0.5rem;
+        }
+        
+        &:last-child {
+            padding-left: 0.5rem;
+        }
+
+        sl-card {
+            flex: 1;  // Make cards fill the cell height
+        }
+    }
+}
+
+@media screen and (max-width: 39.9375em) {
+    .grid-x .cell.medium-6 {
+        padding: 0;  // Remove spacing on mobile
+    }
+}
+
+.resources-section-card {
+    margin-top: 1rem;
+    width: 100%;
+    height: auto;
+
+    &::part(base) {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 1.5rem 0;
+        color: var(--granite-900);
+        border-bottom: 1px solid var(--granite-200);
+        padding-bottom: 0.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 1.5rem 0 1rem 0;
+        color: var(--granite-900);
+        padding: 0.5rem;
+        background-color: var(--granite-100);
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .resources-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        sl-button::part(base) {
+            color: var(--turquoise-500);
+            font-size: 0.875rem;
+            padding: 0;
+            text-align: left;
+            justify-content: flex-start;
+            font-weight: 400;
+            background: none;
+            border: none;
+            
+            &:hover {
+                color: var(--turquoise-300);
+            }
+        }
+    }
+
+    .website-section {
+        margin-bottom: 2rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Grid layout adjustments
+.grid-x {
+    .cell.medium-6 {
+        padding: 0;
+        
+        &:nth-child(odd) {
+            padding-right: 0.5rem;
+        }
+        
+        &:nth-child(even) {
+            padding-left: 0.5rem;
+        }
+
+        // First row cards get smaller top margin
+        &:nth-child(-n+2) .resources-section-card {
+            margin-top: 0.25rem;
+        }
+    }
+}
+
+@media screen and (max-width: 39.9375em) {
+    .grid-x .cell.medium-6 {
+        padding: 0 !important;
+    }
+
+    .resources-section-card {
+        margin-top: 0.5rem;
+
+        // Only first card gets smaller margin on mobile
+        .cell:first-child & {
+            margin-top: 0.25rem;
+        }
+    }
+}
+
+.reports-section-card {
+    margin-top: 0.25rem;
+    width: 100%;
+    height: auto;
+
+    &::part(base) {
+        padding: 2rem;
+        border-radius: 4px;  // Keep border radius but remove border
+        background-color: white;
+        box-shadow: none;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 1.5rem 0;
+        color: var(--granite-900);
+        border-bottom: 1px solid var(--granite-200);
+        padding-bottom: 0.5rem;
+    }
+
+    .section-description {
+        color: var(--granite-800);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .reports-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .report-details {
+            &::part(base) {
+                border-radius: 4px;  // Keep border radius but remove border
+            }
+
+            &::part(header) {
+                padding: 0.75rem 1rem;
+            }
+
+            &::part(summary) {
+                color: var(--turquoise-500);
+                font-size: 0.875rem;
+                font-weight: 400;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+
+                &:hover {
+                    color: var(--turquoise-300);
+                }
+            }
+
+            &::part(content) {
+                padding: 0 1rem 1rem 1rem;
+                color: var(--granite-800);
+                font-size: 0.875rem;
+                line-height: 1.5;
+            }
+
+            // Style the chevron icon
+            &::part(summary-icon) {
+                display: block;
+                order: 1;  // Move to end
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.reports-nav-card {
+    margin-top: 0.25rem;
+    width: 100%;
+
+    &::part(base) {
+        padding: 1rem;
+        border: 1px solid var(--granite-500) !important;
+        border-radius: 4px;
+        background-color: white;
+        box-shadow: none;
+    }
+
+    .reports-nav {
+        display: flex;
+        flex-wrap: wrap;  // Allow buttons to wrap
+        gap: 1rem;
+        width: 100%;
+
+        .nav-button {
+            flex: 1;
+            min-width: calc(25% - 0.75rem);  // 4 buttons per row with gap
+
+            @media screen and (max-width: 63.9375em) {  // Medium screens
+                min-width: calc(50% - 0.5rem);  // 2 buttons per row
+            }
+
+            @media screen and (max-width: 39.9375em) {  // Small screens
+                min-width: 100%;  // 1 button per row
+                flex: none;
+            }
+
+            &::part(base) {
+                background-color: var(--granite-100);
+                border: none;
+                color: var(--granite-900);
+                padding: 0.75rem 2rem;
+                font-weight: 600;
+                font-size: 0.875rem;
+                width: 100%;
+                justify-content: center;
+
+                &:hover {
+                    background-color: var(--turquoise-500);
+                    color: white;
+                }
+            }
+
+            &.active::part(base) {
+                background-color: var(--turquoise-500);
+                color: white;
+            }
+        }
+    }
+}
+
+.reports-disclaimer {
+    margin: 1rem 0;
+    padding: 0 1rem;
+
+    p {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: var(--granite-800);
+        margin: 0;
+
+        a {
+            color: var(--turquoise-500);
+            text-decoration: none;
+
+            &:hover {
+                color: var(--turquoise-300);
+                text-decoration: underline;
+            }
+        }
+    }
 } 
