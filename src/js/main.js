@@ -1,3 +1,6 @@
+// Import styles
+import '../styles/main.scss'
+
 // Import Shoelace components
 import '@shoelace-style/shoelace/dist/themes/light.css';
 import '@shoelace-style/shoelace/dist/components/card/card.js';
