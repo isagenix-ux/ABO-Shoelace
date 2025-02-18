@@ -26,6 +26,8 @@ jobs:
         
       - name: Build
         run: npm run build
+        env:
+          VITE_BASE_URL: '/ABO-Shoelace/'
         
       - name: Setup Pages
         uses: actions/configure-pages@v3
