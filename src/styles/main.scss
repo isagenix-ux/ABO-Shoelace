@@ -301,7 +301,7 @@ sl-card {
     .user-controls {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 1rem;
         height: 100%;
         padding-right: 1rem;
         padding-top: 10px;
@@ -324,14 +324,32 @@ sl-card {
         }
 
         .notifications {
+            order: 2;
             display: flex;
             align-items: center;
             height: 100%;
             padding-top: 2px;
-
+            
             i {
-                font-size: 24px;
+                font-size: 24px;  // Set bell icon size to 24px
             }
+            
+            @media (max-width: 63.9375em) {
+                margin-right: 1rem;  // Add space between bell and hamburger
+            }
+        }
+
+        .menu-toggle {
+            margin-left: auto;  // Push to the right
+            order: 3;          // Make it the last item
+            
+            @media (min-width: 64em) {
+                display: none;  // Hide on desktop
+            }
+        }
+
+        .user-menu {
+            order: 1;
         }
     }
 }
@@ -1976,6 +1994,53 @@ h2 {
                         }
                     }
                 }
+
+                .time-remaining {
+                    margin-top: 1rem;
+                    padding-left: 1.5rem;
+                    
+                    .time-label {
+                        color: var(--granite-900);
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        margin-bottom: 0.5rem;
+                        
+                        i {
+                            color: var(--granite-700);
+                            margin-left: 0.25rem;
+                        }
+                    }
+
+                    .timer {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                        margin-bottom: 0.5rem;
+
+                        .time-unit {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            color: var(--turquoise-500);
+                            
+                            .unit {
+                                font-size: 0.75rem;
+                                color: var(--granite-700);
+                                text-transform: lowercase;
+                                margin-left: 0.25rem;
+                            }
+                        }
+
+                        .separator {
+                            color: var(--turquoise-500);
+                            font-weight: 600;
+                        }
+                    }
+
+                    .timezone {
+                        color: var(--granite-700);
+                        font-size: 0.75rem;
+                    }
+                }
             }
 
             .commission-period {
@@ -2005,6 +2070,160 @@ h2 {
                     }
                 }
             }
+
+            .calendar-link::part(base) {
+                color: var(--turquoise-500);
+                font-size: 0.875rem;
+                font-weight: 600;
+                padding: 0;
+                margin-top: 0.5rem;  // Reduced from 1rem
+                margin-left: 1.5rem;  // Add back left margin to match other content
+                text-align: left;     // Align text to the left
+                justify-content: flex-start;  // Align button content to the left
+                width: 100%;          // Make button take full width
+
+                &:hover {
+                    color: var(--turquoise-300);
+                }
+
+                i {
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+.calendar-dialog {
+    --width: 90vw;
+    --header-spacing: 1.5rem;
+    --body-spacing: 2rem;
+    --max-height: 80vh;  // Add max height for dialog
+
+    @media (min-width: 64em) {
+        --width: 80vw;
+    }
+
+    &::part(body) {
+        max-height: calc(80vh - 120px);  // Account for header and padding
+        overflow-y: auto;  // Make content scrollable
+        padding-right: 1rem;  // Add space for scrollbar
+    }
+
+    .calendar-content {
+        .calendar-description {
+            font-size: 0.875rem;
+            color: var(--granite-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-timezone {
+            font-size: 0.875rem;
+            color: var(--granite-700);
+            margin-bottom: 2rem;
+        }
+
+        .commission-table {
+            width: 100%;
+            border-collapse: collapse;
+            
+            thead {
+                position: sticky;  // Keep header visible while scrolling
+                top: 0;
+                z-index: 1;
+                background: white;
+            }
+            
+            th {
+                background-color: var(--turquoise-500);
+                color: white;
+                padding: 1rem;
+                text-align: left;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+
+            td {
+                padding: 1rem;
+                border-bottom: 1px solid var(--granite-200);
+                font-size: 0.875rem;
+                color: var(--granite-900);
+            }
+
+            .month-header {
+                td:first-child {
+                    background-color: var(--turquoise-500);
+                    color: white;
+                    font-weight: 600;
+                    position: sticky;  // Keep month column visible while scrolling horizontally
+                    left: 0;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}
+
+.week-total {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    border-top: 1px solid var(--granite-200);
+    padding-top: 1rem;
+
+    .week-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        
+        .label {
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    .time-remaining {
+        padding-left: 1.5rem;
+        
+        .time-label {
+            color: var(--granite-900);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            
+            i {
+                color: var(--granite-700);
+                margin-left: 0.25rem;
+            }
+        }
+
+        .timer {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+
+            .time-unit {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--turquoise-500);
+                
+                .unit {
+                    font-size: 0.75rem;
+                    color: var(--granite-700);
+                    text-transform: lowercase;
+                    margin-left: 0.25rem;
+                }
+            }
+
+            .separator {
+                color: var(--turquoise-500);
+                font-weight: 600;
+            }
+        }
+
+        .timezone {
+            color: var(--granite-700);
+            font-size: 0.75rem;
         }
     }
 } 
