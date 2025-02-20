@@ -1,22 +1,24 @@
 // Import styles
 import '../styles/main.scss'
 
-// Import Shoelace components with relative paths
-import '../../node_modules/@shoelace-style/shoelace/dist/themes/light.css';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/card/card.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/button/button.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/alert/alert.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/icon/icon.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/drawer/drawer.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/menu/menu.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/divider/divider.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/components/details/details.js';
+// Import Shoelace components
+import '@shoelace-style/shoelace/dist/themes/light.css';
+import '@shoelace-style/shoelace/dist/components/card/card.js';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/alert/alert.js';
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import '@shoelace-style/shoelace/dist/components/drawer/drawer.js';
+import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
+import '@shoelace-style/shoelace/dist/components/menu/menu.js';
+import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
+import '@shoelace-style/shoelace/dist/components/divider/divider.js';
+import '@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
+import '@shoelace-style/shoelace/dist/components/details/details.js';
 
 // Set the base path for Shoelace assets
-import { setBasePath } from '../../node_modules/@shoelace-style/shoelace/dist/utilities/base-path';
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
+
+// Update the base path to use the CDN with the correct version
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/dist/');
 
 // Your custom JavaScript code can go here 
