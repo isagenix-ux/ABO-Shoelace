@@ -179,6 +179,7 @@ sl-card {
         height: 100%;
         padding-left: 1rem;
         padding-top: 10px;
+        padding-bottom: 20px;
         padding-right: 0;
         flex-shrink: 0;
         
@@ -201,6 +202,7 @@ sl-card {
         gap: 1rem;
         height: 100%;
         padding-top: 10px;
+        padding-bottom: 20px;
 
         a {
             display: flex;
@@ -302,11 +304,34 @@ sl-card {
         gap: 0.5rem;
         height: 100%;
         padding-right: 1rem;
+        padding-top: 10px;
+        padding-bottom: 20px;
 
         sl-button::part(base) {
             height: 100%;
             display: flex;
             align-items: center;
+        }
+
+        .user-trigger {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+
+            i {
+                font-size: 24px;
+            }
+        }
+
+        .notifications {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding-top: 2px;
+
+            i {
+                font-size: 24px;
+            }
         }
     }
 }
@@ -1761,15 +1786,11 @@ h2 {
 }
 
 // Make the date clickable
-.week .date {
+.week-total .date {
     cursor: pointer;
     
     &:hover {
         color: var(--turquoise-500);
-        
-        i {
-            color: var(--turquoise-500);
-        }
     }
 }
 
@@ -1893,10 +1914,10 @@ h2 {
                 }
 
                 .week-total {
-                    margin-top: 0.5rem;
+                    margin-top: -1rem;  // Increased negative margin to move it up more
                     padding-left: 1.5rem;
                     border-top: 1px solid var(--granite-200);
-                    padding-top: 0.5rem;
+                    padding-top: 0.5rem;  // Reduced padding to tighten spacing
 
                     .week-info {
                         display: flex;
@@ -1949,7 +1970,7 @@ h2 {
                                 .amount {
                                     color: var(--color-success);
                                     font-size: 0.875rem;
-                                    font-weight: 700;
+                                    font-weight: 700;  // Made bolder
                                 }
                             }
                         }
@@ -1960,11 +1981,12 @@ h2 {
             .commission-period {
                 .period-info {
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: flex-start;
                     align-items: center;
+                    gap: 0.5rem;
                     padding-left: 1.5rem;
-                    margin-top: -0.5rem;  // Negative margin to move it up
-                    margin-bottom: 1.5rem; // Increased to maintain spacing with content below
+                    margin-top: -0.5rem;
+                    margin-bottom: 1.5rem;
 
                     span {
                         color: var(--granite-900);

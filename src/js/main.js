@@ -61,14 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Commission drawer functionality
     const commissionDrawer = document.querySelector('.commission-drawer');
-    const dateButton = document.querySelector('.week .date');
+    const dateButton = document.querySelector('.week-total .date');
     const downloadButton = commissionDrawer.querySelector('sl-button');
 
-    dateButton.addEventListener('click', () => {
+    dateButton?.addEventListener('click', () => {
         commissionDrawer.show();
     });
 
-    downloadButton.addEventListener('click', () => {
+    downloadButton?.addEventListener('click', () => {
         window.open('src/images/CommissionStatement-example.pdf', '_blank');
     });
 }); 
