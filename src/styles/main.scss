@@ -2072,7 +2072,6 @@ h2 {
 
                                 .total-label {
                                     color: var(--granite-700);
-                                    font-size: 0.875rem;
                                     font-weight: 600;
                                 }
 
@@ -2336,21 +2335,34 @@ h2 {
         text-align: center;
         height: 100%;
 
-        h3 {
-            font-size: var(--font-size-h3);
+        h5 {
+            font-size: var(--font-size-h5);
             font-weight: var(--font-weight-bold);
             line-height: var(--line-height-tight);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 1.5rem;
+            color: var(--granite-900);
+        }
+
+        .stat-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            border: 1px solid var(--turquoise-200);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            width: fit-content;
         }
 
         .stat-value {
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--granite-900);
+            font-size: 4rem;
+            font-weight: var(--font-weight-bold);
             line-height: 1;
-            margin-bottom: 0.5rem;
+            margin: 0;
+            color: var(--granite-900);
         }
 
         .stat-label {
@@ -2359,12 +2371,10 @@ h2 {
             gap: 0.5rem;
             color: var(--granite-800);
             font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-
-            i {
-                color: var(--granite-700);
-                font-size: 16px;
-            }
+            margin: 0;
+            padding: 0;
+            background: none;
+            box-shadow: none;
         }
 
         .time-remaining {
@@ -2496,6 +2506,87 @@ h2 {
                         font-weight: 700;
                     }
                 }
+            }
+        }
+    }
+
+    // First card specific styles
+    &:first-of-type {
+        &::part(base) {
+            background: #DFE7EF;  // Update background color
+        }
+
+        .stats-content {
+            .status-info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+                font-size: 0.875rem;
+                text-align: center;  // Center the text
+                align-self: center;  // Center the container
+                width: 100%;  // Allow container to fill width for centering
+
+                .status-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;  // Center the items
+                    gap: 0.5rem;
+
+                    .label {
+                        color: var(--granite-700);
+                    }
+
+                    .value {
+                        color: var(--granite-900);
+                        font-weight: var(--font-weight-bold);
+
+                        &.inactive {
+                            color: var(--color-error);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Second card specific styles
+    &:nth-of-type(2) {
+        &::part(base) {
+            background: #D7D6E4;
+        }
+
+        .stats-content {
+            .stat-container {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                background: white;
+                border: 1px solid var(--turquoise-200);
+                border-radius: 8px;
+                padding: 1rem 1.5rem;
+                margin-bottom: 1.5rem;
+                width: fit-content;
+            }
+
+            .stat-value {
+                font-size: 4rem;
+                font-weight: var(--font-weight-bold);
+                line-height: 1;
+                margin: 0;
+                color: var(--granite-900);
+            }
+
+            .stat-label {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--granite-800);
+                font-size: 0.875rem;
+                margin: 0;
+                padding: 0;
+                background: none;
+                box-shadow: none;
             }
         }
     }
