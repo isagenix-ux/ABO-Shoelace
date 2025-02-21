@@ -567,6 +567,67 @@ sl-card {
             }
         }
     }
+
+    .commission-stats {
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+
+        h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--granite-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-container {
+            .date-range {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--granite-900);
+                font-size: 0.875rem;
+
+                i {
+                    color: var(--granite-700);
+                    font-size: 16px;
+                }
+            }
+
+            .stat {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 0.5rem;
+
+                .stat-value {
+                    font-size: 2rem;
+                    line-height: 1;
+                    color: var(--granite-900);
+                }
+
+                .stat-label {
+                    font-size: 0.875rem;
+                    color: var(--granite-800);
+
+                    .label-text {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+
+                        i {
+                            color: var(--granite-700);
+                            font-size: 16px;
+                        }
+                    }
+
+                    .stat-period {
+                        color: var(--granite-700);
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 // Update the grid layout styles
@@ -598,11 +659,10 @@ sl-card {
 
 // Remove any conflicting padding
 .grid-x.grid-padding-x {
-    padding: 0;
-    margin: 0;
+    margin: 0 -1rem;  // Negative margin to align with container edges
 
-    > .cell {
-        padding: 0;
+    > .cell.medium-4 {
+        padding: 0 1rem;  // Add padding for gutters
     }
 }
 
@@ -1473,7 +1533,6 @@ sl-tooltip::part(base) {
                 .stat-period {
                     color: var(--granite-700);
                     font-size: 0.75rem;
-                    display: block;
                 }
             }
         }
@@ -1665,54 +1724,53 @@ sl-tooltip::part(base) {
                     gap: 0.5rem;
 
                     .label {
-                        color: var(--granite-700);
+                        margin-bottom: 0.25rem;
+                    }
+                }
+
+                .time-remaining {
+                    padding-left: 1.5rem;
+                    
+                    .time-label {
+                        color: var(--granite-900);
                         font-size: 0.875rem;
                         font-weight: 600;
-                    }
-
-                    .details {
-                        display: flex;
-                        align-items: center;
-                        gap: 1rem;
-
-                        .date {
-                            color: var(--turquoise-500);
-                            font-size: 0.875rem;
-                            font-weight: 600;
-                            cursor: pointer;
-
-                            &:hover {
-                                color: var(--turquoise-300);
-                            }
-                        }
-
+                        margin-bottom: 0.5rem;
+                        
                         i {
                             color: var(--granite-700);
-                            font-size: 16px;
-                            cursor: pointer;
-
-                            &:hover {
-                                color: var(--turquoise-500);
-                            }
+                            margin-left: 0.25rem;
                         }
+                    }
 
-                        .total-amount {
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
+                    .timer {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                        margin-bottom: 0.5rem;
 
-                            .total-label {
+                        .time-unit {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            color: var(--turquoise-500);
+                            
+                            .unit {
+                                font-size: 0.75rem;
                                 color: var(--granite-700);
-                                font-size: 0.875rem;
-                                font-weight: 600;
-                            }
-
-                            .amount {
-                                color: var(--color-success);
-                                font-size: 0.875rem;
-                                font-weight: 700;  // Made bolder
+                                text-transform: lowercase;
+                                margin-left: 0.25rem;
                             }
                         }
+
+                        .separator {
+                            color: var(--turquoise-500);
+                            font-weight: 600;
+                        }
+                    }
+
+                    .timezone {
+                        color: var(--granite-700);
+                        font-size: 0.75rem;
                     }
                 }
             }
@@ -1800,15 +1858,6 @@ h2 {
             background-color: var(--turquoise-700);
             border-color: var(--turquoise-700);
         }
-    }
-}
-
-// Make the date clickable
-.week-total .date {
-    cursor: pointer;
-    
-    &:hover {
-        color: var(--turquoise-500);
     }
 }
 
@@ -1987,8 +2036,7 @@ h2 {
 
                                 .amount {
                                     color: var(--color-success);
-                                    font-size: 0.875rem;
-                                    font-weight: 700;  // Made bolder
+                                    font-weight: 700;
                                 }
                             }
                         }
@@ -2226,4 +2274,192 @@ h2 {
             font-size: 0.75rem;
         }
     }
+}
+
+.stats-card {
+    height: 100%;
+    width: 100%;  // Ensure card fills container
+
+    &::part(base) {
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+        margin: 0;
+    }
+
+    .stats-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+
+        h2 {
+            font-size: 1.25rem;  // Update to match design
+            font-weight: 700;    // Make bolder
+            color: var(--granite-900);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;  // Match the design
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--granite-900);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--granite-800);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+
+            i {
+                color: var(--granite-700);
+                font-size: 16px;
+            }
+        }
+
+        .time-remaining {
+            margin-top: auto;
+            width: 100%;
+
+            .time-label {
+                font-size: 0.875rem;
+                color: var(--granite-900);
+                margin-bottom: 0.5rem;
+            }
+
+            .timer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.25rem;
+                margin-bottom: 0.5rem;
+
+                .time-unit {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: var(--turquoise-500);
+
+                    .unit {
+                        font-size: 0.75rem;
+                        color: var(--granite-700);
+                        text-transform: lowercase;
+                        margin-left: 0.25rem;
+                    }
+                }
+
+                .separator {
+                    color: var(--turquoise-500);
+                    font-weight: 600;
+                }
+            }
+
+            .timezone {
+                color: var(--granite-700);
+                font-size: 0.75rem;
+            }
+        }
+
+        .date-range {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--granite-900);
+            font-size: 0.875rem;
+            margin-top: auto;
+            margin-bottom: 1rem;
+
+            i {
+                color: var(--granite-700);
+                font-size: 16px;
+            }
+        }
+
+        .calendar-link {
+            color: var(--turquoise-500);
+            font-size: 0.875rem;
+            font-weight: 600;
+            
+            i {
+                margin-left: 0.5rem;
+            }
+        }
+
+        .commission-info {
+            width: 100%;
+            margin-top: 1rem;
+
+            .period {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                color: var(--granite-900);
+                font-size: 0.875rem;
+                margin-bottom: 1.5rem;
+
+                .view-link {
+                    color: var(--turquoise-500);
+                    font-weight: 600;
+                }
+            }
+
+            .week-details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                font-size: 0.875rem;
+
+                .week-label {
+                    color: var(--granite-700);
+                    font-weight: 600;
+                }
+
+                .week-date {
+                    color: var(--turquoise-500);
+                    font-weight: 600;
+                    cursor: pointer;  // Show it's clickable
+                    
+                    &:hover {
+                        color: var(--turquoise-300);  // Hover state
+                    }
+                }
+
+                i {
+                    color: var(--granite-700);
+                    font-size: 16px;
+                }
+
+                .total {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    .total-label {
+                        color: var(--granite-700);
+                        font-weight: 600;
+                    }
+
+                    .amount {
+                        color: var(--color-success);
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Add margin below the stats cards section
+.grid-x.grid-padding-x:first-of-type {
+    margin-bottom: 1rem;  // 16px margin to match spacing between cards
 } 

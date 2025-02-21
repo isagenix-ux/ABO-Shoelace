@@ -120,87 +120,69 @@
     </header>
 
     <div class="grid-container">
-        <!-- Add this new card at the top of the grid-container, before the Profile card -->
+        <!-- Commission Stats Cards -->
         <div class="grid-x grid-padding-x">
-            <div class="cell small-12">
-                <sl-card class="stats-summary-card">
-                    <div class="stats-container">
-                        <div class="weekly-stats">
-                            <h3>CURRENT COMMISSION WEEK</h3>
-                            <div class="metric-container">
-                                <div class="date-range">
-                                    <i class="fa-light fa-calendar"></i>
-                                    Feb-03-2025 to Feb-09-2025
-                                </div>
-                                <div class="stat">
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-label">
-                                        <div class="label-text">
-                                            Enrolled Consultants <i class="fa-light fa-circle-info"></i>
-                                        </div>
-                                        <div class="stat-period">(current week)</div>
-                                    </div>
-                                </div>
-                                <div class="time-remaining">
-                                    <div class="time-label">
-                                        Time Remaining <i class="fa-light fa-circle-info"></i>
-                                    </div>
-                                    <div class="timer">
-                                        <div class="time-unit">03<span class="unit">days</span></div>
-                                        <span class="separator">:</span>
-                                        <div class="time-unit">07<span class="unit">hrs</span></div>
-                                        <span class="separator">:</span>
-                                        <div class="time-unit">36<span class="unit">min</span></div>
-                                    </div>
-                                    <div class="timezone">New York Time (EST): Feb-20-2025 4:22 PM</div>
-                                </div>
-                            </div>
+            <!-- Weekly Stats Card -->
+            <div class="cell small-12 medium-4">
+                <sl-card class="stats-card">
+                    <div class="stats-content">
+                        <h2>CURRENT COMMISSION WEEK</h2>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">
+                            Enrolled Consultants <i class="fa-light fa-circle-info"></i>
                         </div>
-
-                        <div class="monthly-stats">
-                            <h3>CURRENT COMMISSION MONTH</h3>
-                            <div class="metric-container">
-                                <div class="date-range">
-                                    <i class="fa-light fa-calendar"></i>
-                                    Jan-27-2025 to Feb-23-2025
-                                </div>
-                                <div class="stat">
-                                    <div class="stat-value">20</div>
-                                    <div class="stat-label">
-                                        <div class="label-text">
-                                            Personally Enrolled <i class="fa-light fa-circle-info"></i>
-                                        </div>
-                                        <div class="stat-period">(current month)</div>
-                                    </div>
-                                </div>
-                                <sl-button class="calendar-link" variant="text">
-                                    COMMISSION CALENDAR
-                                    <i class="fa-light fa-arrow-right" slot="suffix"></i>
-                                </sl-button>
+                        <div class="time-remaining">
+                            <div class="time-label">Commission week ends in</div>
+                            <div class="timer">
+                                <span class="time-unit">03<span class="unit">days</span></span>
+                                <span class="separator">:</span>
+                                <span class="time-unit">07<span class="unit">hrs</span></span>
+                                <span class="separator">:</span>
+                                <span class="time-unit">36<span class="unit">min</span></span>
                             </div>
+                            <div class="timezone">New York Time (EST): Feb-20-2025 4:22 PM</div>
                         </div>
+                    </div>
+                </sl-card>
+            </div>
 
-                        <div class="compensation-stats">
-                            <h3>COMPENSATION</h3>
-                            <div class="metric-container">
-                                <div class="commission-period">
-                                    <div class="period-info">
-                                        <span>Commission Month (Jan-2025)</span>
-                                        <sl-button variant="text" class="view-link">VIEW</sl-button>
-                                    </div>
-                                    <div class="week-total">
-                                        <div class="week-info">
-                                            <div class="label">WEEK:</div>
-                                            <div class="details">
-                                                <span class="date">01/19/2025</span>
-                                                <i class="fa-light fa-file-pdf"></i>
-                                                <div class="total-amount">
-                                                    <span class="total-label">TOTAL:</span>
-                                                    <span class="amount">$123.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+            <!-- Monthly Stats Card -->
+            <div class="cell small-12 medium-4">
+                <sl-card class="stats-card">
+                    <div class="stats-content">
+                        <h2>CURRENT COMMISSION MONTH</h2>
+                        <div class="stat-value">20</div>
+                        <div class="stat-label">
+                            Personally Enrolled <i class="fa-light fa-circle-info"></i>
+                        </div>
+                        <div class="date-range">
+                            <i class="fa-light fa-calendar"></i>
+                            Jan-27-2025 to Feb-23-2025
+                        </div>
+                        <sl-button class="calendar-link" variant="text">
+                            COMMISSION CALENDAR <i class="fa-light fa-arrow-right"></i>
+                        </sl-button>
+                    </div>
+                </sl-card>
+            </div>
+
+            <!-- Compensation Stats Card -->
+            <div class="cell small-12 medium-4">
+                <sl-card class="stats-card">
+                    <div class="stats-content">
+                        <h2>COMPENSATION</h2>
+                        <div class="commission-info">
+                            <div class="period">
+                                Commission Month (Jan-2025)
+                                <sl-button variant="text" class="view-link">VIEW</sl-button>
+                            </div>
+                            <div class="week-details">
+                                <div class="week-label">WEEK:</div>
+                                <div class="week-date" onclick="document.querySelector('.commission-drawer').show()">01/19/2025</div>
+                                <i class="fa-light fa-file-pdf"></i>
+                                <div class="total">
+                                    <span class="total-label">TOTAL:</span>
+                                    <span class="amount">$123.00</span>
                                 </div>
                             </div>
                         </div>
@@ -208,121 +190,6 @@
                 </sl-card>
             </div>
         </div>
-
-        <!-- Profile Section 
-        <div class="grid-x grid-padding-x">
-            <div class="cell small-12">
-                <sl-card class="profile-card">
-                    <div class="profile-info">
-                        <div class="profile-avatar">
-                            <img src="src/images/avatar.jpg" alt="Profile photo">
-                        </div>
-                        <div class="profile-details">
-                            <h2>Sam Smith</h2>
-                            <div class="profile-meta">
-                                <div class="rank-info">
-                                    <span class="value">
-                                        <span class="label">Paid-As Rank:</span>
-                                        <span class="rank-text">Consultant</span>
-                                    </span>
-                                </div>
-                                <div class="status-info">
-                                    <span class="value status-inactive">
-                                        <span class="label">Active Status:</span>
-                                        <span class="status-text">Inactive</span>
-                                        <i class="fa-light fa-circle-info"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="profile-stats">
-                        <div class="stat">
-                            <div class="stat-value">20</div>
-                            <div class="stat-label">
-                                <div class="label-text">
-                                    Personally Enrolled <i class="fa-light fa-circle-info"></i>
-                                </div>
-                                <div class="stat-period">(current month)</div>
-                            </div>
-                        </div>
-
-                        <div class="stat">
-                            <div class="stat-value">2</div>
-                            <div class="stat-label">
-                                <div class="label-text">
-                                    Enrolled Consultants <i class="fa-light fa-circle-info"></i>
-                                </div>
-                                <div class="stat-period">(current week)</div>
-                            </div>
-                        </div>
-
-                        <div class="stat commission-timer">
-                            <div class="timer-label">Commission week ends in:</div>
-                            <div class="timer-value">
-                                <span class="time-unit">04<span class="unit">DAYS</span></span>
-                                <span class="separator">:</span>
-                                <span class="time-unit">08<span class="unit">HOURS</span></span>
-                                <span class="separator">:</span>
-                                <span class="time-unit">32<span class="unit">MINUTES</span></span>
-                            </div>
-                            <div class="timezone">Pacific Time (Los Angeles): Feb-09-2025 6:40 PM</div>
-                        </div>
-                    </div>
-                </sl-card>
-            </div>
-        </div> -->
-
-        <!-- Commission Period Card 
-        <div class="grid-x grid-padding-x">
-            <div class="cell small-12">
-                <sl-card class="commission-period-card">
-                    <div class="period-section">
-                        <h3>CURRENT COMMISSION MONTH</h3>
-                        <div class="date-range">
-                            <i class="fa-light fa-calendar"></i>
-                            Jan-27-2025 to Feb-23-2025
-                        </div>
-                        <sl-button class="calendar-link" variant="text">
-                            COMMISSION CALENDAR
-                            <i class="fa-light fa-arrow-right" slot="suffix"></i>
-                        </sl-button>
-                    </div>
-
-                    <div class="period-section">
-                        <h3>COMMISSION WEEK</h3>
-                        <div class="date-range">
-                            <i class="fa-light fa-calendar"></i>
-                            Feb-03-2025 to Feb-09-2025
-                        </div>
-                    </div>
-
-                    <div class="period-section">
-                        <h3>COMPENSATION</h3>
-                        <div class="compensation-details">
-                            <div class="period-info">
-                                <span>Commission Month (Jan-2025)</span>
-                                <sl-button variant="text" class="view-link" @click="openCommissionStatement()">VIEW</sl-button>
-                            </div>
-                            <div class="week-total">
-                                <div class="week-info">
-                                    <div class="label">WEEK:</div>
-                                    <div class="details">
-                                        <span class="date">01/19/2025</span>
-                                        <i class="fa-light fa-file-pdf"></i>
-                                        <div class="total-amount">
-                                            <span class="total-label">TOTAL:</span>
-                                            <span class="amount">$123.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </sl-card>
-            </div>
-        </div> -->
 
         <!-- Quick Actions Section -->
         <div class="grid-x grid-padding-x">
