@@ -307,6 +307,7 @@ sl-card::part(base) {
                         font-size: 0.75rem;
                         text-align: center;
                         line-height: 1.2;
+                        font-weight: var(--font-weight-semibold);
                     }
                 }
             }
@@ -353,6 +354,39 @@ sl-card::part(base) {
     
     &.compensation-card::part(base) {
         background: #DFECD6;
+    }
+}
+
+.stats-card {
+    &.weekly-card {
+        .stats-content {
+            .stat-container {
+                background-color: #F0F6FC;  // Light blue background
+                border-radius: 8px;
+                padding: 1rem;
+            }
+        }
+    }
+    
+    &.monthly-card {
+        .stats-content {
+            .stat-container {
+                background-color: #F1F1FF;  // Light purple background
+                border-radius: 8px;
+                padding: 1rem;
+            }
+        }
+    }
+    
+    &.compensation-card {
+        .stats-content {
+            .stat-container, 
+            .comparison-chart {
+                background-color: #EAFADB;  // Light green background
+                border-radius: 8px;
+                padding: 1rem;
+            }
+        }
     }
 }
 
