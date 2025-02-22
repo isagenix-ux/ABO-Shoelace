@@ -11,7 +11,7 @@
 :root {
     // Granite colors
     --granite-100: #F6F6F6;
-    --granite-200: #EDEEE;
+    --granite-200: #EDEEEE;
     --granite-500: #D4D5D5;
     --granite-700: #727677;
     --granite-800: #54585A;
@@ -91,8 +91,17 @@ body {
     color: var(--granite-900);  // Default text color
 }
 
-sl-card {
-    margin-bottom: 0;
+sl-card::part(base) {
+    padding: 1rem !important;  // Set 16px padding for all cards globally
+}
+
+// Keep specific card styles
+.stats-card {
+    &::part(base) {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
 }
 
 .orders-card {
@@ -1619,8 +1628,8 @@ sl-tooltip::part(base) {
             }
 
             .timezone {
-                font-size: 0.75rem;
                 color: var(--granite-700);
+                font-size: 0.75rem;
             }
 
             // Only add responsive behavior
@@ -1767,52 +1776,6 @@ sl-tooltip::part(base) {
 
                     .label {
                         margin-bottom: 0.25rem;
-                    }
-                }
-
-                .time-remaining {
-                    padding-left: 1.5rem;
-                    
-                    .time-label {
-                        color: var(--granite-900);
-                        font-size: 0.875rem;
-                        font-weight: 600;
-                        margin-bottom: 0.5rem;
-                        
-                        i {
-                            color: var(--granite-700);
-                            margin-left: 0.25rem;
-                        }
-                    }
-
-                    .timer {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.25rem;
-                        margin-bottom: 0.5rem;
-
-                        .time-unit {
-                            font-size: 1.5rem;
-                            font-weight: 600;
-                            color: var(--turquoise-500);
-                            
-                            .unit {
-                                font-size: 0.75rem;
-                                color: var(--granite-700);
-                                text-transform: lowercase;
-                                margin-left: 0.25rem;
-                            }
-                        }
-
-                        .separator {
-                            color: var(--turquoise-500);
-                            font-weight: 600;
-                        }
-                    }
-
-                    .timezone {
-                        color: var(--granite-700);
-                        font-size: 0.75rem;
                     }
                 }
             }
@@ -2093,11 +2056,7 @@ h2 {
                         font-size: 0.875rem;
                         font-weight: 600;
                         margin-bottom: 0.5rem;
-                        
-                        i {
-                            color: var(--granite-700);
-                            margin-left: 0.25rem;
-                        }
+                        padding-top: 1rem;  // Add padding above the text
                     }
 
                     .timer {
@@ -2107,7 +2066,7 @@ h2 {
                         margin-bottom: 0.5rem;
 
                         .time-unit {
-                            font-size: 1.5rem;
+                            font-size: 2rem;
                             font-weight: 600;
                             color: var(--turquoise-500);
                             
@@ -2292,7 +2251,7 @@ h2 {
             margin-bottom: 0.5rem;
 
             .time-unit {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 font-weight: 600;
                 color: var(--turquoise-500);
                 
@@ -2324,7 +2283,7 @@ h2 {
     &::part(base) {
         height: 100%;
         width: 100%;
-        padding: 2rem;
+        padding: 1rem 2rem 2rem;  // Reduce top padding to 1rem, keep sides and bottom at 2rem
         margin: 0;
     }
 
@@ -2335,8 +2294,8 @@ h2 {
         text-align: center;
         height: 100%;
 
-        h5 {
-            font-size: var(--font-size-h5);
+        h4, ::part(header) h4 {  // Target both regular and Shoelace parts
+            font-size: var(--font-size-h4) !important; // 1.5rem = 24px
             font-weight: var(--font-weight-bold);
             line-height: var(--line-height-tight);
             text-transform: uppercase;
@@ -2349,10 +2308,9 @@ h2 {
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: white;
-            border: 1px solid var(--turquoise-200);
+            border: 1px solid var(--granite-800);
             border-radius: 8px;
-            padding: 1rem 1.5rem;
+            padding: .5rem 1.5rem;
             margin-bottom: 1.5rem;
             width: fit-content;
         }
@@ -2385,37 +2343,18 @@ h2 {
                 font-size: 0.875rem;
                 color: var(--granite-900);
                 margin-bottom: 0.5rem;
+                padding-top: 1rem;  // Add padding above the text
             }
 
-            .timer {
+            .timer-container {
+                background: #B0C9E5;
+                border-radius: 8px;
+                padding: 0.75rem;
+                margin-bottom: 0.5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 0.25rem;
-                margin-bottom: 0.5rem;
-
-                .time-unit {
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    color: var(--turquoise-500);
-
-                    .unit {
-                        font-size: 0.75rem;
-                        color: var(--granite-700);
-                        text-transform: lowercase;
-                        margin-left: 0.25rem;
-                    }
-                }
-
-                .separator {
-                    color: var(--turquoise-500);
-                    font-weight: 600;
-                }
-            }
-
-            .timezone {
-                color: var(--granite-700);
-                font-size: 0.75rem;
             }
         }
 
@@ -2432,16 +2371,6 @@ h2 {
             i {
                 color: var(--granite-700);
                 font-size: 16px;
-            }
-        }
-
-        .calendar-link {
-            color: var(--turquoise-500);
-            font-size: 0.875rem;
-            font-weight: 600;
-            
-            i {
-                margin-left: 0.5rem;
             }
         }
 
@@ -2508,91 +2437,135 @@ h2 {
                 }
             }
         }
-    }
 
-    // First card specific styles
-    &:first-of-type {
-        &::part(base) {
-            background: #DFE7EF;  // Update background color
+        .status-info {
+            .status-item {
+                .label {
+                    color: var(--granite-700);
+                }
+
+                .value {
+                    font-weight: var(--font-weight-bold);  // Make both values bold
+                    
+                    &.inactive {
+                        color: var(--color-error);  // Make "Inactive" red
+                    }
+                }
+            }
         }
 
-        .stats-content {
-            .status-info {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                margin-bottom: 1.5rem;
-                font-size: 0.875rem;
-                text-align: center;  // Center the text
-                align-self: center;  // Center the container
-                width: 100%;  // Allow container to fill width for centering
+        .comparison-chart {
+            margin: 0;  // Remove the margin since it's inside container now
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0.5rem 0;  // Add some vertical padding
 
-                .status-item {
+            .chart-bars {
+                display: flex;
+                align-items: flex-end;
+                gap: 1rem;
+
+                .bar-group {
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
-                    justify-content: center;  // Center the items
                     gap: 0.5rem;
+
+                    .bar {
+                        width: 3rem;
+                        border-radius: 4px 4px 0 0;
+
+                        &.previous {
+                            height: 4rem;
+                            background: #9B97C5;
+                        }
+
+                        &.current {
+                            height: 5rem;
+                            background: #4099A8;
+                        }
+                    }
 
                     .label {
                         color: var(--granite-700);
+                        font-size: 0.75rem;
+                        text-align: center;
+                        line-height: 1.2;
                     }
+                }
+            }
 
-                    .value {
-                        color: var(--granite-900);
-                        font-weight: var(--font-weight-bold);
+            .percentage-change {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                color: var(--color-success);
+                font-weight: var(--font-weight-bold);
+                font-size: 1.5rem;
 
-                        &.inactive {
-                            color: var(--color-error);
-                        }
-                    }
+                i {
+                    font-size: 1.25rem;
                 }
             }
         }
     }
 
-    // Second card specific styles
-    &:nth-of-type(2) {
-        &::part(base) {
-            background: #D7D6E4;
-        }
-
-        .stats-content {
-            .stat-container {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                background: white;
-                border: 1px solid var(--turquoise-200);
-                border-radius: 8px;
-                padding: 1rem 1.5rem;
-                margin-bottom: 1.5rem;
-                width: fit-content;
-            }
-
-            .stat-value {
-                font-size: 4rem;
-                font-weight: var(--font-weight-bold);
-                line-height: 1;
-                margin: 0;
-                color: var(--granite-900);
-            }
-
-            .stat-label {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                color: var(--granite-800);
-                font-size: 0.875rem;
-                margin: 0;
-                padding: 0;
-                background: none;
-                box-shadow: none;
-            }
-        }
+    // Specific card backgrounds
+    &.weekly-card::part(base) {
+        background: #DFE7EF;
+    }
+    
+    &.monthly-card::part(base) {
+        background: #DEDDEE;
+    }
+    
+    &.compensation-card::part(base) {
+        background: #DFECD6;
     }
 }
 
-// Add margin below the stats cards section
+// Add margin above and below the stats cards section
 .grid-x.grid-padding-x:first-of-type {
-    margin-bottom: 1rem;  // 16px margin to match spacing between cards
+    margin-top: 2rem;     // Add 32px margin above cards
+    margin-bottom: 1rem;  // Keep existing 16px margin below cards
+}
+
+.stats-card {
+    .stats-content {
+        .time-remaining {
+            .timer {
+                background: #B0C9E5 !important;
+                border-radius: 8px !important;
+                padding: 0.75rem !important;
+                margin-bottom: 0.5rem !important;
+                display: !important;
+                align-items: !important;
+                justify-content: !important;
+                gap: 0.25rem !important;
+
+                .time-unit {
+                    font-size: 2 !important;
+                    font-weight: var(--font-weight-bold) !important;
+                    color: var(--granite-900) !important;
+                    line-height: 1 !important;
+
+                    .unit {
+                        font-size: 0.875 !important;
+                        color: var(--granite-700) !important;
+                        text-transform: lowercase !important;
+                        margin-left: 0.5rem !important;
+                    }
+                }
+
+                .separator {
+                    color: var(--granite-900) !important;
+                    font-weight: var(--font-weight-bold) !important;
+                    font-size: 2 !important;
+                }
+            }
+        }
+    }
 } 
