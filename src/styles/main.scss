@@ -240,28 +240,40 @@ sl-card::part(base) {
                 gap: 1.5rem;
                 font-size: 0.875rem;
 
+                @media screen and (max-width: 33.75em) {  // 540px and smaller
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+
                 .week-info {
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
 
-                    .week-label {
-                        color: var(--granite-700);
-                        font-weight: 600;
+                    .week-date,
+                    i {
+                        color: var(--turquoise-500);
+                        cursor: pointer;
+
+                        &:hover {
+                            color: var(--turquoise-300);
+                        }
                     }
 
-                    .week-date {
-                        color: var(--turquoise-500);
-                        font-weight: 600;
-                        cursor: pointer;
+                    i {
+                        font-size: 16px;
                     }
                 }
 
-                // Add vertical divider
+                // Vertical divider
                 .divider {
                     width: 1px;
                     height: 20px;
-                    background-color: var(--granite-500);
+                    background-color: var(--granite-700);  // Darkened from 500 to 700
+
+                    @media screen and (max-width: 33.75em) {
+                        display: none;  // Hide divider when stacked
+                    }
                 }
 
                 .total {
@@ -275,8 +287,8 @@ sl-card::part(base) {
                     }
 
                     .amount {
-                        color: var(--color-success);
-                        font-weight: 700;
+                        color: var(--color-success);  // Green color
+                        font-weight: var(--font-weight-bold);  // Bold weight
                     }
                 }
             }
