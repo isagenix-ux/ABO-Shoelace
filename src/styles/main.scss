@@ -136,7 +136,7 @@ sl-card::part(base) {
         }
 
         .stat-value {
-            font-size: 4rem;
+            font-size: 2rem;
             font-weight: var(--font-weight-bold);
             line-height: 1;
             margin: 0;
@@ -205,7 +205,7 @@ sl-card::part(base) {
 
         .commission-info {
             width: 100%;
-            margin-top: 1rem;
+            margin-top: 0.5rem;  // Reduced from 1rem
 
             .period {
                 display: flex;
@@ -214,7 +214,7 @@ sl-card::part(base) {
                 gap: 1rem;
                 color: var(--granite-900);
                 font-size: 0.875rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 0.75rem;  // Reduced from 1.5rem
 
                 .view-link {
                     color: var(--turquoise-500);
@@ -228,6 +228,7 @@ sl-card::part(base) {
                 justify-content: center;
                 gap: 1rem;
                 font-size: 0.875rem;
+                margin-top: -0.25rem;  // Added negative margin to pull up
 
                 .week-label {
                     color: var(--granite-700);
@@ -361,9 +362,7 @@ sl-card::part(base) {
     &.weekly-card {
         .stats-content {
             .stat-container {
-                background-color: #F0F6FC;  // Light blue background
-                border-radius: 8px;
-                padding: 1rem;
+                background-color: transparent;  // Remove background color
             }
         }
     }
@@ -371,9 +370,7 @@ sl-card::part(base) {
     &.monthly-card {
         .stats-content {
             .stat-container {
-                background-color: #F1F1FF;  // Light purple background
-                border-radius: 8px;
-                padding: 1rem;
+                background-color: transparent;  // Remove background color
             }
         }
     }
@@ -382,9 +379,7 @@ sl-card::part(base) {
         .stats-content {
             .stat-container, 
             .comparison-chart {
-                background-color: #EAFADB;  // Light green background
-                border-radius: 8px;
-                padding: 1rem;
+                background-color: transparent;  // Remove background color
             }
         }
     }
@@ -2272,158 +2267,114 @@ h2 {
                         }
                     }
                 }
-
-                .week-total {
-                    margin-top: -1rem;  // Increased negative margin to move it up more
-                    padding-left: 1.5rem;
-                    border-top: 1px solid var(--granite-200);
-                    padding-top: 0.5rem;  // Reduced padding to tighten spacing
-
-                    .week-info {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.5rem;
-
-                        .label {
-                            color: var(--granite-700);
-                            font-size: 0.875rem;
-                            font-weight: 600;
-                        }
-
-                        .details {
-                            display: flex;
-                            align-items: center;
-                            gap: 1rem;
-
-                            .date {
-                                color: var(--turquoise-500);
-                                font-size: 0.875rem;
-                                font-weight: 600;
-                                cursor: pointer;
-
-                                &:hover {
-                                    color: var(--turquoise-300);
-                                }
-                            }
-
-                            i {
-                                color: var(--granite-700);
-                                font-size: 16px;
-                                cursor: pointer;
-
-                                &:hover {
-                                    color: var(--turquoise-500);
-                                }
-                            }
-
-                            .total-amount {
-                                display: flex;
-                                align-items: center;
-                                gap: 0.5rem;
-
-                                .total-label {
-                                    color: var(--granite-700);
-                                    font-weight: 600;
-                                }
-
-                                .amount {
-                                    color: var(--color-success);
-                                    font-weight: 700;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .time-remaining {
-                    margin-top: 1rem;
-                    padding-left: 1.5rem;
-                    
-                    .time-label {
-                        color: var(--granite-900);
-                        font-size: 0.875rem;
-                        font-weight: 600;
-                        margin-bottom: 0.5rem;
-                        padding-top: 1rem;  // Add padding above the text
-                    }
-
-                    .timer {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.25rem;
-                        margin-bottom: 0.5rem;
-
-                        .time-unit {
-                            font-size: 2rem;
-                            font-weight: 600;
-                            color: var(--turquoise-500);
-                            
-                            .unit {
-                                font-size: 0.75rem;
-                                color: var(--granite-700);
-                                text-transform: lowercase;
-                                margin-left: 0.25rem;
-                            }
-                        }
-
-                        .separator {
-                            color: var(--turquoise-500);
-                            font-weight: 600;
-                        }
-                    }
-
-                    .timezone {
-                        color: var(--granite-700);
-                        font-size: 0.75rem;
-                    }
-                }
             }
 
-            .commission-period {
-                .period-info {
+            .week-total {
+                margin-top: -1rem;  // Increased negative margin to move it up more
+                padding-left: 1.5rem;
+                border-top: 1px solid var(--granite-200);
+                padding-top: 0.5rem;  // Reduced padding to tighten spacing
+
+                .week-info {
                     display: flex;
-                    justify-content: flex-start;
                     align-items: center;
                     gap: 0.5rem;
-                    padding-left: 1.5rem;
-                    margin-top: -0.5rem;
-                    margin-bottom: 1.5rem;
 
-                    span {
-                        color: var(--granite-900);
-                        font-size: 0.875rem;
-                    }
-
-                    .view-link::part(base) {
-                        color: var(--turquoise-500);
+                    .label {
+                        color: var(--granite-700);
                         font-size: 0.875rem;
                         font-weight: 600;
-                        padding: 0;
+                    }
 
-                        &:hover {
-                            color: var(--turquoise-300);
+                    .details {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+
+                        .date {
+                            color: var(--turquoise-500);
+                            font-size: 0.875rem;
+                            font-weight: 600;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: var(--turquoise-300);
+                            }
+                        }
+
+                        i {
+                            color: var(--granite-700);
+                            font-size: 16px;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: var(--turquoise-500);
+                            }
+                        }
+
+                        .total-amount {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+
+                            .total-label {
+                                color: var(--granite-700);
+                                font-weight: 600;
+                            }
+
+                            .amount {
+                                color: var(--color-success);
+                                font-weight: 700;
+                            }
                         }
                     }
                 }
             }
 
-            .calendar-link::part(base) {
-                color: var(--turquoise-500);
-                font-size: 0.875rem;
-                font-weight: 600;
-                padding: 0;
-                margin-top: 0.5rem;  // Reduced from 1rem
-                margin-left: 1.5rem;  // Add back left margin to match other content
-                text-align: left;     // Align text to the left
-                justify-content: flex-start;  // Align button content to the left
-                width: 100%;          // Make button take full width
-
-                &:hover {
-                    color: var(--turquoise-300);
+            .time-remaining {
+                margin-top: 1rem;
+                padding-left: 1.5rem;
+                
+                .time-label {
+                    color: var(--granite-900);
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    
+                    i {
+                        color: var(--granite-700);
+                        margin-left: 0.25rem;
+                    }
                 }
 
-                i {
-                    margin-left: 0.5rem;
+                .timer {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.25rem;
+                    margin-bottom: 0.5rem;
+
+                    .time-unit {
+                        font-size: 2rem;
+                        font-weight: 600;
+                        color: var(--turquoise-500);
+                        
+                        .unit {
+                            font-size: 0.75rem;
+                            color: var(--granite-700);
+                            text-transform: lowercase;
+                            margin-left: 0.25rem;
+                        }
+                    }
+
+                    .separator {
+                        color: var(--turquoise-500);
+                        font-weight: 600;
+                    }
+                }
+
+                .timezone {
+                    color: var(--granite-700);
+                    font-size: 0.75rem;
                 }
             }
         }
