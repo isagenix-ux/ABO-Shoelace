@@ -932,15 +932,14 @@ sl-card::part(base) {
             gap: 0.75rem;
             margin-bottom: 1rem;
 
-            i {
-                font-size: 24px;
-                color: var(--turquoise-500);
+            @media screen and (max-width: 33.75em) {  // 540px and smaller
+                padding-left: 0.5rem;  // Reduce left padding on small screens
+            }
 
-                &.fa-circle-info {
-                    font-size: 16px;
-                    color: var(--turquoise-500);
-                    cursor: pointer;
-                }
+            i {
+                font-size: 1.5rem;
+                color: var(--granite-700);
+                margin-right: 1rem;
             }
 
             h2 {
@@ -958,6 +957,11 @@ sl-card::part(base) {
             display: flex;
             flex-direction: column;
             gap: 0.125rem;
+            padding-left: 3.5rem;  // Default padding for larger screens
+
+            @media screen and (max-width: 33.75em) {  // 540px and smaller
+                padding-left: 0.5rem;  // Reduce left padding on small screens
+            }
 
             sl-button::part(base) {
                 color: var(--turquoise-500);
@@ -2136,13 +2140,26 @@ h2 {
 
 // Update specific card h2 styles to match
 .menu-card {
-    .menu-section {
-        .section-header {
-            h2 {
-                font-size: 1.25rem;  // Match standard size
-                font-weight: 700;
-                margin: 0;  // Keep margin 0 for header layout
-                color: var(--granite-900);
+    .menu-sections {
+        .menu-section {
+            .section-header {
+                @media screen and (max-width: 33.75em) {  // 540px and smaller
+                    padding-left: 0.5rem;  // Reduce left padding on small screens
+                }
+
+                i {
+                    font-size: 1.5rem;
+                    color: var(--granite-700);
+                    margin-right: 1rem;
+                }
+            }
+
+            .menu-links {
+                padding-left: 3.5rem;  // Default padding for larger screens
+
+                @media screen and (max-width: 33.75em) {  // 540px and smaller
+                    padding-left: 0.5rem;  // Reduce left padding on small screens
+                }
             }
         }
     }
@@ -2342,49 +2359,6 @@ h2 {
                         color: var(--granite-700);
                         font-size: 0.875rem;
                         font-weight: 600;
-                    }
-
-                    .details {
-                        display: flex;
-                        align-items: center;
-                        gap: 1rem;
-
-                        .date {
-                            color: var(--turquoise-500);
-                            font-size: 0.875rem;
-                            font-weight: 600;
-                            cursor: pointer;
-
-                            &:hover {
-                                color: var(--turquoise-300);
-                            }
-                        }
-
-                        i {
-                            color: var(--granite-700);
-                            font-size: 16px;
-                            cursor: pointer;
-
-                            &:hover {
-                                color: var(--turquoise-500);
-                            }
-                        }
-
-                        .total-amount {
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
-
-                            .total-label {
-                                color: var(--granite-700);
-                                font-weight: 600;
-                            }
-
-                            .amount {
-                                color: var(--color-success);
-                                font-weight: 700;
-                            }
-                        }
                     }
                 }
             }
