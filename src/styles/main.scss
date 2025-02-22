@@ -97,11 +97,269 @@ sl-card::part(base) {
 
 // Keep specific card styles
 .stats-card {
+    height: 100%;
+    width: 100%;  // Ensure card fills container
+
     &::part(base) {
         height: 100%;
         width: 100%;
+        padding: 1rem 2rem 2rem;  // Reduce top padding to 1rem, keep sides and bottom at 2rem
         margin: 0;
     }
+
+    .stats-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+
+        h4, ::part(header) h4 {  // Target both regular and Shoelace parts
+            font-size: var(--font-size-h4) !important; // 1.5rem = 24px
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            color: var(--granite-900);
+        }
+
+        .stat-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid var(--granite-800);
+            border-radius: 8px;
+            padding: .5rem 1.5rem;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .stat-value {
+            font-size: 4rem;
+            font-weight: var(--font-weight-bold);
+            line-height: 1;
+            margin: 0;
+            color: var(--granite-900);
+        }
+
+        .stat-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--granite-800);
+            font-size: 0.875rem;
+            margin: 0;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+        }
+
+        .time-remaining {
+            margin-top: auto;
+            width: 100%;
+
+            .time-label {
+                font-size: 0.875rem;
+                color: var(--granite-900);
+                margin-bottom: 0.5rem;
+                padding-top: 1rem;  // Add padding above the text
+            }
+
+            .timer {
+                background: #B0C9E5;
+                border-radius: 8px;
+                padding: 0.75rem;
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.25rem;
+
+                .time-unit {
+                    font-size: 1.5rem;  // Keep the 1.5rem size as requested
+                    font-weight: var(--font-weight-bold);
+                    color: var(--granite-900);
+                    line-height: 1;
+
+                    .unit {
+                        font-size: 0.875rem;
+                        color: var(--granite-700);
+                        text-transform: lowercase;
+                        margin-left: 0.5rem;
+                    }
+                }
+
+                .separator {
+                    color: var(--granite-900);
+                    font-weight: var(--font-weight-bold);
+                    font-size: 1.5rem;  // Match time unit size
+                }
+            }
+
+            .timezone {
+                color: var(--granite-700);
+                font-size: 0.75rem;
+            }
+        }
+
+        .commission-info {
+            width: 100%;
+            margin-top: 1rem;
+
+            .period {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                color: var(--granite-900);
+                font-size: 0.875rem;
+                margin-bottom: 1.5rem;
+
+                .view-link {
+                    color: var(--turquoise-500);
+                    font-weight: 600;
+                }
+            }
+
+            .week-details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                font-size: 0.875rem;
+
+                .week-label {
+                    color: var(--granite-700);
+                    font-weight: 600;
+                }
+
+                .week-date {
+                    color: var(--turquoise-500);
+                    font-weight: 600;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        color: var(--turquoise-300);
+                    }
+                }
+
+                i {
+                    color: var(--granite-700);
+                    font-size: 16px;
+                }
+
+                .total {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    .total-label {
+                        color: var(--granite-700);
+                        font-weight: 600;
+                    }
+
+                    .amount {
+                        color: var(--color-success);
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .comparison-chart {
+            margin: 0;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0.5rem 0;
+
+            .chart-bars {
+                display: flex;
+                align-items: flex-end;
+                gap: 1rem;
+
+                .bar-group {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    .bar {
+                        width: 3rem;
+                        border-radius: 4px 4px 0 0;
+
+                        &.previous {
+                            height: 4rem;
+                            background: #9B97C5;
+                        }
+
+                        &.current {
+                            height: 5rem;
+                            background: #4099A8;
+                        }
+                    }
+
+                    .label {
+                        color: var(--granite-700);
+                        font-size: 0.75rem;
+                        text-align: center;
+                        line-height: 1.2;
+                    }
+                }
+            }
+
+            .percentage-change {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                color: var(--color-success);
+                font-weight: var(--font-weight-bold);
+                font-size: 1.5rem;
+
+                i {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        .status-info {
+            .status-item {
+                .label {
+                    color: var(--granite-700);
+                }
+
+                .value {
+                    font-weight: var(--font-weight-bold);  // Make both values bold
+                    
+                    &.inactive {
+                        color: var(--color-error);  // Keep "Inactive" red
+                    }
+                }
+            }
+        }
+    }
+
+    // Specific card backgrounds
+    &.weekly-card::part(base) {
+        background: #DFE7EF;
+    }
+    
+    &.monthly-card::part(base) {
+        background: #DEDDEE;
+    }
+    
+    &.compensation-card::part(base) {
+        background: #DFECD6;
+    }
+}
+
+// Add margin above and below the stats cards section
+.grid-x.grid-padding-x:first-of-type {
+    margin-top: 2rem;     // Add 32px margin above cards
+    margin-bottom: 1rem;  // Keep existing 16px margin below cards
 }
 
 .orders-card {
@@ -1606,24 +1864,20 @@ sl-tooltip::part(base) {
 
                 .time-unit {
                     font-size: 2rem;
-                    font-weight: 700;
-                    color: var(--granite-900);
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
+                    font-weight: 600;
+                    color: var(--turquoise-500);
+                    
                     .unit {
                         font-size: 0.75rem;
-                        font-weight: 400;
                         color: var(--granite-700);
+                        text-transform: lowercase;
+                        margin-left: 0.25rem;
                     }
                 }
 
                 .separator {
-                    font-size: 2rem;
-                    font-weight: 700;
-                    color: var(--granite-900);
-                    margin-top: -1rem;
+                    color: var(--turquoise-500);
+                    font-weight: 600;
                 }
             }
 
@@ -2277,263 +2531,6 @@ h2 {
 }
 
 .stats-card {
-    height: 100%;
-    width: 100%;  // Ensure card fills container
-
-    &::part(base) {
-        height: 100%;
-        width: 100%;
-        padding: 1rem 2rem 2rem;  // Reduce top padding to 1rem, keep sides and bottom at 2rem
-        margin: 0;
-    }
-
-    .stats-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        height: 100%;
-
-        h4, ::part(header) h4 {  // Target both regular and Shoelace parts
-            font-size: var(--font-size-h4) !important; // 1.5rem = 24px
-            font-weight: var(--font-weight-bold);
-            line-height: var(--line-height-tight);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-            color: var(--granite-900);
-        }
-
-        .stat-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            border: 1px solid var(--granite-800);
-            border-radius: 8px;
-            padding: .5rem 1.5rem;
-            margin-bottom: 1.5rem;
-            width: fit-content;
-        }
-
-        .stat-value {
-            font-size: 4rem;
-            font-weight: var(--font-weight-bold);
-            line-height: 1;
-            margin: 0;
-            color: var(--granite-900);
-        }
-
-        .stat-label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--granite-800);
-            font-size: 0.875rem;
-            margin: 0;
-            padding: 0;
-            background: none;
-            box-shadow: none;
-        }
-
-        .time-remaining {
-            margin-top: auto;
-            width: 100%;
-
-            .time-label {
-                font-size: 0.875rem;
-                color: var(--granite-900);
-                margin-bottom: 0.5rem;
-                padding-top: 1rem;  // Add padding above the text
-            }
-
-            .timer-container {
-                background: #B0C9E5;
-                border-radius: 8px;
-                padding: 0.75rem;
-                margin-bottom: 0.5rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.25rem;
-            }
-        }
-
-        .date-range {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            color: var(--granite-900);
-            font-size: 0.875rem;
-            margin-top: auto;
-            margin-bottom: 1rem;
-
-            i {
-                color: var(--granite-700);
-                font-size: 16px;
-            }
-        }
-
-        .commission-info {
-            width: 100%;
-            margin-top: 1rem;
-
-            .period {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-                color: var(--granite-900);
-                font-size: 0.875rem;
-                margin-bottom: 1.5rem;
-
-                .view-link {
-                    color: var(--turquoise-500);
-                    font-weight: 600;
-                }
-            }
-
-            .week-details {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-                font-size: 0.875rem;
-
-                .week-label {
-                    color: var(--granite-700);
-                    font-weight: 600;
-                }
-
-                .week-date {
-                    color: var(--turquoise-500);
-                    font-weight: 600;
-                    cursor: pointer;  // Show it's clickable
-                    
-                    &:hover {
-                        color: var(--turquoise-300);  // Hover state
-                    }
-                }
-
-                i {
-                    color: var(--granite-700);
-                    font-size: 16px;
-                }
-
-                .total {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-
-                    .total-label {
-                        color: var(--granite-700);
-                        font-weight: 600;
-                    }
-
-                    .amount {
-                        color: var(--color-success);
-                        font-weight: 700;
-                    }
-                }
-            }
-        }
-
-        .status-info {
-            .status-item {
-                .label {
-                    color: var(--granite-700);
-                }
-
-                .value {
-                    font-weight: var(--font-weight-bold);  // Make both values bold
-                    
-                    &.inactive {
-                        color: var(--color-error);  // Make "Inactive" red
-                    }
-                }
-            }
-        }
-
-        .comparison-chart {
-            margin: 0;  // Remove the margin since it's inside container now
-            width: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 2rem;
-            padding: 0.5rem 0;  // Add some vertical padding
-
-            .chart-bars {
-                display: flex;
-                align-items: flex-end;
-                gap: 1rem;
-
-                .bar-group {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 0.5rem;
-
-                    .bar {
-                        width: 3rem;
-                        border-radius: 4px 4px 0 0;
-
-                        &.previous {
-                            height: 4rem;
-                            background: #9B97C5;
-                        }
-
-                        &.current {
-                            height: 5rem;
-                            background: #4099A8;
-                        }
-                    }
-
-                    .label {
-                        color: var(--granite-700);
-                        font-size: 0.75rem;
-                        text-align: center;
-                        line-height: 1.2;
-                    }
-                }
-            }
-
-            .percentage-change {
-                display: flex;
-                align-items: center;
-                gap: 0.25rem;
-                color: var(--color-success);
-                font-weight: var(--font-weight-bold);
-                font-size: 1.5rem;
-
-                i {
-                    font-size: 1.25rem;
-                }
-            }
-        }
-    }
-
-    // Specific card backgrounds
-    &.weekly-card::part(base) {
-        background: #DFE7EF;
-    }
-    
-    &.monthly-card::part(base) {
-        background: #DEDDEE;
-    }
-    
-    &.compensation-card::part(base) {
-        background: #DFECD6;
-    }
-}
-
-// Add margin above and below the stats cards section
-.grid-x.grid-padding-x:first-of-type {
-    margin-top: 2rem;     // Add 32px margin above cards
-    margin-bottom: 1rem;  // Keep existing 16px margin below cards
-}
-
-.stats-card {
     .stats-content {
         .time-remaining {
             .timer {
@@ -2541,19 +2538,19 @@ h2 {
                 border-radius: 8px !important;
                 padding: 0.75rem !important;
                 margin-bottom: 0.5rem !important;
-                display: !important;
-                align-items: !important;
-                justify-content: !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
                 gap: 0.25rem !important;
 
                 .time-unit {
-                    font-size: 2 !important;
+                    font-size: 1.5rem !important;
                     font-weight: var(--font-weight-bold) !important;
                     color: var(--granite-900) !important;
                     line-height: 1 !important;
 
                     .unit {
-                        font-size: 0.875 !important;
+                        font-size: 0.875rem !important;
                         color: var(--granite-700) !important;
                         text-transform: lowercase !important;
                         margin-left: 0.5rem !important;
@@ -2563,7 +2560,7 @@ h2 {
                 .separator {
                     color: var(--granite-900) !important;
                     font-weight: var(--font-weight-bold) !important;
-                    font-size: 2 !important;
+                    font-size: 1.5rem !important;
                 }
             }
         }
