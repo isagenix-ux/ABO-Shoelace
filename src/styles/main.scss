@@ -209,16 +209,27 @@ sl-card::part(base) {
 
             .period {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                gap: 1rem;
-                color: var(--granite-900);
-                font-size: 0.875rem;
-                margin-bottom: 0.75rem;  // Reduced from 1.5rem
+                margin-bottom: 0.75rem;
 
                 .view-link {
                     color: var(--turquoise-500);
                     font-weight: 600;
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    i {
+                        font-size: 0.875rem;
+                        transition: transform 0.2s ease;
+                    }
+
+                    &:hover i {
+                        transform: translateX(4px);
+                    }
                 }
             }
 
@@ -226,28 +237,31 @@ sl-card::part(base) {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 1rem;
+                gap: 1.5rem;
                 font-size: 0.875rem;
-                margin-top: -0.25rem;  // Added negative margin to pull up
 
-                .week-label {
-                    color: var(--granite-700);
-                    font-weight: 600;
-                }
+                .week-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
 
-                .week-date {
-                    color: var(--turquoise-500);
-                    font-weight: 600;
-                    cursor: pointer;
-                    
-                    &:hover {
-                        color: var(--turquoise-300);
+                    .week-label {
+                        color: var(--granite-700);
+                        font-weight: 600;
+                    }
+
+                    .week-date {
+                        color: var(--turquoise-500);
+                        font-weight: 600;
+                        cursor: pointer;
                     }
                 }
 
-                i {
-                    color: var(--granite-700);
-                    font-size: 16px;
+                // Add vertical divider
+                .divider {
+                    width: 1px;
+                    height: 20px;
+                    background-color: var(--granite-500);
                 }
 
                 .total {
@@ -340,6 +354,21 @@ sl-card::part(base) {
                         color: var(--color-error);  // Keep "Inactive" red
                     }
                 }
+            }
+        }
+
+        .calendar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            i {
+                font-size: 0.875rem;
+                transition: transform 0.2s ease;
+            }
+
+            &:hover i {
+                transform: translateX(4px);
             }
         }
     }
@@ -1942,15 +1971,6 @@ sl-tooltip::part(base) {
                 color: var(--granite-700);
                 font-size: 0.75rem;
             }
-
-            // Only add responsive behavior
-            @media screen and (max-width: 63.9375em) {
-                text-align: center;
-                
-                .timer-value {
-                    justify-content: center;
-                }
-            }
         }
     }
 }
@@ -2049,45 +2069,45 @@ sl-tooltip::part(base) {
                 }
             }
         }
+    }
 
-        .compensation-details {
-            .period-info {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 1rem;
+    .compensation-details {
+        .period-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
 
-                span {
-                    color: var(--granite-900);
-                    font-size: 1rem;
-                }
-
-                .view-link::part(base) {
-                    color: var(--turquoise-500);
-                    font-size: 0.875rem;
-                    font-weight: 600;
-                    padding: 0;
-
-                    &:hover {
-                        color: var(--turquoise-300);
-                    }
-                }
+            span {
+                color: var(--granite-900);
+                font-size: 1rem;
             }
 
-            .week-total {
-                margin-top: 1rem;
-                padding-left: 1.5rem;
-                border-top: 1px solid var(--granite-200);
-                padding-top: 1rem;
+            .view-link::part(base) {
+                color: var(--turquoise-500);
+                font-size: 0.875rem;
+                font-weight: 600;
+                padding: 0;
 
-                .week-info {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
+                &:hover {
+                    color: var(--turquoise-300);
+                }
+            }
+        }
 
-                    .label {
-                        margin-bottom: 0.25rem;
-                    }
+        .week-total {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            border-top: 1px solid var(--granite-200);
+            padding-top: 1rem;
+
+            .week-info {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                .label {
+                    margin-bottom: 0.25rem;
                 }
             }
         }
@@ -2255,7 +2275,6 @@ h2 {
                     i {
                         color: var(--granite-700);
                         font-size: 16px;
-                        width: 16px;
                     }
                 }
 
@@ -2270,7 +2289,6 @@ h2 {
                         font-size: 2rem;
                         line-height: 1;
                         color: var(--granite-900);
-                        min-width: 16px;
                     }
 
                     .stat-label {
@@ -2545,35 +2563,14 @@ h2 {
 
 .stats-card {
     .stats-content {
-        .time-remaining {
-            .timer {
-                background: #B0C9E5 !important;
-                border-radius: 8px !important;
-                padding: 0.75rem !important;
-                margin-bottom: 0.5rem !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 0.25rem !important;
+        .comparison-chart {
+            @media screen and (max-width: 33.75em) {  // 540px and smaller
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
 
-                .time-unit {
-                    font-size: 1.5rem !important;
-                    font-weight: var(--font-weight-bold) !important;
-                    color: var(--granite-900) !important;
-                    line-height: 1 !important;
-
-                    .unit {
-                        font-size: 0.875rem !important;
-                        color: var(--granite-700) !important;
-                        text-transform: lowercase !important;
-                        margin-left: 0.5rem !important;
-                    }
-                }
-
-                .separator {
-                    color: var(--granite-900) !important;
-                    font-weight: var(--font-weight-bold) !important;
-                    font-size: 1.5rem !important;
+                .percentage-change {
+                    margin-top: 0.5rem;
                 }
             }
         }
