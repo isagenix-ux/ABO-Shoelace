@@ -698,10 +698,38 @@ sl-card::part(base) {
     display: block;
 }
 
-// Update the grid-container padding
+// Main grid container settings
 .grid-container {
-    padding: 0.25rem 2rem;
     max-width: 90rem;
+    padding: 0 2rem;  // Consistent padding for all content
+
+    .grid-x.grid-padding-x {
+        margin-right: -1rem;
+        margin-left: -1rem;
+
+        > .cell {
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+
+        // Top stats cards (3 columns)
+        &:first-of-type {
+            margin-bottom: 2rem;
+        }
+
+        // Menu sections (2 columns and full width)
+        .menu-card {
+            &::part(base) {
+                padding: 2rem;  // Consistent internal padding
+            }
+        }
+    }
+}
+
+// Remove any conflicting margins/padding
+.menu-sections {
+    margin: 0;
+    width: 100%;
 }
 
 // Mobile menu styles
