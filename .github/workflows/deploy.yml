@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - bootstrap-conversion  # Change this to your branch name
+      - bootstrap-conversion
 
 jobs:
   build-and-deploy:
@@ -23,14 +23,16 @@ jobs:
           echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" >> .npmrc
 
       - name: Install Dependencies
+        working-directory: ./bootstrap-version
         run: npm install
 
       - name: Build
+        working-directory: ./bootstrap-version
         run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist
+          folder: bootstrap-version/dist
           clean: true 
