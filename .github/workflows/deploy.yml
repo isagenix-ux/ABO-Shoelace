@@ -2,46 +2,30 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+    branches:
+      - bootstrap-conversion  # Change this to your branch name
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Configure Font Awesome
-        run: |
-          echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc
-          echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" >> .npmrc
-          
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
       - name: Install Dependencies
         run: npm install
-        
+
       - name: Build
         run: npm run build
-        env:
-          VITE_BASE_URL: '/ABO-Shoelace/'
-        
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: production-files
-          path: ./dist
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist 
+          branch: gh-pages
+          folder: dist
+          clean: true 
