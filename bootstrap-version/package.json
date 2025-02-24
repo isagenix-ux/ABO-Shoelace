@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Bootstrap version of the dashboard",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
@@ -12,7 +13,8 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "parcel": "^2.8.3",
-    "@parcel/transformer-sass": "^2.8.3"
+    "vite": "^5.0.0",
+    "@parcel/transformer-sass": "^2.8.3",
+    "svgo": "^3.0.2"
   }
 } 
