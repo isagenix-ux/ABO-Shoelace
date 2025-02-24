@@ -174,8 +174,9 @@
                             <i class="fa-light fa-calendar"></i>
                             Jan-27-2025 to Feb-23-2025
                         </div>
-                        <sl-button class="calendar-link" variant="text">
-                            COMMISSION CALENDAR <i class="fa-light fa-arrow-right"></i>
+                        <sl-button class="commission-calendar">
+                            COMMISSION CALENDAR
+                            <i class="fa-light fa-arrow-right" slot="suffix"></i>
                         </sl-button>
                     </div>
                 </sl-card>
@@ -206,8 +207,9 @@
                         </div>
                         <div class="commission-info">
                             <div class="period">
-                                <sl-button variant="text" class="view-link">
-                                    VIEW CURRENT MONTH <i class="fa-light fa-arrow-right"></i>
+                                <sl-button class="view-current-month">
+                                    VIEW CURRENT MONTH
+                                    <i class="fa-light fa-arrow-right" slot="suffix"></i>
                                 </sl-button>
                             </div>
                             <div class="week-details">
@@ -336,32 +338,41 @@
                         </div>
                     </div>
 
-                    <sl-button variant="primary" class="activate-button">ACTIVATE SUBSCRIPTION PERKS</sl-button>
+                    <sl-button variant="primary" class="activate-button">FINISH SETUP</sl-button>
                 </sl-card>
             </div>
             <div class="cell small-12 medium-6">
                 <sl-card class="isabody-card">
                     <div class="card-header">
                         <h2>MY ISABODY® KICKSTART 90</h2>
-                        <a href="#" class="view-report">VIEW KICKSTART 90 4PET REPORT <i class="fa-light fa-arrow-right"></i></a>
+                        <sl-button class="view-report">
+                            VIEW KICKSTART 90 4PET REPORT
+                            <i class="fa-light fa-arrow-right" slot="suffix"></i>
+                        </sl-button>
                     </div>
 
                     <div class="current-challenge">
                         <h3>Current Challenge</h3>
-                        <div class="challenge-status">
-                            <div class="dates">
+                        <div class="dates">
+                            <div class="status-container">
                                 <div class="period">
                                     <div class="status-label">
-                                        <i class="fa-light fa-circle-check"></i>
-                                        <span>In Progress</span>
+                                        
+                                        <strong>In Progress:</strong>
+                                        Jan-1-2025 to Mar-31-2025
                                     </div>
-                                    <span>1/1/2025 to 3/31/2025</span>
-                                </div>
-                                <div class="deadline">
-                                    <h4>Submission Deadline</h4>
-                                    <span>4/14/2025</span>
+                                    
                                 </div>
                             </div>
+
+                            <div class="status-container">
+                                <div class="deadline">
+                                    <strong>Submission Deadline:</strong>
+                                    <span>Apr-14-2025</span>
+                                </div>
+                            </div>
+                            
+                            
                         </div>
                     </div>
 
@@ -383,7 +394,7 @@
                         </div>
                         <div class="register-section">
                             <h3>Register for next Kickstart 90</h3>
-                            <p>starting on 3/18/2025.</p>
+                            <p>starting on Mar-18-2025.</p>
                             <sl-button class="register">REGISTER</sl-button>
                         </div>
                     </div>
@@ -399,7 +410,7 @@
                         <div class="content">
                             <h3>The New IsaPulse+ App is Here!</h3>
                             <p>Track, manage, and grow your business like never before! IsaPulse+ is the perfect combo of Penny and the former IsaPulse.</p>
-                            <sl-button class="download-button" href="#" variant="text">
+                            <sl-button class="download-now">
                                 DOWNLOAD NOW
                                 <i class="fa-light fa-arrow-right" slot="suffix"></i>
                             </sl-button>
