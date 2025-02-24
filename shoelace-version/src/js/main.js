@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Calendar dialog functionality
-    const calendarButton = document.querySelector('.calendar-link');
+    const calendarButton = document.querySelector('.commission-calendar');
     const calendarDialog = document.querySelector('.calendar-dialog');
 
     calendarButton?.addEventListener('click', () => {

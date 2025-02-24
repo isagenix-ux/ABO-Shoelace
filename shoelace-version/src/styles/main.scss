@@ -167,33 +167,32 @@ sl-card::part(base) {
             }
 
             .timer {
-                background: #B0C9E5;
+                width: fit-content;  // Let content control width
+                background: var(--granite-200);
                 border-radius: 8px;
-                padding: 0.75rem;
+                padding: 0.75rem 1rem;  // 16px horizontal padding
                 margin-bottom: 0.5rem;
+                margin: auto;
                 display: flex;
                 align-items: center;
-                justify-content: center;
                 gap: 0.25rem;
 
                 .time-unit {
-                    font-size: 1.5rem;  // Keep the 1.5rem size as requested
-                    font-weight: var(--font-weight-bold);
+                    font-size: 2rem;
+                    font-weight: 600;
                     color: var(--granite-900);
-                    line-height: 1;
-
+                    
                     .unit {
-                        font-size: 0.875rem;
+                        font-size: 0.75rem;
                         color: var(--granite-700);
                         text-transform: lowercase;
-                        margin-left: 0.5rem;
+                        margin-left: 0.25rem;
                     }
                 }
 
                 .separator {
                     color: var(--granite-900);
-                    font-weight: var(--font-weight-bold);
-                    font-size: 1.5rem;  // Match time unit size
+                    font-weight: 600;
                 }
             }
 
@@ -387,15 +386,15 @@ sl-card::part(base) {
 
     // Specific card backgrounds
     &.weekly-card::part(base) {
-        background: #DFE7EF;
+        background: #FFFFFF;
     }
     
     &.monthly-card::part(base) {
-        background: #DEDDEE;
+        background: #FFFFFF;
     }
     
     &.compensation-card::part(base) {
-        background: #DFECD6;
+        background: #FFFFFF;
     }
 }
 
@@ -1084,42 +1083,22 @@ sl-card::part(base) {
 
 .isabody-card {
     .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-bottom: 2rem;
 
-        @media screen and (max-width: 39.9375em) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .view-report {
-            color: var(--turquoise-500);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 600;
+        .header-content {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: flex-start;  // Left align the button
 
-            i {
-                font-size: 1rem;
-                transition: transform 0.2s ease;
+            h2 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin: 0;
             }
-            
-            &:hover {
-                color: var(--turquoise-300);
-                i {
-                    transform: translateX(4px);
-                }
+
+            .view-report {
+                padding: 0;  // Remove any default padding
             }
         }
     }
@@ -1332,60 +1311,37 @@ sl-tooltip::part(base) {
     .card-layout {
         display: flex;
         gap: 2rem;
-        align-items: center;
-    }
 
-    .content {
-        flex: 0 0 50%;
-        padding-right: 1rem;
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;  // Left align the button
 
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0 0 1.5rem 0;
-            line-height: 1.2;
-            color: var(--granite-900);
-        }
-
-        p {
-            font-size: 1.25rem;
-            line-height: 1.5;
-            margin: 0 0 2rem 0;
-            color: var(--granite-800);
-        }
-
-        .download-button::part(base) {
-            color: var(--turquoise-500);
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 0;
-            gap: 0.5rem;
-            align-items: center;
-            
-            i {
+            h3 {
                 font-size: 1.25rem;
-                transition: transform 0.2s ease;
+                font-weight: 700;
+                margin: 0 0 1rem 0;
             }
-            
-            &:hover {
-                color: var(--turquoise-300);
-                
-                i {
-                    transform: translateX(4px);
-                }
+
+            p {
+                margin: 0 0 1.5rem 0;
+                color: var(--granite-700);
+            }
+
+            .download-now {
+                padding: 0;  // Remove any default padding
             }
         }
-    }
 
-    .app-image {
-        flex: 0 0 50%;
-        display: flex;
-        justify-content: flex-end;
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
+        .app-image {
+            flex: 0 0 37.5%;  // Reduce from 50% to 37.5% (25% reduction)
+            padding-right: 1rem;
+            
+            img {
+                max-width: 100%;
+                height: auto;
+            }
         }
     }
 
@@ -2423,76 +2379,6 @@ h2 {
                 .timezone {
                     color: var(--granite-700);
                     font-size: 0.75rem;
-                }
-            }
-        }
-    }
-}
-
-.calendar-dialog {
-    --width: 90vw;
-    --header-spacing: 1.5rem;
-    --body-spacing: 2rem;
-    --max-height: 80vh;  // Add max height for dialog
-
-    @media (min-width: 64em) {
-        --width: 80vw;
-    }
-
-    &::part(body) {
-        max-height: calc(80vh - 120px);  // Account for header and padding
-        overflow-y: auto;  // Make content scrollable
-        padding-right: 1rem;  // Add space for scrollbar
-    }
-
-    .calendar-content {
-        .calendar-description {
-            font-size: 0.875rem;
-            color: var(--granite-900);
-            margin-bottom: 0.5rem;
-        }
-
-        .calendar-timezone {
-            font-size: 0.875rem;
-            color: var(--granite-700);
-            margin-bottom: 2rem;
-        }
-
-        .commission-table {
-            width: 100%;
-            border-collapse: collapse;
-            
-            thead {
-                position: sticky;  // Keep header visible while scrolling
-                top: 0;
-                z-index: 1;
-                background: white;
-            }
-            
-            th {
-                background-color: var(--turquoise-500);
-                color: white;
-                padding: 1rem;
-                text-align: left;
-                font-size: 0.875rem;
-                font-weight: 600;
-            }
-
-            td {
-                padding: 1rem;
-                border-bottom: 1px solid var(--granite-200);
-                font-size: 0.875rem;
-                color: var(--granite-900);
-            }
-
-            .month-header {
-                td:first-child {
-                    background-color: var(--turquoise-500);
-                    color: white;
-                    font-weight: 600;
-                    position: sticky;  // Keep month column visible while scrolling horizontally
-                    left: 0;
-                    z-index: 1;
                 }
             }
         }
