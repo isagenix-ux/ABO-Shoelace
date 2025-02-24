@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Isagenix</title>
+    <link rel="stylesheet" href="src/styles/main.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="src/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/f3233efe0a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="grid-container">
+            <div class="grid-x align-middle">
+                <div class="cell small-2 large-2">
+                    <a href="index.html" class="logo">
+                        <img src="src/images/isagenix-logo.svg" alt="Isagenix">
+                    </a>
+                </div>
+                <div class="cell large-7 show-for-large">
+                    <nav class="main-nav">
+                        <a href="#">Back Office</a>
+                        <div class="nav-dropdown">
+                            <a href="orders.html" class="nav-link">Orders</a>
+                            <sl-menu class="hover-menu">
+                                <sl-menu-item value="place-order">
+                                    Place Order
+                                </sl-menu-item>
+                                <sl-menu-item value="setup-subscription">
+                                    Setup Subscription
+                                </sl-menu-item>
+                                <sl-menu-item value="view-events">
+                                    View & Manage Events
+                                </sl-menu-item>
+                                <sl-menu-item value="order-history">
+                                    View Order History
+                                </sl-menu-item>
+                                <sl-menu-item value="view-coupons">
+                                    View Coupons
+                                </sl-menu-item>
+                                <sl-menu-item value="view-price-lists">
+                                    View Price Lists
+                                </sl-menu-item>
+                                <sl-menu-item value="isadelivery">
+                                    IsaDelivery
+                                </sl-menu-item>
+                            </sl-menu>
+                        </div>
+                        <a href="#">Team</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="#">Contests & Promotions</a>
+                        <a href="reports.html" class="active">Reports</a>
+                        <a href="#">Brand Partner</a>
+                    </nav>
+                </div>
+                <div class="cell small-10 large-3">
+                    <div class="user-controls">
+                        <div class="user-greeting-container show-for-large">
+                            <sl-dropdown>
+                                <div slot="trigger" class="user-trigger">
+                                    <i class="fa-light fa-user" style="color: #2c2c2c;"></i>
+                                    <sl-button variant="text" class="user-greeting">
+                                        <span>Hello, Sam</span>
+                                    </sl-button>
+                                </div>
+                                <sl-menu>
+                                    <div class="account-id">Account ID: 8556829</div>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-id-card" slot="prefix"></i>
+                                        My Account
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-clock-rotate-left" slot="prefix"></i>
+                                        Order History
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-location-dot" slot="prefix"></i>
+                                        Address Information
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-credit-card" slot="prefix"></i>
+                                        Payment Information
+                                    </sl-menu-item>
+                                    
+                                    <sl-divider></sl-divider>
+                                    
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-network-wired" slot="prefix"></i>
+                                        Associate Business
+                                        <i class="fa-light fa-chevron-right" slot="suffix"></i>
+                                    </sl-menu-item>
+                                    <sl-menu class="submenu">
+                                        <sl-menu-item>Dashboard</sl-menu-item>
+                                        <sl-menu-item>Enroll New Member</sl-menu-item>
+                                        <sl-menu-item>Create Recommended Cart</sl-menu-item>
+                                        <sl-menu-item>Manage Recommended Carts</sl-menu-item>
+                                    </sl-menu>
+                                    
+                                    <sl-divider></sl-divider>
+                                    
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-right-from-bracket" slot="prefix"></i>
+                                        Sign Out
+                                    </sl-menu-item>
+                                </sl-menu>
+                            </sl-dropdown>
+                        </div>
+                        <sl-button variant="text" class="notifications show-for-large">
+                            <i class="fa-light fa-bell" style="color: #2c2c2c;"></i>
+                        </sl-button>
+                        <sl-button variant="text" class="menu-toggle hide-for-large" @click="drawer.show()">
+                            <i class="fa-light fa-bars" style="color: #2c2c2c;"></i>
+                        </sl-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <sl-card class="reports-nav-card">
+                    <div class="reports-nav">
+                        <sl-button class="nav-button active">Action</sl-button>
+                        <sl-button class="nav-button">Recognition</sl-button>
+                        <sl-button class="nav-button">Business</sl-button>
+                        <sl-button class="nav-button">Leadership</sl-button>
+                    </div>
+                </sl-card>
+
+                <div class="reports-disclaimer">
+                    <p>In accordance with the Isagenix Associate Terms & Conditions <a href="#">as stated here</a>, and applicable law, you acknowledge and agree that as a Service Provider, you will not sell, retain, use, or disclose the personal information of Isagenix Customers or other Isagenix Independent Associates, including those that may appear here. You further agree and acknowledge that any processing of Isagenix Customers or other Isagenix Independent Associates personal information is only done on behalf of Isagenix and for a business purpose as described in your IAAA, particularly the marketing of Isagenix products and services.</p>
+                </div>
+
+                <sl-card class="reports-section-card">
+                    <h2>Action Reports</h2>
+                    <p class="section-description">Resources in this section can be used to encourage and motivate your team Members to achieve bonuses, rank advancements and more.</p>
+                    <div class="reports-links">
+                        <sl-details class="report-details">
+                            <div slot="summary">Business Blueprint</div>
+                            <p>See members in your 4PET who have the potential to earn bonuses, rank advancements and more. Organized by category.</p>
+                        </sl-details>
+
+                        <sl-details class="report-details">
+                            <div slot="summary">Business Blueprint by Member</div>
+                            <p>See members in your 4PET who have the potential to earn bonuses, rank advancements and more. Organized by member.</p>
+                        </sl-details>
+
+                        <sl-details class="report-details">
+                            <div slot="summary">Business Blueprint by Enrolling Sponsor</div>
+                            <p>See members in your 4PET who have the potential to earn bonuses, rank advancements and more. Organized by enrolling sponsor.</p>
+                        </sl-details>
+                    </div>
+                </sl-card>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <sl-drawer label="Menu" class="mobile-menu" placement="end">
+        <nav class="mobile-nav">
+            <div class="mobile-user-section">
+                <sl-dropdown>
+                    <div slot="trigger" class="user-trigger">
+                        <i class="fa-light fa-user"></i>
+                        <sl-button variant="text" class="user-greeting">
+                            <span>Hello, Sam</span>
+                        </sl-button>
+                    </div>
+                    <sl-menu>
+                        <div class="account-id">Account ID: 8556829</div>
+                        <sl-menu-item>
+                            <i class="fa-light fa-id-card" slot="prefix"></i>
+                            My Account
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-clock-rotate-left" slot="prefix"></i>
+                            Order History
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-location-dot" slot="prefix"></i>
+                            Address Information
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-credit-card" slot="prefix"></i>
+                            Payment Information
+                        </sl-menu-item>
+                        
+                        <sl-divider></sl-divider>
+                        
+                        <sl-menu-item>
+                            <i class="fa-light fa-network-wired" slot="prefix"></i>
+                            Associate Business
+                            <i class="fa-light fa-chevron-right" slot="suffix"></i>
+                        </sl-menu-item>
+                        <sl-menu class="submenu">
+                            <sl-menu-item>Dashboard</sl-menu-item>
+                            <sl-menu-item>Enroll New Member</sl-menu-item>
+                            <sl-menu-item>Create Recommended Cart</sl-menu-item>
+                            <sl-menu-item>Manage Recommended Carts</sl-menu-item>
+                        </sl-menu>
+                        
+                        <sl-divider></sl-divider>
+                        
+                        <sl-menu-item>
+                            <i class="fa-light fa-right-from-bracket" slot="prefix"></i>
+                            Sign Out
+                        </sl-menu-item>
+                    </sl-menu>
+                </sl-dropdown>
+            </div>
+            <a href="#">Back Office</a>
+            <a href="orders.html">Orders</a>
+            <a href="#">Team</a>
+            <a href="resources.html">Resources</a>
+            <a href="#">Contests & Promotions</a>
+            <a href="reports.html" class="active">Reports</a>
+            <a href="#">Brand Partner</a>
+        </nav>
+    </sl-drawer>
+</body>
+</html> 
