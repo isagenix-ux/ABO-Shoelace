@@ -9904,8 +9904,7 @@ body {
 
 .comparison-chart {
   justify-content: center;
-  align-items: flex-end;
-  gap: 2rem;
+  align-items: center;
   width: 100%;
   padding: .5rem 0;
   display: flex;
@@ -9913,7 +9912,7 @@ body {
 
 .comparison-chart .chart-bars {
   align-items: flex-end;
-  gap: 1rem;
+  gap: .75rem;
   display: flex;
 }
 
@@ -9925,18 +9924,14 @@ body {
 }
 
 .comparison-chart .chart-bars .bar-group .bar {
+  background: var(--turquoise-300);
+  cursor: pointer;
   border-radius: 4px 4px 0 0;
   width: 3rem;
 }
 
-.comparison-chart .chart-bars .bar-group .bar.previous {
+.comparison-chart .chart-bars .bar-group .bar.purple {
   background: #9b97c5;
-  height: 4rem;
-}
-
-.comparison-chart .chart-bars .bar-group .bar.current {
-  background: #4099a8;
-  height: 5rem;
 }
 
 .comparison-chart .chart-bars .bar-group .label {
@@ -9945,19 +9940,6 @@ body {
   font-size: .75rem;
   font-weight: 600;
   line-height: 1.2;
-}
-
-.comparison-chart .percentage-change {
-  color: var(--color-success);
-  align-items: center;
-  gap: .25rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  display: flex;
-}
-
-.comparison-chart .percentage-change i {
-  font-size: 1.25rem;
 }
 
 .commission-info {
@@ -10081,6 +10063,11 @@ body {
   display: flex;
 }
 
+.menu-card .menu-sections .menu-section .section-header h2 i {
+  margin-right: .75rem;
+  font-size: 24px;
+}
+
 .menu-card .menu-sections .menu-section .section-header h2 i.fa-circle-info {
   color: var(--turquoise-500);
   cursor: help;
@@ -10173,7 +10160,7 @@ body {
 .orders-card .alert {
   color: var(--granite-900);
   background-color: #edab3a1a;
-  border: none;
+  border: 1px solid #edab3a;
   margin: 1rem 0;
 }
 
@@ -10184,14 +10171,19 @@ body {
 .orders-card .perks {
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   display: flex;
 }
 
 .orders-card .perks .perk {
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: .75rem;
+  margin-bottom: 1rem;
   display: flex;
+}
+
+.orders-card .perks .perk:last-child {
+  margin-bottom: .5rem;
 }
 
 .orders-card .perks .perk i {
@@ -10518,15 +10510,39 @@ body {
 
 .site-header .user-controls .user-greeting i {
   font-size: 24px;
+  transition: none;
+  transform: none;
+}
+
+.site-header .user-controls .user-greeting i:hover {
+  transform: none;
 }
 
 .site-header .user-controls .notifications {
   color: var(--granite-900);
   padding: 0;
+  position: relative;
 }
 
 .site-header .user-controls .notifications i {
   font-size: 24px;
+  transition: none;
+  transform: none;
+}
+
+.site-header .user-controls .notifications i:hover {
+  transform: none;
+}
+
+.site-header .user-controls .notifications .notification-badge {
+  background-color: #a0272b;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: -2px;
+  right: -2px;
 }
 
 @media (width <= 991.98px) {

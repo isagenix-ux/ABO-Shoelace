@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/ABO-Shoelace/bootstrap-version/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABOO Refresh - Boostrap UI</title>
+    <title>ABO Refresh - Boostrap UI</title>
     <link rel="stylesheet" href="src/styles/main.scss">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script type="module" src="src/js/main.js"></script>
@@ -117,6 +116,7 @@
                         <!-- Notifications -->
                         <button class="btn btn-link notifications">
                             <i class="fa-light fa-bell"></i>
+                            <span class="notification-badge"></span>
                         </button>
                     </div>
                 </div>
@@ -130,27 +130,26 @@
             <div class="col-12 col-md-4">
                 <div class="card stats-card weekly-card">
                     <div class="stats-content">
-                        <strong class="d-block mb-3">COMMISSION WEEK</strong>
+                        <strong class="d-block mb-3">CURRENT COMMISSION WEEK</strong>
                         
                         <div class="stat-container">
-                            <div class="stat-value">5</div>
                             <div class="stat-label">
-                                Enrolled Consultants 
-                                <i class="fa-light fa-circle-info" 
+                                Paid-As Rank: <b>Consultant</b>
+                                <i class="fa-regular fa-circle-info" 
                                    data-toggle="tooltip" 
                                    data-placement="right"
-                                   title="The number of new consultants you've personally enrolled during the current commission week."></i>
+                                   title="Your current rank based on your business performance for this commission week."></i>
                             </div>
                         </div>
                         
                         <div class="status-info">
                             <div class="status-item">
-                                <span class="label">Paid-As Rank:</span>
-                                <span class="value">Consultant</span>
-                            </div>
-                            <div class="status-item">
                                 <span class="label">Active Status:</span>
                                 <span class="value text-danger">Inactive</span>
+                                <i class="fa-regular fa-circle-info" 
+                                   data-toggle="tooltip" 
+                                   data-placement="right"
+                                   title="Your Isagenix Active status is currently Inactive because you have not met the required purchase or activity criteria within the specified period. To regain Active status, review your account activity and ensure you meet the necessary order or engagement requirements."></i>
                             </div>
                         </div>
 
@@ -177,7 +176,7 @@
                             <div class="stat-value">20</div>
                             <div class="stat-label">
                                 Personally Enrolled 
-                                <i class="fa-light fa-circle-info" 
+                                <i class="fa-regular fa-circle-info" 
                                    data-toggle="tooltip" 
                                    data-placement="right"
                                    title="The total number of new members you've personally enrolled during the current commission month."></i>
@@ -203,24 +202,39 @@
                     <div class="stats-content">
                         <strong class="d-block mb-3">COMPENSATION</strong>
                         
-                        <div class="stat-container">
-                            <div class="comparison-chart">
-                                <div class="chart-bars">
-                                    <div class="bar-group">
-                                        <div class="bar previous"></div>
-                                        <div class="label">PREVIOUS<br>PAID WEEK</div>
-                                    </div>
-                                    <div class="bar-group">
-                                        <div class="bar current"></div>
-                                        <div class="label">LAST PAID<br>WEEK</div>
-                                    </div>
+                        <div class="comparison-chart">
+                            <div class="chart-bars">
+                                <div class="bar-group">
+                                    <div class="bar" 
+                                         style="height: 3rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$312.75"></div>
+                                    <div class="label">12/29/2024</div>
                                 </div>
-                                <div class="percentage-change">
-                                    <span class="value">+22.3%</span>
-                                    <i class="fa-light fa-arrow-up" 
-                                       data-toggle="tooltip" 
-                                       data-placement="right"
-                                       title="Your commission earnings increased by 22.3% compared to the previous paid week."></i>
+                                <div class="bar-group">
+                                    <div class="bar purple" 
+                                         style="height: 4.5rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$526.40"></div>
+                                    <div class="label">01/05/2025</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" 
+                                         style="height: 3.8rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$418.90"></div>
+                                    <div class="label">01/12/2025</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar purple" 
+                                         style="height: 5rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$611.35"></div>
+                                    <div class="label">01/19/2025</div>
                                 </div>
                             </div>
                         </div>
@@ -259,8 +273,9 @@
                         <div class="menu-section">
                             <div class="section-header">
                                 <h2>
+                                    <i class="fa-light fa-cart-shopping"></i>
                                     RECOMMENDED CARTS
-                                    <i class="fa-light fa-circle-info" 
+                                    <i class="fa-regular fa-circle-info" 
                                        data-toggle="tooltip" 
                                        data-placement="right"
                                        title="Create a curated shopping cart with your favorite products to share with potential customers (prospects). They can view and purchase directly from your shared cart, making shopping simple and seamless."></i>
@@ -277,8 +292,9 @@
                         <div class="menu-section">
                             <div class="section-header">
                                 <h2>
+                                    <i class="fa-light fa-briefcase"></i>
                                     BUSINESS
-                                    <i class="fa-light fa-circle-info" 
+                                    <i class="fa-regular fa-circle-info" 
                                        data-toggle="tooltip" 
                                        data-placement="right"
                                        title="Grow your business by enrolling new members to sign up prospects, using the Placement Tree to manage your team, and My Business to track performance."></i>
@@ -295,8 +311,9 @@
                         <div class="menu-section">
                             <div class="section-header">
                                 <h2>
+                                    <i class="fa-light fa-book"></i>
                                     RESOURCES
-                                    <i class="fa-light fa-circle-info" 
+                                    <i class="fa-regular fa-circle-info" 
                                        data-toggle="tooltip" 
                                        data-placement="right"
                                        title="Access marketing materials, business tools, and health resources to support your business growth and customer success."></i>
@@ -387,16 +404,10 @@
                             <div class="status-container">
                                 <div class="period">
                                     <div class="status-label">
-                                        <strong>In Progress:</strong>
-                                        Jan-1-2025 to Mar-31-2025
+                                        <strong>In Progress:</strong> Jan-1-2025 to Mar-31-2025
+                                        <br>
+                                        <strong>Submission Deadline:</strong> Apr-14-2025
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="status-container">
-                                <div class="deadline">
-                                    <strong>Submission Deadline:</strong>
-                                    <span>Apr-14-2025</span>
                                 </div>
                             </div>
                         </div>
@@ -449,69 +460,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Mobile menu drawer -->
-    <sl-drawer label="Menu" class="mobile-menu" placement="end">
-        <nav class="mobile-nav">
-            <div class="mobile-user-section">
-                <sl-dropdown>
-                    <div slot="trigger" class="user-trigger">
-                        <i class="fa-light fa-user"></i>
-                        <sl-button variant="text" class="user-greeting">
-                            <span>Hello, Sam</span>
-                        </sl-button>
-                    </div>
-                    <sl-menu>
-                        <div class="account-id">Account ID: 8556829</div>
-                        <sl-menu-item>
-                            <i class="fa-light fa-id-card" slot="prefix"></i>
-                            My Account
-                        </sl-menu-item>
-                        <sl-menu-item>
-                            <i class="fa-light fa-clock-rotate-left" slot="prefix"></i>
-                            Order History
-                        </sl-menu-item>
-                        <sl-menu-item>
-                            <i class="fa-light fa-location-dot" slot="prefix"></i>
-                            Address Information
-                        </sl-menu-item>
-                        <sl-menu-item>
-                            <i class="fa-light fa-credit-card" slot="prefix"></i>
-                            Payment Information
-                        </sl-menu-item>
-                        
-                        <sl-divider></sl-divider>
-                        
-                        <sl-menu-item>
-                            <i class="fa-light fa-network-wired" slot="prefix"></i>
-                            Associate Business
-                            <i class="fa-light fa-chevron-right" slot="suffix"></i>
-                        </sl-menu-item>
-                        <sl-menu class="submenu">
-                            <sl-menu-item>Dashboard</sl-menu-item>
-                            <sl-menu-item>Enroll New Member</sl-menu-item>
-                            <sl-menu-item>Create Recommended Cart</sl-menu-item>
-                            <sl-menu-item>Manage Recommended Carts</sl-menu-item>
-                        </sl-menu>
-                        
-                        <sl-divider></sl-divider>
-                        
-                        <sl-menu-item>
-                            <i class="fa-light fa-right-from-bracket" slot="prefix"></i>
-                            Sign Out
-                        </sl-menu-item>
-                    </sl-menu>
-                </sl-dropdown>
-            </div>
-            <a href="#">Back Office</a>
-            <a href="orders.html">Orders</a>
-            <a href="#">Team</a>
-            <a href="resources.html">Resources</a>
-            <a href="#">Contests & Promotions</a>
-            <a href="reports.html">Reports</a>
-            <a href="#">Brand Partner</a>
-        </nav>
-    </sl-drawer>
 
     <!-- Commission Statement Modal -->
     <div class="modal fade" id="commissionModal" tabindex="-1" aria-labelledby="commissionModalLabel" aria-hidden="true">
