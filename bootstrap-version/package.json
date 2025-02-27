@@ -4,7 +4,7 @@
   "description": "Bootstrap version of the dashboard",
   "scripts": {
     "start": "parcel index.html --port 1234 --open",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --public-url /ABO-Shoelace/bootstrap-version/"
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
@@ -12,7 +12,8 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
     "parcel": "^2.8.3",
-    "@parcel/transformer-sass": "^2.8.3"
+    "svgo": "^3.3.2"
   }
-} 
+}
