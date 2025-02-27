@@ -2,7 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - bootstrap-conversion
   workflow_dispatch:
 
 permissions:
@@ -27,12 +29,14 @@ jobs:
 
       - name: Build
         working-directory: ./bootstrap-version
+        env:
+          BASE_URL: '/ABO-Shoelace'
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./bootstrap-version/dist
+          path: ./bootstrap-version/dist/
 
   deploy:
     needs: build
