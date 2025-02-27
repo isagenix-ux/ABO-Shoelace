@@ -3,14 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
       - bootstrap-conversion
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
 jobs:
   build:
@@ -27,17 +21,31 @@ jobs:
         working-directory: ./bootstrap-version
         run: npm install
 
-      - name: Build
+      - name: Setup Static Directory
         working-directory: ./bootstrap-version
         run: |
-          cp .nojekyll dist/
-          cp 404.html dist/
-          npm run build
+          mkdir -p static
+          cp -r src static/
+          cp index.html static/
+          cp orders.html static/
+          cp resources.html static/
+          cp reports.html static/
+          cp .nojekyll static/
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Build
+        working-directory: ./bootstrap-version
+        env:
+          NODE_ENV: production
+        run: |
+          npm run build
+          cp -r dist/* static/
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: ./bootstrap-version/dist
+          branch: gh-pages
+          folder: bootstrap-version/static
+          clean: true
 
   deploy:
     needs: build

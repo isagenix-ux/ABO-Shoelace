@@ -8,4 +8,4 @@
 ## Setup Requirements
 - Requires jQuery and Popper.js
 - Bootstrap JS components need manual initialization
-- SCSS variables use `$` prefix instead of CSS custom properties 
+- SCSS variables use `$` prefix instead of CSS custom properties # ABO-bootstrap
