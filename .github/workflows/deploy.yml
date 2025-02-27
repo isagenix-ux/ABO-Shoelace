@@ -3,12 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - bootstrap-conversion
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       
@@ -30,6 +32,7 @@ jobs:
           cp orders.html static/
           cp resources.html static/
           cp reports.html static/
+          touch .nojekyll
           cp .nojekyll static/
 
       - name: Build
@@ -38,6 +41,8 @@ jobs:
           NODE_ENV: production
         run: |
           npm run build
+          # Fix asset paths in dist/index.html
+          sed -i 's/\/src\//src\//g' dist/index.html
           cp -r dist/* static/
 
       - name: Deploy to GitHub Pages
