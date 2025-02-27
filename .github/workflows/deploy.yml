@@ -7,13 +7,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -23,42 +23,13 @@ jobs:
         working-directory: ./bootstrap-version
         run: npm install
 
-      - name: Setup Static Directory
-        working-directory: ./bootstrap-version
-        run: |
-          mkdir -p static
-          cp -r src static/
-          cp index.html static/
-          cp orders.html static/
-          cp resources.html static/
-          cp reports.html static/
-          touch .nojekyll
-          cp .nojekyll static/
-
       - name: Build
         working-directory: ./bootstrap-version
-        env:
-          NODE_ENV: production
-        run: |
-          npm run build
-          # Fix asset paths in dist/index.html
-          sed -i 's/\/src\//src\//g' dist/index.html
-          cp -r dist/* static/
+        run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: bootstrap-version/static
-          clean: true
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./bootstrap-version/dist
+          force_orphan: true 
