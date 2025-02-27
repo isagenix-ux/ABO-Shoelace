@@ -1,11 +1,809 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0;URL='/ABO-Shoelace/bootstrap-version/'">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABO Refresh - Boostrap UI</title>
+    <link rel="stylesheet" href="src/styles/main.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="src/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/f3233efe0a.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <p>Please wait while you're redirected to the <a href="/ABO-Shoelace/bootstrap-version/">main page</a>.</p>
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- Logo -->
+                <a href="#" class="navbar-brand">
+                    <img src="src/images/isagenix-logo.svg" alt="Isagenix">
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <i class="fa-light fa-bars"></i>
+                </button>
+
+                <!-- Navigation Content -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Back Office</a>
+                        </li>
+                        
+                        <!-- Orders Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="orders.html">
+                                Orders
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Place Order</a>
+                                <a class="dropdown-item" href="#">Setup Subscription</a>
+                                <a class="dropdown-item" href="#">View & Manage Events</a>
+                                <a class="dropdown-item" href="#">View Order History</a>
+                                <a class="dropdown-item" href="#">View Coupons</a>
+                                <a class="dropdown-item" href="#">View Price Lists</a>
+                                <a class="dropdown-item" href="#">IsaDelivery</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resources.html">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contests & Promotions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reports.html">Reports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Brand Partner</a>
+                        </li>
+                    </ul>
+
+                    <!-- User Controls -->
+                    <div class="user-controls d-none d-lg-flex">
+                        <!-- User Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle user-greeting" type="button" id="userDropdown" 
+                                    data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-light fa-user"></i>
+                                <span>Hello, Sam</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                <div class="account-id px-3 py-2">Account ID: 8556829</div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-light fa-id-card"></i>
+                                    My Account
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-light fa-clock-rotate-left"></i>
+                                    Order History
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-light fa-location-dot"></i>
+                                    Address Information
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-light fa-credit-card"></i>
+                                    Payment Information
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <div class="dropdown-submenu">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa-light fa-network-wired"></i>
+                                        Associate Business
+                                        <i class="fa-light fa-chevron-right float-right mt-1"></i>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Dashboard</a>
+                                        <a class="dropdown-item" href="#">Enroll New Member</a>
+                                        <a class="dropdown-item" href="#">Create Recommended Cart</a>
+                                        <a class="dropdown-item" href="#">Manage Recommended Carts</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-light fa-right-from-bracket"></i>
+                                    Sign Out
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Notifications -->
+                        <button class="btn btn-link notifications">
+                            <i class="fa-light fa-bell"></i>
+                            <span class="notification-badge"></span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Commission Stats Cards -->
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="card stats-card weekly-card">
+                    <div class="stats-content">
+                        <strong class="d-block mb-3">CURRENT COMMISSION WEEK</strong>
+                        
+                        <div class="stat-container">
+                            <div class="stat-label">
+                                Paid-As Rank:<b>Consultant</b>
+                                <i class="fa-regular fa-circle-info" 
+                                   data-toggle="tooltip" 
+                                   data-placement="right"
+                                   title="Your current rank based on your business performance for this commission week."></i>
+                            </div>
+                        </div>
+                        
+                        <div class="status-info">
+                            <div class="status-item">
+                                <span class="label">Active Status:</span>
+                                <span class="value text-danger">Inactive</span>
+                                <i class="fa-regular fa-circle-info" 
+                                   data-toggle="tooltip" 
+                                   data-placement="right"
+                                   title="Your Isagenix Active status is currently Inactive because you have not met the required purchase or activity criteria within the specified period. To regain Active status, review your account activity and ensure you meet the necessary order or engagement requirements."></i>
+                            </div>
+                        </div>
+
+                        <div class="time-remaining mt-auto w-100">
+                            <div class="time-label">Commission week ends in</div>
+                            <div class="timer">
+                                <span class="time-unit">03<span class="unit">days</span></span>
+                                <span class="time-unit">07<span class="unit">hrs</span></span>
+                                <span class="time-unit">38<span class="unit">min</span></span>
+                            </div>
+                            <div class="timezone">New York Time (EST): Feb-20-2025 4:22 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Stats Card -->
+            <div class="col-12 col-md-4">
+                <div class="card stats-card monthly-card">
+                    <div class="stats-content">
+                        <strong class="d-block mb-3">CURRENT COMMISSION MONTH</strong>
+                        
+                        <div class="stat-container">
+                            <div class="stat-value">20</div>
+                            <div class="stat-label">
+                                Personally Enrolled 
+                                <i class="fa-regular fa-circle-info" 
+                                   data-toggle="tooltip" 
+                                   data-placement="right"
+                                   title="The total number of new members you've personally enrolled during the current commission month."></i>
+                            </div>
+                        </div>
+                        
+                        <div class="date-range">
+                            <i class="fa-light fa-calendar"></i>
+                            Jan-27-2025 to Feb-23-2025
+                        </div>
+                        
+                        <button class="btn btn-link commission-calendar" data-toggle="modal" data-target="#calendarModal">
+                            VIEW COMMISSION CALENDAR
+                            <i class="fa-light fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compensation Stats Card -->
+            <div class="col-12 col-md-4">
+                <div class="card stats-card compensation-card">
+                    <div class="stats-content">
+                        <strong class="d-block mb-3">COMPENSATION</strong>
+                        
+                        <div class="comparison-chart">
+                            <div class="chart-bars">
+                                <div class="bar-group">
+                                    <div class="bar" 
+                                         style="height: 3rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$312.75"></div>
+                                    <div class="label">12/29/2024</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar purple" 
+                                         style="height: 4.5rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$526.40"></div>
+                                    <div class="label">01/05/2025</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" 
+                                         style="height: 3.8rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$418.90"></div>
+                                    <div class="label">01/12/2025</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar purple" 
+                                         style="height: 5rem"
+                                         data-toggle="popover"
+                                         data-placement="top"
+                                         data-content="$611.35"></div>
+                                    <div class="label">01/19/2025</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="commission-info">
+                            <div class="period">
+                                <button class="btn btn-link view-current-month">
+                                    VIEW HISTORY
+                                    <i class="fa-light fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="week-details">
+                                <div class="week-info">
+                                    <div class="week-label">WEEK:</div>
+                                    <div class="week-date" data-toggle="modal" data-target="#commissionModal">01/19/2025</div>
+                                    <i class="fa-light fa-file-pdf" data-toggle="modal" data-target="#commissionModal"></i>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="total">
+                                    <span class="total-label">TOTAL:</span>
+                                    <span class="amount">$123.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card menu-card">
+                    <div class="menu-sections">
+                        <!-- Recommended Carts Section -->
+                        <div class="menu-section">
+                            <div class="section-header">
+                                <h2>
+                                    <i class="fa-light fa-cart-shopping"></i>
+                                    RECOMMENDED CARTS
+                                    <i class="fa-regular fa-circle-info" 
+                                       data-toggle="tooltip" 
+                                       data-placement="right"
+                                       title="Create a curated shopping cart with your favorite products to share with potential customers (prospects). They can view and purchase directly from your shared cart, making shopping simple and seamless."></i>
+                                </h2>
+                            </div>
+                            <div class="menu-links">
+                                <button class="btn btn-link">My Prospects</button>
+                                <button class="btn btn-link">Create Recommended Cart</button>
+                                <button class="btn btn-link">My Recommended Carts</button>
+                            </div>
+                        </div>
+
+                        <!-- Business Section -->
+                        <div class="menu-section">
+                            <div class="section-header">
+                                <h2>
+                                    <i class="fa-light fa-briefcase"></i>
+                                    BUSINESS
+                                    <i class="fa-regular fa-circle-info" 
+                                       data-toggle="tooltip" 
+                                       data-placement="right"
+                                       title="Grow your business by enrolling new members to sign up prospects, using the Placement Tree to manage your team, and My Business to track performance."></i>
+                                </h2>
+                            </div>
+                            <div class="menu-links">
+                                <button class="btn btn-link">Enroll New Member</button>
+                                <button class="btn btn-link">Placement Tree</button>
+                                <button class="btn btn-link">My Business</button>
+                            </div>
+                        </div>
+
+                        <!-- Resources Section -->
+                        <div class="menu-section">
+                            <div class="section-header">
+                                <h2>
+                                    <i class="fa-light fa-book"></i>
+                                    RESOURCES
+                                    <i class="fa-regular fa-circle-info" 
+                                       data-toggle="tooltip" 
+                                       data-placement="right"
+                                       title="Access marketing materials, business tools, and health resources to support your business growth and customer success."></i>
+                                </h2>
+                            </div>
+                            <div class="menu-links">
+                                <button class="btn btn-link">Social Media Library</button>
+                                <button class="btn btn-link">Business Promotions</button>
+                                <button class="btn btn-link">IsaHealth</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders and IsaBody Section -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card orders-card">
+                    <h2>ORDERS</h2>
+                    
+                    <div class="recent-order">
+                        <h3>Most Recent Order</h3>
+                        <p>Jan-14-2025 <a href="#" class="order-number">#1403488502</a></p>
+                    </div>
+
+                    <div class="order-buttons">
+                        <button class="btn btn-outline-secondary">ORDER HISTORY</button>
+                        <button class="btn btn-primary">PLACE ORDER</button>
+                    </div>
+
+                    <h2 class="subscription-title">SUBSCRIPTION</h2>
+                    
+                    <div class="alert alert-warning" role="alert">
+                        <i class="fa-light fa-triangle-exclamation me-2"></i>
+                        Looks like you haven't finished your subscription setup.
+                    </div>
+
+                    <div class="perks">
+                        <div class="perk">
+                            <i class="fa-light fa-star"></i>
+                            <div>
+                                <strong>Save Up to 25%</strong> on all orders
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <i class="fa-light fa-arrows-rotate"></i>
+                            <div>
+                                <strong>Auto-Deliveries</strong> of your favorite products
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <i class="fa-light fa-truck"></i>
+                            <div>
+                                <strong>Flat-Rate Shipping</strong> on subscriptions
+                            </div>
+                        </div>
+                        
+                        <div class="perk">
+                            <i class="fa-light fa-calendar-days"></i>
+                            <div>
+                                <strong>Skip, Change, or Cancel</strong> easily
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary activate-button">FINISH SETUP</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card isabody-card">
+                    <div class="card-header">
+                        <div class="header-content">
+                            <h2>MY ISABODY® KICKSTART 90</h2>
+                            <button class="btn btn-link view-report">
+                                KICKSTART 90 4PET REPORT
+                                <i class="fa-light fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="current-challenge">
+                        <h3>Current Challenge</h3>
+                        <div class="dates">
+                            <div class="status-container">
+                                <div class="period">
+                                    <div class="status-label">
+                                        <strong>In Progress:</strong> Jan-1-2025 to Mar-31-2025
+                                        <br>
+                                        <strong>Submission Deadline:</strong> Apr-14-2025
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="completion-path">
+                        <h3>Your Path to Completion</h3>
+                        <div class="progress-amount">
+                            <span>$142.00 of $500.00</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 28.4%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="status-section">
+                        <div class="progress-message">
+                            <h3>You're making great progress!</h3>
+                            <p>Keep moving and feeling amazing by using the products. Continue pushing toward your fitness and wellness transformation.</p>
+                            <button class="btn btn-outline-secondary">VIEW CURRENT CHALLENGE</button>
+                        </div>
+                        <div class="register-section">
+                            <h3>Register for next Kickstart 90</h3>
+                            <p>starting on Mar-18-2025.</p>
+                            <button class="btn btn-secondary">REGISTER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IsaPulse Section -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card isapulse-card">
+                    <div class="card-layout">
+                        <div class="content">
+                            <h3>The New IsaPulse+ App is Here!</h3>
+                            <p>Track, manage, and grow your business like never before! IsaPulse+ is the perfect combo of Penny and the former IsaPulse.</p>
+                            <button class="btn btn-link download-now">
+                                DOWNLOAD NOW
+                                <i class="fa-light fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="app-image">
+                            <img src="src/images/isapulse-app.png" alt="IsaPulse+ App Interface" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commission Statement Modal -->
+    <div class="modal fade" id="commissionModal" tabindex="-1" aria-labelledby="commissionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-right">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="commissionModalLabel">Commission Statement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-0">
+                    <iframe src="src/images/CommissionStatement-example.pdf" width="100%" height="600"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary download-pdf">
+                        <i class="fa-light fa-download me-2"></i>
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commission Calendar Modal -->
+    <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calendarModalLabel">2025 Commission Calendar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-3">The table below shows the commission weeks for 2025, with the related commission payout dates.</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>COMMISSION MONTH</th>
+                                <th>MONDAY START</th>
+                                <th>SUNDAY END</th>
+                                <th>PAYOUT DATE</th>
+                                <th>BONUS PAYMENT DATE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- January -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">JANUARY</td>
+                                <td>December 30, 2024</td>
+                                <td>January 05, 2025</td>
+                                <td>January 13, 2025</td>
+                                <td rowspan="4">February 17, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>January 06, 2025</td>
+                                <td>January 12, 2025</td>
+                                <td>January 20, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>January 13, 2025</td>
+                                <td>January 19, 2025</td>
+                                <td>January 27, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>January 20, 2025</td>
+                                <td>January 26, 2025</td>
+                                <td>February 03, 2025</td>
+                            </tr>
+
+                            <!-- February -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">FEBRUARY</td>
+                                <td>January 27, 2025</td>
+                                <td>February 02, 2025</td>
+                                <td>February 10, 2025</td>
+                                <td rowspan="4">March 17, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>February 03, 2025</td>
+                                <td>February 09, 2025</td>
+                                <td>February 17, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>February 10, 2025</td>
+                                <td>February 16, 2025</td>
+                                <td>February 24, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>February 17, 2025</td>
+                                <td>February 23, 2025</td>
+                                <td>March 03, 2025</td>
+                            </tr>
+
+                            <!-- March -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">MARCH</td>
+                                <td>February 24, 2025</td>
+                                <td>March 02, 2025</td>
+                                <td>March 10, 2025</td>
+                                <td rowspan="4">April 14, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>March 03, 2025</td>
+                                <td>March 09, 2025</td>
+                                <td>March 17, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>March 10, 2025</td>
+                                <td>March 16, 2025</td>
+                                <td>March 24, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>March 17, 2025</td>
+                                <td>March 23, 2025</td>
+                                <td>March 31, 2025</td>
+                            </tr>
+
+                            <!-- April -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">APRIL</td>
+                                <td>March 31, 2025</td>
+                                <td>April 06, 2025</td>
+                                <td>April 14, 2025</td>
+                                <td rowspan="4">May 12, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>April 07, 2025</td>
+                                <td>April 13, 2025</td>
+                                <td>April 21, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>April 14, 2025</td>
+                                <td>April 20, 2025</td>
+                                <td>April 28, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>April 21, 2025</td>
+                                <td>April 27, 2025</td>
+                                <td>May 05, 2025</td>
+                            </tr>
+
+                            <!-- May -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">MAY</td>
+                                <td>April 28, 2025</td>
+                                <td>May 04, 2025</td>
+                                <td>May 12, 2025</td>
+                                <td rowspan="4">June 16, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>May 05, 2025</td>
+                                <td>May 11, 2025</td>
+                                <td>May 19, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>May 12, 2025</td>
+                                <td>May 18, 2025</td>
+                                <td>May 26, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>May 19, 2025</td>
+                                <td>May 25, 2025</td>
+                                <td>June 02, 2025</td>
+                            </tr>
+
+                            <!-- June -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">JUNE</td>
+                                <td>May 26, 2025</td>
+                                <td>June 01, 2025</td>
+                                <td>June 09, 2025</td>
+                                <td rowspan="4">July 14, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>June 02, 2025</td>
+                                <td>June 08, 2025</td>
+                                <td>June 16, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>June 09, 2025</td>
+                                <td>June 15, 2025</td>
+                                <td>June 23, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>June 16, 2025</td>
+                                <td>June 22, 2025</td>
+                                <td>June 30, 2025</td>
+                            </tr>
+
+                            <!-- July -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">JULY</td>
+                                <td>June 30, 2025</td>
+                                <td>July 06, 2025</td>
+                                <td>July 14, 2025</td>
+                                <td rowspan="4">August 18, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>July 07, 2025</td>
+                                <td>July 13, 2025</td>
+                                <td>July 21, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>July 14, 2025</td>
+                                <td>July 20, 2025</td>
+                                <td>July 28, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>July 21, 2025</td>
+                                <td>July 27, 2025</td>
+                                <td>August 04, 2025</td>
+                            </tr>
+
+                            <!-- August -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">AUGUST</td>
+                                <td>July 28, 2025</td>
+                                <td>August 03, 2025</td>
+                                <td>August 11, 2025</td>
+                                <td rowspan="4">September 15, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>August 04, 2025</td>
+                                <td>August 10, 2025</td>
+                                <td>August 18, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>August 11, 2025</td>
+                                <td>August 17, 2025</td>
+                                <td>August 25, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>August 18, 2025</td>
+                                <td>August 24, 2025</td>
+                                <td>September 01, 2025</td>
+                            </tr>
+
+                            <!-- September -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">SEPTEMBER</td>
+                                <td>August 25, 2025</td>
+                                <td>August 31, 2025</td>
+                                <td>September 08, 2025</td>
+                                <td rowspan="4">October 13, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>September 01, 2025</td>
+                                <td>September 07, 2025</td>
+                                <td>September 15, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>September 08, 2025</td>
+                                <td>September 14, 2025</td>
+                                <td>September 22, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>September 15, 2025</td>
+                                <td>September 21, 2025</td>
+                                <td>September 29, 2025</td>
+                            </tr>
+
+                            <!-- October -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">OCTOBER</td>
+                                <td>September 29, 2025</td>
+                                <td>October 05, 2025</td>
+                                <td>October 13, 2025</td>
+                                <td rowspan="4">November 17, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>October 06, 2025</td>
+                                <td>October 12, 2025</td>
+                                <td>October 20, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>October 13, 2025</td>
+                                <td>October 19, 2025</td>
+                                <td>October 27, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>October 20, 2025</td>
+                                <td>October 26, 2025</td>
+                                <td>November 03, 2025</td>
+                            </tr>
+
+                            <!-- November -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">NOVEMBER</td>
+                                <td>October 27, 2025</td>
+                                <td>November 02, 2025</td>
+                                <td>November 10, 2025</td>
+                                <td rowspan="4">December 15, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>November 03, 2025</td>
+                                <td>November 09, 2025</td>
+                                <td>November 17, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>November 10, 2025</td>
+                                <td>November 16, 2025</td>
+                                <td>November 24, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>November 17, 2025</td>
+                                <td>November 23, 2025</td>
+                                <td>December 01, 2025</td>
+                            </tr>
+
+                            <!-- December -->
+                            <tr>
+                                <td rowspan="4" class="month-cell">DECEMBER</td>
+                                <td>December 01, 2025</td>
+                                <td>December 07, 2025</td>
+                                <td>December 15, 2025</td>
+                                <td rowspan="4">January 01, 2026</td>
+                            </tr>
+                            <tr>
+                                <td>December 08, 2025</td>
+                                <td>December 14, 2025</td>
+                                <td>December 22, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>December 15, 2025</td>
+                                <td>December 21, 2025</td>
+                                <td>December 29, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>December 22, 2025</td>
+                                <td>December 28, 2025</td>
+                                <td>January 05, 2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html> 

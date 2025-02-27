@@ -1,1 +1,235 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Orders - Isagenix</title><link rel="stylesheet" href="/ABO-Shoelace/bootstrap-version/index.9366ef82.css"><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><script type="module" src="/ABO-Shoelace/bootstrap-version/index.fdd1ffff.js"></script><script src="https://kit.fontawesome.com/f3233efe0a.js" crossorigin></script></head><body> <header class="site-header"> <div class="grid-container"> <div class="align-middle grid-x"> <div class="cell large-2 small-2"> <a href="/ABO-Shoelace/bootstrap-version/index.html" class="logo"> <img src="/ABO-Shoelace/bootstrap-version/isagenix-logo.61d1bcc5.svg" alt="Isagenix"> </a> </div> <div class="cell large-7 show-for-large"> <nav class="main-nav"> <a href="#">Back Office</a> <div class="nav-dropdown"> <a href="/ABO-Shoelace/bootstrap-version/orders.html" class="active nav-link">Orders</a> <sl-menu class="hover-menu"> <sl-menu-item value="place-order"> Place Order </sl-menu-item> <sl-menu-item value="setup-subscription"> Setup Subscription </sl-menu-item> <sl-menu-item value="view-events"> View & Manage Events </sl-menu-item> <sl-menu-item value="order-history"> View Order History </sl-menu-item> <sl-menu-item value="view-coupons"> View Coupons </sl-menu-item> <sl-menu-item value="view-price-lists"> View Price Lists </sl-menu-item> <sl-menu-item value="isadelivery"> IsaDelivery </sl-menu-item> </sl-menu> </div> <a href="#">Team</a> <a href="/ABO-Shoelace/bootstrap-version/resources.html">Resources</a> <a href="#">Contests & Promotions</a> <a href="/ABO-Shoelace/bootstrap-version/reports.html">Reports</a> <a href="#">Brand Partner</a> </nav> </div> <div class="cell large-3 small-10"> <div class="user-controls"> <div class="show-for-large user-greeting-container"> <sl-dropdown> <div slot="trigger" class="user-trigger"> <i class="fa-light fa-user" style="color:#2c2c2c"></i> <sl-button variant="text" class="user-greeting"> <span>Hello, Sam</span> </sl-button> </div> <sl-menu> <div class="account-id">Account ID: 8556829</div> <sl-menu-item> <i class="fa-id-card fa-light" slot="prefix"></i> My Account </sl-menu-item> <sl-menu-item> <i class="fa-clock-rotate-left fa-light" slot="prefix"></i> Order History </sl-menu-item> <sl-menu-item> <i class="fa-light fa-location-dot" slot="prefix"></i> Address Information </sl-menu-item> <sl-menu-item> <i class="fa-credit-card fa-light" slot="prefix"></i> Payment Information </sl-menu-item> <sl-divider></sl-divider> <sl-menu-item> <i class="fa-light fa-network-wired" slot="prefix"></i> Associate Business <i class="fa-chevron-right fa-light" slot="suffix"></i> </sl-menu-item> <sl-menu class="submenu"> <sl-menu-item>Dashboard</sl-menu-item> <sl-menu-item>Enroll New Member</sl-menu-item> <sl-menu-item>Create Recommended Cart</sl-menu-item> <sl-menu-item>Manage Recommended Carts</sl-menu-item> </sl-menu> <sl-divider></sl-divider> <sl-menu-item> <i class="fa-light fa-right-from-bracket" slot="prefix"></i> Sign Out </sl-menu-item> </sl-menu> </sl-dropdown> </div> <sl-button variant="text" class="notifications show-for-large"> <i class="fa-bell fa-light" style="color:#2c2c2c"></i> </sl-button> <sl-button variant="text" class="hide-for-large menu-toggle" @click="drawer.show()"> <i class="fa-bars fa-light" style="color:#2c2c2c"></i> </sl-button> </div> </div> </div> </div> </header> <div class="grid-container"> <div class="grid-padding-x grid-x"> <div class="cell small-12"> <sl-card class="orders-actions-card"> <div class="actions-grid"> <sl-button class="action-button" href="#"> <i class="fa-bag-shopping fa-light" style="text-align:center;width:100%;margin-bottom:12px;font-size:36px;display:block" aria-hidden="true"></i> <span>Place Order</span> </sl-button> <sl-button class="action-button" href="#"> <i class="fa-box fa-light" style="text-align:center;width:100%;margin-bottom:12px;font-size:36px;display:block" aria-hidden="true"></i> <span>Setup Subscription</span> </sl-button> <sl-button class="action-button" href="#"> <i class="fa-calendar fa-light" style="text-align:center;width:100%;margin-bottom:12px;font-size:36px;display:block" aria-hidden="true"></i> <span>View & Manage Events</span> </sl-button> <sl-button class="action-button" href="#"> <i class="fa-clock-rotate-left fa-light" style="text-align:center;width:100%;margin-bottom:12px;font-size:36px;display:block" aria-hidden="true"></i> <span>View Order History</span> </sl-button> </div> </sl-card> <sl-card class="subscription-info-card"> <h3>Did you Know?</h3> <p>With a subscription, you'll continue to save up to 25% and your products are automatically sent to you with low flat-rate shipping. You can make changes to your order, schedule delivery at your convenience, and cancel anytime.</p> <sl-button variant="primary" class="setup-subscription">Set Up My Subscription</sl-button> </sl-card> <div class="grid-x"> <div class="cell medium-6 small-12"> <sl-card class="coupons-card"> <h3>My Coupons</h3> <p>There are no Member Coupons available.</p> </sl-card> </div> <div class="cell medium-6 small-12"> <sl-card class="resources-card"> <h3>Resources</h3> <sl-button variant="text" href="#" class="resource-link"> View Price Lists <i class="fa-arrow-right fa-light" slot="suffix"></i> </sl-button> </sl-card> </div> </div> </div> </div> </div>  <sl-drawer label="Menu" class="mobile-menu" placement="end"> <nav class="mobile-nav"> <div class="mobile-user-section"> <sl-dropdown> <div slot="trigger" class="user-trigger"> <i class="fa-light fa-user"></i> <sl-button variant="text" class="user-greeting"> <span>Hello, Sam</span> </sl-button> </div> <sl-menu> <div class="account-id">Account ID: 8556829</div> <sl-menu-item> <i class="fa-id-card fa-light" slot="prefix"></i> My Account </sl-menu-item> <sl-menu-item> <i class="fa-clock-rotate-left fa-light" slot="prefix"></i> Order History </sl-menu-item> <sl-menu-item> <i class="fa-light fa-location-dot" slot="prefix"></i> Address Information </sl-menu-item> <sl-menu-item> <i class="fa-credit-card fa-light" slot="prefix"></i> Payment Information </sl-menu-item> <sl-divider></sl-divider> <sl-menu-item> <i class="fa-light fa-network-wired" slot="prefix"></i> Associate Business <i class="fa-chevron-right fa-light" slot="suffix"></i> </sl-menu-item> <sl-menu class="submenu"> <sl-menu-item>Dashboard</sl-menu-item> <sl-menu-item>Enroll New Member</sl-menu-item> <sl-menu-item>Create Recommended Cart</sl-menu-item> <sl-menu-item>Manage Recommended Carts</sl-menu-item> </sl-menu> <sl-divider></sl-divider> <sl-menu-item> <i class="fa-light fa-right-from-bracket" slot="prefix"></i> Sign Out </sl-menu-item> </sl-menu> </sl-dropdown> </div> <a href="#">Back Office</a> <a href="/ABO-Shoelace/bootstrap-version/orders.html">Orders</a> <a href="#">Team</a> <a href="/ABO-Shoelace/bootstrap-version/resources.html">Resources</a> <a href="#">Contests & Promotions</a> <a href="/ABO-Shoelace/bootstrap-version/reports.html">Reports</a> <a href="#">Brand Partner</a> </nav> </sl-drawer> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Isagenix</title>
+    <link rel="stylesheet" href="/index.971c2ea4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="/index.18dbc454.js" defer=""></script>
+    <script src="https://kit.fontawesome.com/f3233efe0a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="grid-container">
+            <div class="grid-x align-middle">
+                <div class="cell small-2 large-2">
+                    <a href="/index.html" class="logo">
+                        <img src="/isagenix-logo.b495e86c.svg" alt="Isagenix">
+                    </a>
+                </div>
+                <div class="cell large-7 show-for-large">
+                    <nav class="main-nav">
+                        <a href="#">Back Office</a>
+                        <div class="nav-dropdown">
+                            <a href="/orders.html" class="nav-link active">Orders</a>
+                            <sl-menu class="hover-menu">
+                                <sl-menu-item value="place-order">
+                                    Place Order
+                                </sl-menu-item>
+                                <sl-menu-item value="setup-subscription">
+                                    Setup Subscription
+                                </sl-menu-item>
+                                <sl-menu-item value="view-events">
+                                    View & Manage Events
+                                </sl-menu-item>
+                                <sl-menu-item value="order-history">
+                                    View Order History
+                                </sl-menu-item>
+                                <sl-menu-item value="view-coupons">
+                                    View Coupons
+                                </sl-menu-item>
+                                <sl-menu-item value="view-price-lists">
+                                    View Price Lists
+                                </sl-menu-item>
+                                <sl-menu-item value="isadelivery">
+                                    IsaDelivery
+                                </sl-menu-item>
+                            </sl-menu>
+                        </div>
+                        <a href="#">Team</a>
+                        <a href="/resources.html">Resources</a>
+                        <a href="#">Contests & Promotions</a>
+                        <a href="/reports.html">Reports</a>
+                        <a href="#">Brand Partner</a>
+                    </nav>
+                </div>
+                <div class="cell small-10 large-3">
+                    <div class="user-controls">
+                        <div class="user-greeting-container show-for-large">
+                            <sl-dropdown>
+                                <div slot="trigger" class="user-trigger">
+                                    <i class="fa-light fa-user" style="color: #2c2c2c"></i>
+                                    <sl-button variant="text" class="user-greeting">
+                                        <span>Hello, Sam</span>
+                                    </sl-button>
+                                </div>
+                                <sl-menu>
+                                    <div class="account-id">Account ID: 8556829</div>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-id-card" slot="prefix"></i>
+                                        My Account
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-clock-rotate-left" slot="prefix"></i>
+                                        Order History
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-location-dot" slot="prefix"></i>
+                                        Address Information
+                                    </sl-menu-item>
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-credit-card" slot="prefix"></i>
+                                        Payment Information
+                                    </sl-menu-item>
+                                    
+                                    <sl-divider></sl-divider>
+                                    
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-network-wired" slot="prefix"></i>
+                                        Associate Business
+                                        <i class="fa-light fa-chevron-right" slot="suffix"></i>
+                                    </sl-menu-item>
+                                    <sl-menu class="submenu">
+                                        <sl-menu-item>Dashboard</sl-menu-item>
+                                        <sl-menu-item>Enroll New Member</sl-menu-item>
+                                        <sl-menu-item>Create Recommended Cart</sl-menu-item>
+                                        <sl-menu-item>Manage Recommended Carts</sl-menu-item>
+                                    </sl-menu>
+                                    
+                                    <sl-divider></sl-divider>
+                                    
+                                    <sl-menu-item>
+                                        <i class="fa-light fa-right-from-bracket" slot="prefix"></i>
+                                        Sign Out
+                                    </sl-menu-item>
+                                </sl-menu>
+                            </sl-dropdown>
+                        </div>
+                        <sl-button variant="text" class="notifications show-for-large">
+                            <i class="fa-light fa-bell" style="color: #2c2c2c"></i>
+                        </sl-button>
+                        <sl-button variant="text" class="menu-toggle hide-for-large" @click="drawer.show()">
+                            <i class="fa-light fa-bars" style="color: #2c2c2c"></i>
+                        </sl-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <sl-card class="orders-actions-card">
+                    <div class="actions-grid">
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-bag-shopping" style="text-align: center; width: 100%; margin-bottom: 12px; font-size: 36px; display: block" aria-hidden="true"></i>
+                            <span>Place Order</span>
+                        </sl-button>
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-box" style="text-align: center; width: 100%; margin-bottom: 12px; font-size: 36px; display: block" aria-hidden="true"></i>
+                            <span>Setup Subscription</span>
+                        </sl-button>
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-calendar" style="text-align: center; width: 100%; margin-bottom: 12px; font-size: 36px; display: block" aria-hidden="true"></i>
+                            <span>View & Manage Events</span>
+                        </sl-button>
+                        <sl-button class="action-button" href="#">
+                            <i class="fa-light fa-clock-rotate-left" style="text-align: center; width: 100%; margin-bottom: 12px; font-size: 36px; display: block" aria-hidden="true"></i>
+                            <span>View Order History</span>
+                        </sl-button>
+                    </div>
+                </sl-card>
+
+                <sl-card class="subscription-info-card">
+                    <h3>Did you Know?</h3>
+                    <p>With a subscription, you'll continue to save up to 25% and your products are automatically sent to you with low flat-rate shipping. You can make changes to your order, schedule delivery at your convenience, and cancel anytime.</p>
+                    <sl-button variant="primary" class="setup-subscription">Set Up My Subscription</sl-button>
+                </sl-card>
+
+                <div class="grid-x">
+                    <div class="cell small-12 medium-6">
+                        <sl-card class="coupons-card">
+                            <h3>My Coupons</h3>
+                            <p>There are no Member Coupons available.</p>
+                        </sl-card>
+                    </div>
+                    <div class="cell small-12 medium-6">
+                        <sl-card class="resources-card">
+                            <h3>Resources</h3>
+                            <sl-button variant="text" href="#" class="resource-link">
+                                View Price Lists
+                                <i class="fa-light fa-arrow-right" slot="suffix"></i>
+                            </sl-button>
+                        </sl-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <sl-drawer label="Menu" class="mobile-menu" placement="end">
+        <nav class="mobile-nav">
+            <div class="mobile-user-section">
+                <sl-dropdown>
+                    <div slot="trigger" class="user-trigger">
+                        <i class="fa-light fa-user"></i>
+                        <sl-button variant="text" class="user-greeting">
+                            <span>Hello, Sam</span>
+                        </sl-button>
+                    </div>
+                    <sl-menu>
+                        <div class="account-id">Account ID: 8556829</div>
+                        <sl-menu-item>
+                            <i class="fa-light fa-id-card" slot="prefix"></i>
+                            My Account
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-clock-rotate-left" slot="prefix"></i>
+                            Order History
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-location-dot" slot="prefix"></i>
+                            Address Information
+                        </sl-menu-item>
+                        <sl-menu-item>
+                            <i class="fa-light fa-credit-card" slot="prefix"></i>
+                            Payment Information
+                        </sl-menu-item>
+                        
+                        <sl-divider></sl-divider>
+                        
+                        <sl-menu-item>
+                            <i class="fa-light fa-network-wired" slot="prefix"></i>
+                            Associate Business
+                            <i class="fa-light fa-chevron-right" slot="suffix"></i>
+                        </sl-menu-item>
+                        <sl-menu class="submenu">
+                            <sl-menu-item>Dashboard</sl-menu-item>
+                            <sl-menu-item>Enroll New Member</sl-menu-item>
+                            <sl-menu-item>Create Recommended Cart</sl-menu-item>
+                            <sl-menu-item>Manage Recommended Carts</sl-menu-item>
+                        </sl-menu>
+                        
+                        <sl-divider></sl-divider>
+                        
+                        <sl-menu-item>
+                            <i class="fa-light fa-right-from-bracket" slot="prefix"></i>
+                            Sign Out
+                        </sl-menu-item>
+                    </sl-menu>
+                </sl-dropdown>
+            </div>
+            <a href="#">Back Office</a>
+            <a href="/orders.html">Orders</a>
+            <a href="#">Team</a>
+            <a href="/resources.html">Resources</a>
+            <a href="#">Contests & Promotions</a>
+            <a href="/reports.html">Reports</a>
+            <a href="#">Brand Partner</a>
+        </nav>
+    </sl-drawer>
+</body>
+</html> 
