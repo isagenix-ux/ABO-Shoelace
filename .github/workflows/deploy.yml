@@ -25,7 +25,13 @@ jobs:
 
       - name: Build
         working-directory: ./bootstrap-version
-        run: npm run build
+        env:
+          NODE_ENV: production
+          PARCEL_WORKERS: 0
+        run: |
+          npm run build
+          cp -r src/images dist/src/
+          cp -r src/styles dist/src/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

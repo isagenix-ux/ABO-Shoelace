@@ -4,7 +4,8 @@
   "description": "Bootstrap version of the dashboard",
   "scripts": {
     "start": "parcel index.html --port 1234 --open",
-    "build": "parcel build *.html --public-url /ABO-Shoelace/bootstrap-version/ --dist-dir dist"
+    "build": "parcel build *.html --public-url /ABO-bootstrap/ --dist-dir dist --no-source-maps",
+    "postbuild": "cp -r src/images dist/src/ && cp -r src/styles dist/src/"
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
